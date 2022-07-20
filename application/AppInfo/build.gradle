@@ -20,7 +20,7 @@ dependencies {
     // DevComponent /core/libs/lib_utils
     implementation project(':lib_utils')
 
-    implementation project(':DevBase2')
+    implementation project(':DevBaseView')
 
     // ============
     // = 快捷开发库 =

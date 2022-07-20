@@ -85,7 +85,7 @@ final class Config {
     // DevUtils-repo Application 文件名
     public static final String              DEV_UTILS_REPO_APPLICATION_DIR_NAME   = "application";
     // DevUtils-repo Application 项目本地路径
-    public static final String              DEV_UTILS_REPO_APPLICATION_LOCAL_PATH = DEV_UTILS_DIR + File.separator + DEV_UTILS_REPO_APPLICATION_DIR_NAME;
+    public static final String              DEV_UTILS_REPO_APPLICATION_LOCAL_PATH = USER_DIR + File.separator + DEV_UTILS_REPO_APPLICATION_DIR_NAME;
     // DevUtils-repo Application 文件目录注释
     public static final Map<String, String> sDevUtilsRepoApplicationCatalogMap    = new HashMap<>();
 
@@ -165,8 +165,8 @@ final class Config {
         sDevUtilsCatalogMap.put(".HttpCapture.DevHttpCaptureCompiler", "Debug ( 打包 / 编译 ) 实现代码");
         sDevUtilsCatalogMap.put(".HttpCapture.DevHttpCaptureCompilerRelease", "Release ( 打包 / 编译 ) 实现代码");
         sDevUtilsCatalogMap.put(".LocalModules", "本地 Module lib ( 非发布库 )");
-        sDevUtilsCatalogMap.put(".LocalModules.DevBase2", "Base 基础代码 ( 非基类库 )");
-        sDevUtilsCatalogMap.put(".LocalModules.DevOther", "第三方库封装、以及部分特殊工具类等, 方便 copy 封装类使用");
+        sDevUtilsCatalogMap.put(".LocalModules.DevBaseView", "通用基础 View 封装 ( 非基类库 )");
+        sDevUtilsCatalogMap.put(".LocalModules.DevOther", "功能、工具类二次封装, 直接 copy 使用【 部分迁移至 DevUtils-repo 】");
         sDevUtilsCatalogMap.put(".LocalModules.DevSKU", "商品 SKU 组合封装实现");
         sDevUtilsCatalogMap.put(".LocalModules.DevComponent", "【100% Kotlin 实现 Android 项目组件化示例代码】");
         sDevUtilsCatalogMap.put(".LocalModules.DevComponent.lib_utils", "/core/libs/lib_utils");
@@ -178,15 +178,12 @@ final class Config {
         sDevUtilsIgnoreCatalogs.add("DevApp");
         sDevUtilsIgnoreCatalogs.add("DevAssist");
         sDevUtilsIgnoreCatalogs.add("DevBase");
-        sDevUtilsIgnoreCatalogs.add("DevBase2");
         sDevUtilsIgnoreCatalogs.add("DevBaseMVVM");
         sDevUtilsIgnoreCatalogs.add("DevEngine");
         sDevUtilsIgnoreCatalogs.add("DevHttpCapture");
         sDevUtilsIgnoreCatalogs.add("DevHttpManager");
         sDevUtilsIgnoreCatalogs.add("DevRetrofit");
         sDevUtilsIgnoreCatalogs.add("DevJava");
-        sDevUtilsIgnoreCatalogs.add("DevOther");
-        sDevUtilsIgnoreCatalogs.add("DevSKU");
         sDevUtilsIgnoreCatalogs.add("DevWidget");
         sDevUtilsIgnoreCatalogs.add("DevEnvironment");
         sDevUtilsIgnoreCatalogs.add("DevEnvironmentBase");
@@ -194,6 +191,9 @@ final class Config {
         sDevUtilsIgnoreCatalogs.add("DevEnvironmentCompilerRelease");
         sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompiler");
         sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompilerRelease");
+        sDevUtilsIgnoreCatalogs.add("DevBaseView");
+        sDevUtilsIgnoreCatalogs.add("DevOther");
+        sDevUtilsIgnoreCatalogs.add("DevSKU");
 
         // ========================
         // = DevUtils Application =

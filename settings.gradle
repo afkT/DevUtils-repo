@@ -7,7 +7,7 @@
 // =================
 
 def local_modules = [
-        "DevBase2",
+        "DevBaseView",
         "DevOther",
         "DevComponent/lib_utils",
 ]
