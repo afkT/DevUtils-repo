@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/AppTheme.Base_TextView"
+        android:layout_marginTop="@dimen/dp_50"
+        android:gravity="center"
+        android:text="MainActivity"
+        android:textSize="@dimen/sp_28"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/vid_other_btn"
+        style="@style/AppTheme.Base_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_50"
+        android:padding="@dimen/dp_20"
+        android:text="跳转其他页面"
+        android:textSize="@dimen/sp_20" />
+
+    <Button
+        android:id="@+id/vid_device_btn"
+        style="@style/AppTheme.Base_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_20"
+        android:padding="@dimen/dp_20"
+        android:text="设备管理 ( 推送锁屏、解锁等 )"
+        android:textSize="@dimen/sp_20" />
+</LinearLayout>

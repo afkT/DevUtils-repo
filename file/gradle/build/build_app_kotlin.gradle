@@ -1,0 +1,36 @@
+apply from: rootProject.file(files.lib_app_gradle)
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply from: rootProject.file(files.deps_android_lib)
+apply from: rootProject.file(files.unified_use_view_data_binding_gradle)
+
+android {
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    compileOptions {
+        sourceCompatibility versions.javaVersion
+        targetCompatibility versions.javaVersion
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.javaVersion_str
+    }
+}
+
+dependencies {
+
+    // ==============
+    // = Dev Module =
+    // ==============
+
+    implementation deps.dev.dev_app_x
+    implementation deps.dev.dev_assist
+    implementation deps.dev.dev_base_mvvm
+    implementation deps.dev.dev_engine
+    implementation deps.dev.dev_http_capture
+    implementation deps.dev.dev_widget_x
+}

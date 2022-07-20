@@ -1,0 +1,7 @@
+apply from: rootProject.file(files.lib_java_gradle)
+
+version versions.dev_java_version
+
+dependencies {
+    implementation deps.dev.dev_java
+}

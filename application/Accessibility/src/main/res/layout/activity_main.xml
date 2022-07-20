@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/vid_drawer_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10">
+
+        <Button
+            android:id="@+id/vid_activity_tracker_btn"
+            style="@style/AppTheme.Base_Button"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/str_activity_tracker" />
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,125 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+
+    compileSdkVersion versions.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion versions.lib_minSdkVersion
+        // 混淆配置
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility versions.javaVersion
+        targetCompatibility versions.javaVersion
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.javaVersion_str
+    }
+}
+
+// 编码设置
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    // ============
+    // = 快捷开发库 =
+    // ============
+
+    api deps.dev.dev_app_x
+    api deps.dev.dev_assist
+    api deps.dev.dev_engine
+
+    // ===========================
+    // = Maven Central 方式自动集成 =
+    // ===========================
+
+    // https://docs.jiguang.cn/jpush/client/Android/android_api
+
+    // ==========
+    // = 极光推送 =
+    // ==========
+
+    // https://mvnrepository.com/search?q=cn.jiguang.sdk
+    api 'cn.jiguang.sdk:jpush:4.7.0'
+    api 'cn.jiguang.sdk:jcore:3.2.4'
+
+//    // Google Play 版本
+//    api 'cn.jiguang.sdk:jpush-google:4.7.0'
+//    api 'cn.jiguang.sdk:jcore-google:3.2.4'
+
+    // ============
+    // = 第三方厂商 =
+    // ============
+
+    // https://mvnrepository.com/search?q=cn.jiguang.sdk.plugin
+    // https://developer.huawei.com/consumer/cn/doc/overview/HMS
+
+    // 华为
+    api 'com.huawei.hms:push:6.3.0.304'
+    api 'cn.jiguang.sdk.plugin:huawei:4.7.0'
+
+    // 小米
+    api 'cn.jiguang.sdk.plugin:xiaomi:4.7.0'
+
+    // OPPO
+    api 'cn.jiguang.sdk.plugin:oppo:4.7.0'
+
+    // VIVO
+    api 'cn.jiguang.sdk.plugin:vivo:4.7.0'
+
+    // 魅族
+    api 'cn.jiguang.sdk.plugin:meizu:4.7.0'
+
+    // 第三方厂商点击回调触发
+    // https://go48pg.yuque.com/docs/share/f95b8034-38c7-4baa-951b-ea85948a546e?#Nz1Do
+}
+
+//def isRelease = false
+//
+//android {
+//    defaultConfig {
+//        manifestPlaceholders = [
+//
+//                // 小米平台注册的 APPKEY, 注意不要将前缀去掉 MI-APPKEY
+//                XIAOMI_APPKEY : "MI-您的应用对应的小米的APPKEY",
+//                // 小米平台注册的 APPID, 注意不要将前缀去掉 MI-APPID
+//                XIAOMI_APPID  : "MI-您的应用对应的小米的APPID",
+//
+//                // OPPO 平台注册的 APPKEY
+//                OPPO_APPKEY   : "OP-您的应用对应的OPPO的APPKEY",
+//                // OPPO 平台注册的 APPID
+//                OPPO_APPID    : "OP-您的应用对应的OPPO的APPID",
+//                // OPPO 平台注册的 APPSECRET
+//                OPPO_APPSECRET: "OP-您的应用对应的OPPO的APPSECRET",
+//
+//                // VIVO 平台注册的 APPKEY
+//                VIVO_APPKEY   : "您的应用对应的VIVO的APPKEY",
+//                // VIVO 平台注册的 APPID
+//                VIVO_APPID    : "您的应用对应的VIVO的APPID",
+//
+//                // 魅族平台注册的 APPKEY
+//                MEIZU_APPKEY  : "MZ-魅族平台注册的APPKEY",
+//                // 魅族平台注册的 APPID
+//                MEIZU_APPID   : "MZ-魅族平台注册的APPID",
+//        ]
+//
+//        // 也可以自己控制 debug、release 使用不同 key
+//        if (isRelease) {
+//            manifestPlaceholders.put("XIAOMI_APPKEY", "MI-您的应用对应的小米的APPKEY")
+//        } else {
+//            manifestPlaceholders.put("XIAOMI_APPKEY", "MI-您的应用对应的小米的APPKEY")
+//        }
+//    }
+//}

@@ -1,0 +1,42 @@
+apply from: rootProject.file(files.build_app_gradle)
+
+android {
+    defaultConfig {
+        applicationId "afkt.app"
+    }
+}
+
+dependencies {
+    implementation deps.dev.dev_app_x
+    implementation deps.dev.dev_assist
+    implementation deps.dev.dev_base_mvvm
+    implementation deps.dev.dev_engine
+    implementation deps.dev.dev_widget_x
+
+    // =========
+    // = 非 lib =
+    // =========
+
+    // DevComponent /core/libs/lib_utils
+    implementation project(':lib_utils')
+
+    implementation project(':DevBase2')
+
+    // ============
+    // = 快捷开发库 =
+    // ============
+
+    // 今日头条屏幕适配方案终极版 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
+    implementation deps.lib.autosize
+
+    // ==========================
+    // = 其他第三方库 - 小功能、简约 =
+    // ==========================
+
+    // 下拉刷新框架 https://github.com/scwang90/SmartRefreshLayout
+    implementation deps.widget.smartrefreshlayout
+    implementation deps.widget.smartrefresh_header_classics
+    implementation deps.widget.smartrefresh_footer_classics
+    // 加载动画效果 https://github.com/Kyson/WhorlView
+    implementation deps.widget.whorlviewlibrary
+}

@@ -1,0 +1,18 @@
+apply from: rootProject.file(files.build_app_gradle)
+
+android {
+    defaultConfig {
+        applicationId "afkt.accessibility"
+    }
+}
+
+dependencies {
+    implementation deps.dev.dev_app_x
+
+    // ============
+    // = 快捷开发库 =
+    // ============
+
+    // EventBus 事件订阅分发 https://github.com/greenrobot/EventBus
+    implementation deps.lib.eventbus
+}

@@ -1,0 +1,118 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+
+    compileSdkVersion versions.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion versions.lib_minSdkVersion
+        // 混淆配置
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility versions.javaVersion
+        targetCompatibility versions.javaVersion
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.javaVersion_str
+    }
+}
+
+// 编码设置
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    // ============
+    // = 快捷开发库 =
+    // ============
+
+    api deps.dev.dev_app_x
+    api deps.dev.dev_assist
+    api deps.dev.dev_engine
+
+    // ===========================
+    // = Maven Central 方式自动集成 =
+    // ===========================
+
+    // https://docs.getui.com/getui/mobile/vendor/androidstudio
+
+    // ==========
+    // = 个推推送 =
+    // ==========
+
+    // https://mvnrepository.com/search?q=com.getui
+    api 'com.getui:gtsdk:3.2.10.0'  // 个推 SDK
+    api 'com.getui:gtc:3.1.9.0'  // 个推核心组件
+
+    // ============
+    // = 第三方厂商 =
+    // ============
+
+    // https://mvnrepository.com/search?q=com.getui.opt
+    // https://docs.getui.com/getui/mobile/vendor/record
+    // https://docs.getui.com/getui/mobile/vendor/androidstudio
+
+    // 华为
+    api 'com.getui.opt:hwp:3.1.0'
+
+    // 小米
+    api 'com.getui.opt:xmp:3.2.0'
+
+    // OPPO
+    api 'com.assist-v3:oppo:3.1.0'
+
+    // VIVO
+    api 'com.assist-v3:vivo:3.1.0'
+
+    // 魅族
+    api 'com.getui.opt:mzp:3.2.0'
+
+    // UPS 目前支持坚果、索尼、海信手机
+    api 'com.getui.opt:ups:3.0.2'
+}
+
+//def isRelease = false
+//
+//android {
+//    defaultConfig {
+//        manifestPlaceholders = [
+//
+//                // 华为
+//                HUAWEI_APP_ID  : "xxxxxxxxxxx",
+//
+//                // 小米
+//                XIAOMI_APP_ID  : "xxxxxxxxxxx",
+//                XIAOMI_APP_KEY : "xxxxxxxxxxx",
+//
+//                // OPPO
+//                OPPO_APP_KEY   : "xxxxxxxxxxx",
+//                OPPO_APP_SECRET: "xxxxxxxxxxx",
+//
+//                // VIVO
+//                VIVO_APP_ID    : "xxxxxxxxxxx",
+//                VIVO_APP_KEY   : "xxxxxxxxxxx",
+//
+//                // 魅族
+//                MEIZU_APP_ID   : "xxxxxxxxxxx",
+//                MEIZU_APP_KEY  : "xxxxxxxxxxx"
+//        ]
+//
+//        // 也可以自己控制 debug、release 使用不同 key
+//        if (isRelease) {
+//            manifestPlaceholders.put("HUAWEI_APP_ID", "xxxxxxxxxxx")
+//        } else {
+//            manifestPlaceholders.put("HUAWEI_APP_ID", "xxxxxxxxxxx")
+//        }
+//    }
+//}

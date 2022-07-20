@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_20">
+
+        <Button
+            android:id="@+id/vid_open_minapp_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="打开小程序"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_minapp_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享小程序"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_url_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享链接"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_image_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享图片"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_image_list_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享多张图片"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_text_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享文本"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_video_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享视频"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_music_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享音乐"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_emoji_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享表情"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_file_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享文件"
+            android:textSize="@dimen/sp_15" />
+
+        <Button
+            android:id="@+id/vid_share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_20"
+            android:text="分享操作"
+            android:textSize="@dimen/sp_15" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.jpush">
+
+    <application>
+
+        <!-- ========== -->
+        <!-- 极光推送配置 -->
+        <!-- ========== -->
+
+        <!-- Since JCore 2.0.0 Required SDK 核心功能 -->
+        <!-- 可以在更多手机平台上使得推送通道保持的更稳定 -->
+
+        <service
+            android:name="dev.jpush.JPushService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="dev.jpush.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+
+        <!-- =========== -->
+        <!-- 第三方厂商配置 -->
+        <!-- =========== -->
+
+        <!-- 第三方厂商推送消息点击处理 Activity -->
+
+        <activity
+            android:name="dev.jpush.JPushThirdClickActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/DevActivityNoAnimTheme">
+            <intent-filter>
+                <action android:name="dev.jpush.JPushThirdClickActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
