@@ -281,31 +281,31 @@ public static void refShape(ScanShapeView scanView, ScanShapeView.Shape scanShap
 
 ```java
 app:dev_animDuration="2000"
-        app:dev_iconHeight="30.0dp"
-        app:dev_iconWidth="30.0dp"
+app:dev_iconHeight="30.0dp"
+app:dev_iconWidth="30.0dp"
 
 // 设置动画时间
-        flowLikeView.setAnimDuration(2000);
+flowLikeView.setAnimDuration(2000);
 // 设置图标宽度
-        flowLikeView.setIconWidth(SizeUtils.dp2px(30));
+flowLikeView.setIconWidth(SizeUtils.dp2px(30));
 // 设置图标高度
-        flowLikeView.setIconHeight(SizeUtils.dp2px(30));
+flowLikeView.setIconHeight(SizeUtils.dp2px(30));
 
 // 设置漂浮图标
-        List<Drawable> lists = new ArrayList<>();
-        lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_1));
-        lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_2));
-        lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_3));
-        lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_4));
-        lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_5));
-        flowLikeView.setDrawables(lists);
+List<Drawable> lists = new ArrayList<>();
+lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_1));
+lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_2));
+lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_3));
+lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_4));
+lists.add(ResourceUtils.getDrawable(R.drawable.ic_live_brow_5));
+flowLikeView.setDrawables(lists);
 
 // 设置漂浮图标
-        flowLikeView.setDrawablesById(R.drawable.ic_live_brow_1, R.drawable.ic_live_brow_2,
-        R.drawable.ic_live_brow_3, R.drawable.ic_live_brow_4, R.drawable.ic_live_brow_5);
+flowLikeView.setDrawablesById(R.drawable.ic_live_brow_1, R.drawable.ic_live_brow_2,
+R.drawable.ic_live_brow_3, R.drawable.ic_live_brow_4, R.drawable.ic_live_brow_5);
 
 // 点赞操作
-        flowLikeView.like();
+flowLikeView.like();
 ```
 
 
