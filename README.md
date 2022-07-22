@@ -9,28 +9,28 @@
 移除多余的第三方库、插件依赖配置，避免过多无关且繁杂配置影响快速理解项目，降低第三方库下载数量、编译运行 `DevUtils 演示 Demo App` 难度，使项目可更加快捷运行。
 
 
-# 仓库优化前后对比
+## 仓库优化前后对比
 
 | before | after |
 |:-:|:-:|
 | ![][repositories_before] | ![][repositories_after] |
 
-优化后仓库大小为 **13.7MB**，相较之前减少了 <font color="red">**55.4MB**</font>。
+优化后仓库大小为 **13.7MB**，相较之前减少了 **55.4MB**。
 
 ### 如何彻底删除 Git 中的大文件、敏感数据
 
-可以参考 Github 官方文档 [Removing sensitive data from a repository][Removing sensitive data from a repository]
+可以参考 GitHub 官方文档 [Removing sensitive data from a repository][Removing sensitive data from a repository]
 或使用开源工具 [BFG Repo-Cleaner][BFG Repo-Cleaner]
 
-下方以 `BFG Repo-Cleaner` 为例，演示优化 [DevUtils][DevUtils] 仓库空间大小步骤及命令
+下方以 `BFG Repo-Cleaner` 为例，演示优化 [DevUtils][DevUtils] 仓库空间大小步骤及命令。
 
-1. 首先通过 [BFG Repo-Cleaner][BFG Repo-Cleaner] 下载 bfg.jar 后 clone 项目
+1. 首先通过 [BFG Repo-Cleaner][BFG Repo-Cleaner] 下载 `bfg.jar` 后 clone 项目。
 
 ```gitexclude
 git clone --mirror https://github.com/afkT/DevUtils.git
 ```
 
-2. 接着执行删除文件、文件夹命令
+2. 接着执行删除文件、文件夹命令。
 
 ```gitexclude
 java -jar /Users/afkT/bfg.jar --strip-blobs-bigger-than 1M /Users/afkT/DevUtils.git
@@ -54,7 +54,7 @@ java -jar /Users/afkT/bfg.jar --delete-folders interesting /Users/afkT/DevUtils.
 java -jar /Users/afkT/bfg.jar --delete-files image.zip /Users/afkT/DevUtils.git
 ```
 
-3. 执行删除命令结束后，存在符合条件则调用 git gc
+3. 执行删除命令结束后，存在符合条件则调用 git gc。
 
 ```gitexclude
 cd DevUtils.git
@@ -64,16 +64,16 @@ cd DevUtils.git
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
 ```
 
-4. 最后一步强制推送 git
+4. 最后一步强制推送 git。
 
 ```gitexclude
 git push --force
 ```
 
 
-**注意事项：删除数据后，需要重新 clone 项目，因为 .git 隐藏文件存在历史数据，如果在原有 project.git 上面提交又会再次 push 上去**
+**注意事项：删除数据后，需要重新 clone 项目，因为 .git 隐藏文件存在历史数据，如果在原有 project.git 上面提交又会再次 push 上去。**
 
-至此优化项目仓库大小、删除大文件、敏感数据操作结束。
+至此优化项目仓库大小，删除大文件、敏感数据操作结束。
 
 
 
