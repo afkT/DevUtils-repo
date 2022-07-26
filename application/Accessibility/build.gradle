@@ -7,7 +7,7 @@ android {
 }
 
 dependencies {
-    implementation deps.dev.dev_app_x
+    implementation deps.dev.dev_app
 
     // ============
     // = 快捷开发库 =

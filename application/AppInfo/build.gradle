@@ -7,11 +7,11 @@ android {
 }
 
 dependencies {
-    implementation deps.dev.dev_app_x
+    implementation deps.dev.dev_app
     implementation deps.dev.dev_assist
     implementation deps.dev.dev_base_mvvm
     implementation deps.dev.dev_engine
-    implementation deps.dev.dev_widget_x
+    implementation deps.dev.dev_widget
 
     // =========
     // = 非 lib =
@@ -38,5 +38,5 @@ dependencies {
     implementation deps.widget.smartrefresh_header_classics
     implementation deps.widget.smartrefresh_footer_classics
     // 加载动画效果 https://github.com/Kyson/WhorlView
-    implementation deps.widget.whorlviewlibrary
+    implementation deps_split.widget.whorlviewlibrary
 }

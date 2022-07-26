@@ -30,10 +30,10 @@ import dev.utils.common.CollectionUtils;
  * @author Ttt
  * <pre>
  *     使用 WorkManager 调度任务
- *     @see <a href="https://developer.android.google.cn/topic/libraries/architecture/workmanager"/>
- *     @see <a href="https://developer.android.google.cn/topic/libraries/architecture/workmanager/basics"/>
+ *     @see <a href="https://developer.android.com/topic/libraries/architecture/workmanager"/>
+ *     @see <a href="https://developer.android.com/topic/libraries/architecture/workmanager/basics"/>
  *     WorkManager
- *     @see <a href="https://developer.android.google.cn/jetpack/androidx/releases/work"/>
+ *     @see <a href="https://developer.android.com/jetpack/androidx/releases/work"/>
  *     Android 开发 WorkManager 详解
  *     @see <a href="https://www.cnblogs.com/guanxinjing/p/13278814.html"/>
  *     <p></p>

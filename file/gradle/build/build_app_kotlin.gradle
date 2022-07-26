@@ -27,10 +27,10 @@ dependencies {
     // = Dev Module =
     // ==============
 
-    implementation deps.dev.dev_app_x
+    implementation deps.dev.dev_app
     implementation deps.dev.dev_assist
     implementation deps.dev.dev_base_mvvm
     implementation deps.dev.dev_engine
     implementation deps.dev.dev_http_capture
-    implementation deps.dev.dev_widget_x
+    implementation deps.dev.dev_widget
 }

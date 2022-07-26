@@ -46,7 +46,7 @@ android {
 
 dependencies {
     implementation deps.dev.dev_base_mvvm
-    implementation deps.dev.dev_widget_x
+    implementation deps.dev.dev_widget
 
     // =========
     // = 非 lib =

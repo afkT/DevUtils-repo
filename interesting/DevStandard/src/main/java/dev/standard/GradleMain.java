@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
  *     @see <a href="https://www.cnblogs.com/rainboy2010/p/7062279.html"/>
  *     @see <a href="https://services.gradle.org/distributions"/>
  *     Android Gradle 插件版本说明
- *     @see <a href="https://developer.android.google.cn/studio/releases/gradle-plugin"/>
+ *     @see <a href="https://developer.android.com/studio/releases/gradle-plugin"/>
  *     <p></p>
  *     快捷搜索、下载地址:
  *     distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-all.zip

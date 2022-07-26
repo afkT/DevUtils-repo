@@ -37,7 +37,7 @@ dependencies {
     // = 快捷开发库 =
     // ============
 
-    api deps.dev.dev_app_x
+    api deps.dev.dev_app
     api deps.dev.dev_assist
     api deps.dev.dev_engine
 
