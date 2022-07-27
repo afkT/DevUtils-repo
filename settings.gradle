@@ -70,6 +70,7 @@ interestings.forEach {
 def applications = [
 
         "Accessibility",
+        "AppDB",
         "AppInfo",
         "GTPush",
         "JPush",

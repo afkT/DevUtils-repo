@@ -213,6 +213,7 @@ final class Config {
 
         sDevUtilsRepoApplicationCatalogMap.put("application", "根目录");
         sDevUtilsRepoApplicationCatalogMap.put(".Accessibility", "Android 无障碍使用 ( Activity 栈 )");
+        sDevUtilsRepoApplicationCatalogMap.put(".AppDB", "Room、GreenDAO Database 使用对比");
         sDevUtilsRepoApplicationCatalogMap.put(".AppInfo", "APP 信息提取器");
         sDevUtilsRepoApplicationCatalogMap.put(".GTPush", "个推推送 ( 逻辑 ) 处理 ( 含设备管理 )");
         sDevUtilsRepoApplicationCatalogMap.put(".JPush", "极光推送 ( 逻辑 ) 处理 ( 含设备管理 )");

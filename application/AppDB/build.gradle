@@ -1,0 +1,60 @@
+apply from: rootProject.file(files.build_app_gradle)
+apply from: rootProject.file(files.build_arouter_app_gradle)
+apply from: rootProject.file(files.deps_other_lib)
+apply from: rootProject.file(files.deps_qa_lib)
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    defaultConfig {
+        applicationId "afkt.db"
+
+        // 指定 room.schemaLocation 生成的文件路径
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                                      "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    // https://greenrobot.org/greendao/documentation/
+    // https://greenrobot.org/greendao/documentation/javadoc/
+    greendao {
+        // https://greenrobot.org/greendao/documentation/modelling-entities/
+        schemaVersion 1
+
+//        // Upgrade
+//        schemaVersion 2
+
+        daoPackage 'gen.greendao' // 生成 DAOs、DaoMaster、DaoSession 包名
+        targetGenDir 'src/main/java'
+    }
+
+    sourceSets {
+        main {
+            // https://www.jianshu.com/p/f5a49d54e16e
+            // 优化 res 资源管理, 使用 sourceSets 资源分包
+            res.srcDirs = [
+                    'src/main/res', // 全局通用资源文件
+                    'src/main/res-base', // Base 基础资源
+                    'src/main/res-db', // DB 基础资源
+            ]
+        }
+    }
+}
+
+dependencies {
+    implementation deps.dev.dev_app
+    implementation deps.dev.dev_assist
+    implementation deps.dev.dev_base_mvvm
+    implementation deps.dev.dev_engine
+
+    // =========
+    // = 非 lib =
+    // =========
+
+    // DevComponent /core/libs/lib_utils
+    implementation project(':lib_utils')
+
+    implementation project(':DevBaseView')
+}
