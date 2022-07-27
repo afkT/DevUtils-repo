@@ -37,6 +37,11 @@ dependencies {
     implementation deps.widget.smartrefreshlayout
     implementation deps.widget.smartrefresh_header_classics
     implementation deps.widget.smartrefresh_footer_classics
+
+    // ==============
+    // = deps_split =
+    // ==============
+
     // 加载动画效果 https://github.com/Kyson/WhorlView
     implementation deps_split.widget.whorlviewlibrary
 }

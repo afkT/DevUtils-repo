@@ -47,8 +47,6 @@ buildscript {
         classpath "com.huawei.agconnect:agcp:1.6.6.200"
         // https://mvnrepository.com/artifact/com.tencent.matrix/matrix-gradle-plugin
         //classpath("com.tencent.matrix:matrix-gradle-plugin:$matrix_version") { changing = true }
-        // Hilt 依赖注入 https://mvnrepository.com/artifact/com.google.dagger/hilt-android-gradle-plugin
-        //classpath "com.google.dagger:hilt-android-gradle-plugin:2.43"
     }
 }
 
@@ -98,4 +96,4 @@ tasks.withType(JavaCompile) {
 }
 
 // 第三方库版本强制统一处理
-apply from: rootProject.file(files.unified_library_config_gradle)
+//apply from: rootProject.file(files.unified_library_config_gradle)
