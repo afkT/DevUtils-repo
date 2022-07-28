@@ -1,12 +1,26 @@
 
+<h1 align="center">DevUtils-repo</h1>
 
-# About
+<p align="center">
+<a href="https://github.com/afkT"><img alt="Profile" src="https://img.shields.io/badge/GitHub-afkT-orange.svg"/></a>
+<a href="https://github.com/afkT/DevUtils-repo/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+<a href="https://android-arsenal.com/api?level=14"><img alt="API" src="https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat"/></a>
+<a href="https://search.maven.org/search?q=io.github.afkt"><img alt="Version" src="https://img.shields.io/badge/Maven-Dev-5776E0.svg"/></a>
+</p>
 
-**DevUtils-repo** 该项目是针对 [DevUtils][DevUtils] 第三方库封装扩展、新技术 Demo 编写、大文件资源等迁移存储仓库。
+<p align="center">
+🐝 该项目是针对 <a href="https://github.com/afkT/DevUtils">DevUtils</a> 第三方库封装扩展、新技术 Demo 编写、大文件资源等迁移存储仓库。
+<br>
+减少 <b>DevUtils</b> 仓库大小方便快速 clone，并让 <b>DevUtils</b> 项目<b>更加纯粹</b>只保留 Dev 系列工具类库相关代码。
+<br>
+移除多余的第三方库、插件依赖配置，避免过多无关且繁杂配置影响快速理解项目，降低第三方库下载数量、编译运行 <b>DevUtils 演示 Demo App</b> 难度，使项目可更加快捷运行。
+</p>
 
-减少 `DevUtils` 仓库大小方便快速 clone，并让 `DevUtils` 项目**更加纯粹**只保留 Dev 系列工具类库相关代码。
-
-移除多余的第三方库、插件依赖配置，避免过多无关且繁杂配置影响快速理解项目，降低第三方库下载数量、编译运行 `DevUtils 演示 Demo App` 难度，使项目可更加快捷运行。
+<p align="center">
+<b><a href="https://github.com/afkT/DevUtils/blob/master/README/android_standard.md">Android 规范</a></b>、
+<b><a href="https://github.com/afkT/DevUtils/blob/master/README/java_standard.md">Java 规范</a></b>、
+<b><a href="https://github.com/afkT/DevUtils/blob/master/README/git_standard.md">Git 规范</a></b>
+</p>
 
 
 ## 仓库优化前后对比
@@ -74,6 +88,23 @@ git push --force
 **注意事项：删除数据后，需要重新 clone 项目，因为 .git 隐藏文件存在历史数据，如果在原有 project.git 上面提交又会再次 push 上去。**
 
 至此优化项目仓库大小，删除大文件、敏感数据操作结束。
+
+
+## License
+
+    Copyright 2022 afkT
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 
 
 
