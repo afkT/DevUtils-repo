@@ -10,10 +10,6 @@
 
 <p align="center">
 🐝 该项目是针对 <a href="https://github.com/afkT/DevUtils">DevUtils</a> 第三方库封装扩展、新技术 Demo 编写、大文件资源等迁移存储仓库。
-<br>
-减少 <b>DevUtils</b> 仓库大小方便快速 clone，并让 <b>DevUtils</b> 项目<b>更加纯粹</b>只保留 Dev 系列工具类库相关代码。
-<br>
-移除多余的第三方库、插件依赖配置，避免过多无关且繁杂配置影响快速理解项目，降低第三方库下载数量、编译运行 <b>DevUtils 演示 Demo App</b> 难度，使项目可更加快捷运行。
 </p>
 
 <p align="center">
@@ -21,6 +17,13 @@
 <b><a href="https://github.com/afkT/DevUtils/blob/master/README/java_standard.md">Java 规范</a></b>、
 <b><a href="https://github.com/afkT/DevUtils/blob/master/README/git_standard.md">Git 规范</a></b>
 </p>
+
+
+## 作用
+
+减少 `DevUtils` 仓库大小方便快速 clone，并让 `DevUtils` 项目**更加纯粹**只保留 Dev 系列工具类库相关代码。
+
+移除多余的第三方库、插件依赖配置，避免过多无关且繁杂配置影响快速理解项目，降低第三方库下载数量、编译运行 `DevUtils 演示 Demo App` 难度，使项目可更加快捷运行。
 
 
 ## 仓库优化前后对比
