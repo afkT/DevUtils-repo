@@ -344,7 +344,6 @@ public class GitDeleteQuery {
         // =
 
         println("");
-        println("");
         println("========================");
         println("= 其他删除文件、文件夹命令 =");
         println("========================");
@@ -390,6 +389,9 @@ public class GitDeleteQuery {
             cmd = "%s --delete-files %s %s";
             println(String.format(cmd, JAVA_BFG, file.getName(), USER_GIT));
         }
+
+        println("");
+        println("");
     }
 
     // ========
