@@ -22,10 +22,8 @@ public class GitDeleteQuerySimple {
         System.out.println(object);
     }
 
-    // 项目文件夹路径 ( 旧项目文件目录读取 )
-    private static final String       PATH_FOLDER     = "/Users/afkT/Documents/GitHub/DevUtils-backup";
     // 项目 git
-    private static final String       PROJECT_GIT     = "DevUtils.git";
+    private static final String       PROJECT_GIT     = "DevComponent.git";
     // 项目 git 链接
     private static final String       PROJECT_GIT_URL = "https://github.com/afkT" + File.separator + PROJECT_GIT;
     // 用户名
@@ -36,10 +34,26 @@ public class GitDeleteQuerySimple {
     private static final List<String> FILE_LIST       = new ArrayList<>();
 
     static {
-        FOLDER_LIST.add("DevBaseDemo");
-        FOLDER_LIST.add("DevUtilsApp");
+        FOLDER_LIST.add("art");
+        FOLDER_LIST.add("link");
+        FOLDER_LIST.add("project");
+        FOLDER_LIST.add("lib");
+        FOLDER_LIST.add("libs");
+        FOLDER_LIST.add("interesting");
+        FOLDER_LIST.add("app");
+        FOLDER_LIST.add("application");
+        FOLDER_LIST.add("file");
+        FOLDER_LIST.add("core");
+        FOLDER_LIST.add("component");
+        FOLDER_LIST.add("module");
 
-        FILE_LIST.add("README.md");
+        FILE_LIST.add("android_standard.md");
+        FILE_LIST.add("java_standard.md");
+        FILE_LIST.add("git_standard.md");
+        FILE_LIST.add("icon_launcher.png");
+        FILE_LIST.add("icon_launcher_round.png");
+        FILE_LIST.add("icon_launcher_round2.png");
+        FILE_LIST.add("core_ui_module_logo.png");
     }
 
     /**
