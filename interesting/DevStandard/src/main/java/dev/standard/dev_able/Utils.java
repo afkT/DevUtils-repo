@@ -149,7 +149,7 @@ final class Utils {
 
     private static String getGenerateDirectory(final String module) {
         return new File(
-                System.getProperty("user.dir"),
+                System.getProperty("user.dir").replaceAll("-repo", ""),
                 "/lib/" + module + "/src/main/java/dev/utils/common/able"
         ).getAbsolutePath();
     }

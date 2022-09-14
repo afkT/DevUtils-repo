@@ -57,7 +57,7 @@ dependencies {
     // Android 平台下的图片选择器 https://github.com/LuckSiege/PictureSelector
     implementation deps_split.lib.pictureSelector
 //    implementation deps_split.lib.pictureSelector_compress
-//    implementation deps_split.lib.pictureSelector_ucrop
+    implementation deps_split.lib.pictureSelector_ucrop
     implementation deps_split.lib.pictureSelector_camerax
     // GreenDAO ORM 框架 https://github.com/greenrobot/greenDAO
     implementation deps_split.lib.greenDAO

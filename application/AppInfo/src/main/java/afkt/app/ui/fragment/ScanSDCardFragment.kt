@@ -37,7 +37,7 @@ class ScanSDCardFragment : BaseFragment<FragmentAppBinding>() {
 
     private var type = TypeEnum.QUERY_APK
 
-    private val mAdapter: ApkListAdapter = ApkListAdapter()
+    private val mAdapter = ApkListAdapter()
 
     override fun baseContentId(): Int = R.layout.fragment_app
 

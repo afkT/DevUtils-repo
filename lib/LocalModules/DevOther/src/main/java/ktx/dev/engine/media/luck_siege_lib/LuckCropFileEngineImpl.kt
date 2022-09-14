@@ -45,7 +45,7 @@ open class LuckCropFileEngineImpl(
     // ==========
 
     // 裁剪库图片加载引擎
-    protected val uCropImageEngine: UCropImageEngine = object : UCropImageEngine {
+    protected val uCropImageEngine = object : UCropImageEngine {
         override fun loadImage(
             context: Context,
             url: String,

@@ -152,7 +152,7 @@ class GreenDaoActivity : BaseActivity<ActivityDatabaseBinding>() {
         val noteId = GreenManager.getNoteDatabase().noteDao.insert(note)
         // 不等于文本
         if (note.type != NoteType.TEXT) {
-            val pictures: MutableList<NotePicture> = ArrayList()
+            val pictures = mutableListOf<NotePicture>()
             for (i in 0 until RandomUtils.getRandom(1, 5)) {
                 val notePicture = NotePicture()
                 notePicture.noteId = noteId

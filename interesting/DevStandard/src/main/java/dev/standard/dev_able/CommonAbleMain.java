@@ -44,7 +44,7 @@ public class CommonAbleMain {
         list.add(new Utils.Replace("Intercept", "intercept"));
         list.add(new Utils.Replace("IO", "io"));
         list.add(new Utils.Replace("Notify", "notifyMethod"));
-        list.add(new Utils.Replace("Operate", "execute"));
+        list.add(new Utils.Replace("Operator", "execute"));
         list.add(new Utils.Replace("Input", "input"));
         list.add(new Utils.Replace("Output", "output"));
         list.add(new Utils.Replace("Read", "read"));
@@ -65,6 +65,13 @@ public class CommonAbleMain {
         list.add(new Utils.Replace("Modify", "modify"));
         list.add(new Utils.Replace("Parse", "parse"));
         list.add(new Utils.Replace("Send", "post"));
+        list.add(new Utils.Replace("Function", "apply"));
+        list.add(new Utils.Replace("Binding", "bind"));
+        list.add(new Utils.Replace("UnBinder", "unbind"));
+        list.add(new Utils.Replace("Command", "execute"));
+        list.add(new Utils.Replace("Consumer", "accept"));
+        list.add(new Utils.Replace("Supplier", "getAs"));
+        list.add(new Utils.Replace("Of", "of"));
         REPLACE_LIST = Collections.unmodifiableList(list);
     }
 

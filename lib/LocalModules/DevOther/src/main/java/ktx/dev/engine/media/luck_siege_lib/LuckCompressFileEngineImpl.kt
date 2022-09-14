@@ -97,8 +97,8 @@ open class LuckCompressFileEngineImpl(
     open protected fun toInputStreamList(
         context: Context?,
         sources: List<Uri>
-    ): List<InputStreamProvider?> {
-        val lists: MutableList<InputStreamProvider?> = ArrayList()
+    ): List<InputStreamProvider> {
+        val lists = mutableListOf<InputStreamProvider>()
         for (uri in sources) {
             lists.add(object : InputStreamProvider {
                 @Throws(IOException::class)

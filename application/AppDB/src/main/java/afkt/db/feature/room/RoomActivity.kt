@@ -156,7 +156,7 @@ class RoomActivity : BaseActivity<ActivityDatabaseBinding>() {
         val noteId = RoomManager.getNoteDatabase().noteDao.insertNote(note)
         // 不等于文本
         if (note.type != NoteType.TEXT) {
-            val pictures: MutableList<NotePicture> = ArrayList()
+            val pictures = mutableListOf<NotePicture>()
             for (i in 0 until RandomUtils.getRandom(1, 5)) {
                 val pictureUrl = String.format(
                     "https://picsum.photos/id/%s/30%s",

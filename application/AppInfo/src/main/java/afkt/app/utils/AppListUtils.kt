@@ -96,7 +96,7 @@ object AppListUtils {
         appType: AppType,
         refresh: Boolean
     ) {
-        val state: Boolean? = sMapStates[appType]
+        val state = sMapStates[appType]
         // 加载中则不处理
         if (state != null && state) {
             return
@@ -130,7 +130,7 @@ object AppListUtils {
 
     private class AppListsComparator(val sortType: Int) : Comparator<AppInfoBean> {
 
-        val collator: Collator = Collator.getInstance()
+        val collator = Collator.getInstance()
 
         init {
             collator.strength = Collator.PRIMARY

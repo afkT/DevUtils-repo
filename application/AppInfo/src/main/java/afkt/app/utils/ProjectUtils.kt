@@ -57,7 +57,7 @@ object ProjectUtils {
      */
     fun getDeviceInfo(viewModel: AppViewModel) {
         DevThreadManager.getInstance(2).execute {
-            var lists: ArrayList<DeviceInfoItem> = ArrayList()
+            var lists = ArrayList<DeviceInfoItem>()
             try {
                 lists = innerGetDeviceInfo()
             } catch (e: Exception) {
@@ -174,7 +174,7 @@ object ProjectUtils {
      */
     fun getScreenInfo(viewModel: AppViewModel) {
         DevThreadManager.getInstance(2).execute {
-            var lists: ArrayList<DeviceInfoItem> = ArrayList()
+            var lists = ArrayList<DeviceInfoItem>()
             try {
                 lists = innerGetScreenInfo()
             } catch (e: Exception) {

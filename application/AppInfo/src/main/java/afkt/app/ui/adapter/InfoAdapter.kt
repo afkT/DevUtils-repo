@@ -38,7 +38,7 @@ class InfoAdapter :
             .setText(item.value, holder.binding.vidValueTv)
             .setText(ResourceUtils.getString(item.resId), holder.binding.vidKeyTv)
             .setOnClick({
-                val txt: String = DeviceInfoBean.copyString(item)
+                val txt = DeviceInfoBean.copyString(item)
                 // 复制到剪切板
                 ClipboardUtils.copyText(txt)
                 // 进行提示

@@ -23,7 +23,7 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
         }
     }
 
-    private val mAdapter: InfoAdapter = InfoAdapter()
+    private val mAdapter = InfoAdapter()
 
     override fun baseContentId() = R.layout.fragment_info
 
@@ -44,7 +44,7 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
         viewModel.exportEvent.observe(viewLifecycleOwner) {
             if (it == dataStore.typeEnum) {
                 if (mAdapter.isDataNotEmpty) {
-                    val content: String? = DeviceInfoBean.jsonString(mAdapter.dataList)
+                    val content = DeviceInfoBean.jsonString(mAdapter.dataList)
                     val fileName =
                         if (TypeEnum.DEVICE_INFO == it) "device_info.txt" else "screen_info.txt"
                     // 导出数据

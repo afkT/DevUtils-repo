@@ -28,10 +28,10 @@ class ScanSDCardUtils private constructor() {
     private var utils: FileBreadthFirstSearchUtils
 
     // 搜索后缀
-    private var querySuffixArray: Array<String> = arrayOf("")
+    private var querySuffixArray = arrayOf("")
 
     // 搜索后的数据 ( 节省资源, 不遍历 FileBreadthFirstSearchUtils.FileItem )
-    private var files: ArrayList<File> = ArrayList()
+    private var files = ArrayList<File>()
 
     // 转换后的数据
     private var data: ArrayList<FileApkItem>? = null

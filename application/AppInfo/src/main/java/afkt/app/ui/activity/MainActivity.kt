@@ -19,7 +19,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import dev.callback.DevCallback
 import dev.utils.app.ClickUtils
 import dev.utils.app.ResourceUtils
@@ -128,7 +127,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
             )
         )
 
-        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager.beginTransaction()
         for (item in mFragments.values) {
             transaction.add(R.id.vid_ll, item, item.toString()).hide(item)
         }
@@ -141,7 +140,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
      */
     private fun toggleFragment(type: TypeEnum) {
         if (type != mFragmentType) {
-            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            val transaction = supportFragmentManager.beginTransaction()
             // 隐藏当前显示的 Fragment
             mFragments[mFragmentType]?.let { transaction.hide(it) }
             // 准备显示的 Fragment
