@@ -39,7 +39,7 @@ abstract class BaseActivity<VB : ViewBinding> : DevBaseContentViewBindingActivit
      */
     private fun initToolBar() {
         val titleView = ViewUtils.inflate(this, R.layout.base_toolbar, null)
-        val toolbar: Toolbar? = titleView.findViewById(R.id.vid_tb)
+        val toolbar = titleView.findViewById<Toolbar>(R.id.vid_tb)
         contentAssist.addTitleView(titleView)
 
         setSupportActionBar(toolbar)
