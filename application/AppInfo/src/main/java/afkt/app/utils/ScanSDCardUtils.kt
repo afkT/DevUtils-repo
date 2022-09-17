@@ -2,7 +2,7 @@ package afkt.app.utils
 
 import afkt.app.base.model.FileApkItem
 import dev.callback.DevCallback
-import dev.kotlin.engine.log.log_d
+import dev.expand.engine.log.log_d
 import dev.utils.app.PathUtils
 import dev.utils.app.info.AppInfoUtils
 import dev.utils.common.StringUtils

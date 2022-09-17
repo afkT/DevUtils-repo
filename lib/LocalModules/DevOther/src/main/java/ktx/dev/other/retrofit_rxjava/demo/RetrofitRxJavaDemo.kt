@@ -1,6 +1,9 @@
 package ktx.dev.other.retrofit_rxjava.demo
 
+import dev.DevHttpCapture
 import dev.capture.CallbackInterceptor
+import dev.capture.CaptureInfo
+import dev.capture.IHttpCaptureEnd
 import dev.engine.DevEngine
 import dev.utils.LogPrintUtils
 import io.reactivex.rxjava3.core.Flowable
@@ -47,15 +50,17 @@ object RetrofitManager {
 
         val builder = OkHttpClient.Builder()
 
-//        // 使用 DevHttpCapture 库进行 Http 拦截回调 ( 抓包数据存储 )
-//        DevHttpCapture.addInterceptor(builder, "ModuleName")
+        // 使用 DevHttpCapture 库进行 Http 拦截回调 ( 抓包数据存储 )
+        DevHttpCapture.addInterceptor(builder, "ModuleName")
 
         // 使用 DevHttpCapture 库进行 Http 拦截回调 ( 不进行抓包数据存储 )
-        builder.addInterceptor(CallbackInterceptor { captureInfo ->
-            LogPrintUtils.jsonTag(
-                TAG_L, DevEngine.getJSON().toJson(captureInfo)
-            )
-        })
+        builder.addInterceptor(CallbackInterceptor(endCall = object : IHttpCaptureEnd {
+            override fun callEnd(info: CaptureInfo) {
+                LogPrintUtils.jsonTag(
+                    TAG_L, DevEngine.getJSON().toJson(info)
+                )
+            }
+        }))
 
         // 全局的读取超时时间
         builder.readTimeout(60000L, TimeUnit.MILLISECONDS)

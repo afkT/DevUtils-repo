@@ -15,7 +15,7 @@ import gen.greendao.DaoSession;
 import gen.greendao.NoteDao;
 import gen.greendao.NotePictureDao;
 
-import static dev.kotlin.engine.log.LogKt.log_dTag;
+import static dev.expand.engine.log.LogKt.log_dTag;
 
 /*
  * detail: Note 数据库

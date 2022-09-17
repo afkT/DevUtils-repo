@@ -3,6 +3,8 @@ package java.dev.other.okgo;
 import android.app.Application;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -17,15 +19,19 @@ import com.lzy.okgo.request.base.Request;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import dev.DevHttpCapture;
 import dev.capture.CallbackInterceptor;
 import dev.capture.CaptureInfo;
-import dev.capture.IHttpCaptureCallback;
+import dev.capture.HttpCaptureEventIMPL;
+import dev.capture.IHttpCaptureEnd;
 import dev.engine.DevEngine;
 import dev.utils.LogPrintUtils;
+import dev.utils.common.cipher.Encrypt;
 import okhttp3.OkHttpClient;
 
 /**
  * detail: OkGo 配置相关工具类
+ *
  * @author Ttt
  * <pre>
  *     用于初始化 OkGo、OkHttp 等配置相关方法
@@ -55,26 +61,38 @@ public final class OkGoUtils {
      *     tips: 最简单的配置直接调用 OkGo.getInstance().init(this); {@link OkGo}
      *     在 App {@link Application} 初始化
      * </pre>
+     *
      * @param application {@link Application}
      */
     public static void initOkGo(Application application) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
-//        // 使用 DevHttpCapture 库进行 Http 拦截回调 ( 抓包数据存储 )
-//        DevHttpCapture.addInterceptor(builder, "ModuleName", new Encrypt() {
-//            @Override
-//            public byte[] encrypt(byte[] data) {
-//                return data; // 加密处理, encrypt 参数传入 null 表示不加密
-//            }
-//        });
+        // 使用 DevHttpCapture 库进行 Http 拦截回调 ( 抓包数据存储 )
+        DevHttpCapture.INSTANCE.addInterceptor(builder, "ModuleName", new Encrypt() {
+            @Override
+            public byte[] encrypt(byte[] data) {
+                return data; // 加密处理, encrypt 参数传入 null 表示不加密
+            }
+        }, null, true, new HttpCaptureEventIMPL() {
+            @Override
+            public void callEnd(@NonNull CaptureInfo info) {
+            }
+        });
 
         // 使用 DevHttpCapture 库进行 Http 拦截回调 ( 不进行抓包数据存储 )
-        builder.addInterceptor(new CallbackInterceptor(new IHttpCaptureCallback() {
-            @Override
-            public void callback(CaptureInfo captureInfo) {
-                LogPrintUtils.jsonTag(TAG, DevEngine.INSTANCE.getJSON().toJson(captureInfo));
-            }
-        }));
+        builder.addInterceptor(new CallbackInterceptor(
+                new IHttpCaptureEnd() {
+                    @Override
+                    public void callEnd(@NonNull CaptureInfo info) {
+                    }
+                },
+                new HttpCaptureEventIMPL() {
+                    @Override
+                    public void callEnd(@NonNull CaptureInfo info) {
+                        LogPrintUtils.jsonTag(TAG, DevEngine.INSTANCE.getJSON().toJson(info));
+                    }
+                }
+        ));
 
         // ======================
         // = OkGo 内置 log 拦截器 =
@@ -169,6 +187,7 @@ public final class OkGoUtils {
 
     /**
      * 执行请求处理
+     *
      * @param clazz    class
      * @param request  {@link Request}
      * @param callback {@link OkGoCallback}
@@ -191,6 +210,7 @@ public final class OkGoUtils {
      *     BaseView 请求方法内调用该方法, 进行设置 TAG 在 Activity#onDestroy 中调用
      *     OkGo.getInstance().cancelTag(tag); 防止内存泄露
      * </pre>
+     *
      * @param tag      request tag
      * @param request  {@link Request}
      * @param callback {@link OkGoCallback}

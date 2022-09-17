@@ -11,7 +11,7 @@ import dev.adapter.DevDataAdapter
 import dev.adapter.DevDataAdapterExt
 import dev.base.adapter.DevBaseViewBindingVH
 import dev.base.adapter.newBindingViewHolder
-import dev.kotlin.engine.image.display
+import dev.expand.engine.image.display
 import dev.kotlin.utils.toSource
 import dev.utils.DevFinal
 import dev.utils.app.ViewUtils
