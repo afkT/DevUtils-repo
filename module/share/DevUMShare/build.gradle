@@ -57,41 +57,56 @@ dependencies {
     // ==========
 
     // https://mvnrepository.com/search?q=com.umeng.umsdk
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/common
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/asms
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/link
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-core
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-board
 
     // https://developer.umeng.com/docs/128606/detail/193879
-    api 'com.umeng.umsdk:common:9.5.0' // 必选
+    api 'com.umeng.umsdk:common:9.5.2' // 必选
     api 'com.umeng.umsdk:asms:1.6.3' // 必选
 
 //    // 集成 U-Link ( 可选 ) 如要统计分享回流次数和分享新增用户指标则必选
 //    api 'com.umeng.umsdk:link:1.2.0'
 
     // 分享核心库 ( 必选 )
-    api 'com.umeng.umsdk:share-core:7.1.9'
+    api 'com.umeng.umsdk:share-core:7.2.0'
 //    // 分享面板功能 ( 可选 )
-//    api 'com.umeng.umsdk:share-board:7.1.9'
+//    api 'com.umeng.umsdk:share-board:7.2.0'
 
     // =======
     // = SDK =
     // =======
 
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-qq
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-wx
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-sina
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-alipay
+    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-dingding
+
+    // https://mvnrepository.com/artifact/com.tencent.tauth/qqopensdk
+    // https://mvnrepository.com/artifact/com.tencent.mm.opensdk/wechat-sdk-android-without-mta
+    // https://mvnrepository.com/artifact/com.alibaba.android/ddsharesdk
+
 //    分享 SDK gradle 在线依赖目前支持 QQ、微信、新浪微博、支付宝、钉钉 ( 5 个国内主流三方分享平台 )
 //    其它平台还是需要从友盟官网下载 SDK 进行离线集成
 
-    api 'com.umeng.umsdk:share-qq:7.1.9'
+    api 'com.umeng.umsdk:share-qq:7.2.0'
     // QQ 官方 SDK 依赖库
     api 'com.tencent.tauth:qqopensdk:3.53.0'
 
-    api 'com.umeng.umsdk:share-wx:7.1.9'
+    api 'com.umeng.umsdk:share-wx:7.2.0'
     // 微信官方 SDK 依赖库 https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html
     api 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0'
 
-    api 'com.umeng.umsdk:share-sina:7.1.9'
+    api 'com.umeng.umsdk:share-sina:7.2.0'
     // 新浪微博官方 SDK 依赖库 https://github.com/sinaweibosdk/weibo_android_sdk
     api 'io.github.sinaweibosdk:core:12.5.0@aar'
 
-    api 'com.umeng.umsdk:share-alipay:7.1.9'
-    api 'com.umeng.umsdk:share-dingding:7.1.9'
+    api 'com.umeng.umsdk:share-alipay:7.2.0'
+    api 'com.umeng.umsdk:share-dingding:7.2.0'
 
     // https://developers.dingtalk.com/document/mobile-app-guide/android-sharing-sdk-access-process
-    api 'com.alibaba.android:ddsharesdk:1.2.1'
+    api 'com.alibaba.android:ddsharesdk:1.2.2'
 }
