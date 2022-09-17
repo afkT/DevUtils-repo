@@ -7,7 +7,7 @@ buildscript {
 
     // Kotlin 版本
     ext.kotlin_version = "1.7.10"
-    ext.kotlin_stdlib = "1.7.0"
+    ext.kotlin_stdlib = "1.7.10"
     ext.matrix_version = "2.0.8"
 
     repositories { // 该 repositories 用于 buildscript dependencies 插件、脚本依赖加载
@@ -36,7 +36,7 @@ buildscript {
 
     dependencies {
         // https://mvnrepository.com/artifact/com.android.tools.build/gradle
-        classpath 'com.android.tools.build:gradle:7.2.1'
+        classpath 'com.android.tools.build:gradle:7.3.0'
         // kotlin https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // ARouter AutoRegister https://mvnrepository.com/artifact/com.alibaba/arouter-register
@@ -44,7 +44,7 @@ buildscript {
         // greendao https://mvnrepository.com/artifact/org.greenrobot/greendao-gradle-plugin
         classpath "org.greenrobot:greendao-gradle-plugin:3.3.0"
         // 华为推送所需 https://mvnrepository.com/artifact/com.huawei.agconnect/agcp
-        classpath "com.huawei.agconnect:agcp:1.6.6.200"
+        classpath "com.huawei.agconnect:agcp:1.7.1.300"
         // https://mvnrepository.com/artifact/com.tencent.matrix/matrix-gradle-plugin
         //classpath("com.tencent.matrix:matrix-gradle-plugin:$matrix_version") { changing = true }
     }
