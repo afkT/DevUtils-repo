@@ -100,6 +100,9 @@
         "auto_service": "com.google.auto.service:auto-service:1.0.1"
     },
     "widget": {
+        "binding_collection_adapter": "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0",
+        "binding_collection_adapter_recyclerview": "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:4.0.0",
+        "binding_collection_adapter_viewpager2": "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:4.0.0",
         "multitype": "com.drakeet.multitype:multitype:4.3.0",
         "consecutiveScroller": "com.github.donkingliang:ConsecutiveScroller:4.6.3",
         "banner": "io.github.youth5201314:banner:2.2.2",

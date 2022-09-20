@@ -10,15 +10,13 @@ dependencies {
     implementation deps.dev.dev_app
     implementation deps.dev.dev_assist
     implementation deps.dev.dev_base_mvvm
+    implementation deps.dev.dev_mvvm
     implementation deps.dev.dev_engine
     implementation deps.dev.dev_widget
 
     // =========
     // = 非 lib =
     // =========
-
-    // DevComponent /core/libs/lib_utils
-    implementation project(':lib_utils')
 
     implementation project(':DevBaseView')
 

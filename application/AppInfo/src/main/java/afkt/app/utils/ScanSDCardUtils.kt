@@ -130,13 +130,11 @@ class ScanSDCardUtils private constructor() {
             a_apk: FileApkItem,
             b_apk: FileApkItem
         ): Int {
-            return if (b_apk != null) {
-                if (a_apk.lastModified == b_apk.lastModified) {
-                    0 // 安装时间相等
-                } else { // 近期安装的在最前面
-                    if (a_apk.lastModified > b_apk.lastModified) -1 else 1
-                }
-            } else 0
+            return if (a_apk.lastModified == b_apk.lastModified) {
+                0 // 安装时间相等
+            } else { // 近期安装的在最前面
+                if (a_apk.lastModified > b_apk.lastModified) -1 else 1
+            }
         }
     }
 }

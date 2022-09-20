@@ -31,7 +31,6 @@ import okhttp3.OkHttpClient;
 
 /**
  * detail: OkGo 配置相关工具类
- *
  * @author Ttt
  * <pre>
  *     用于初始化 OkGo、OkHttp 等配置相关方法
@@ -61,7 +60,6 @@ public final class OkGoUtils {
      *     tips: 最简单的配置直接调用 OkGo.getInstance().init(this); {@link OkGo}
      *     在 App {@link Application} 初始化
      * </pre>
-     *
      * @param application {@link Application}
      */
     public static void initOkGo(Application application) {
@@ -187,7 +185,6 @@ public final class OkGoUtils {
 
     /**
      * 执行请求处理
-     *
      * @param clazz    class
      * @param request  {@link Request}
      * @param callback {@link OkGoCallback}
@@ -210,7 +207,6 @@ public final class OkGoUtils {
      *     BaseView 请求方法内调用该方法, 进行设置 TAG 在 Activity#onDestroy 中调用
      *     OkGo.getInstance().cancelTag(tag); 防止内存泄露
      * </pre>
-     *
      * @param tag      request tag
      * @param request  {@link Request}
      * @param callback {@link OkGoCallback}

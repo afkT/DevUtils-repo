@@ -145,7 +145,7 @@ class ScanSDCardFragment : BaseFragment<FragmentAppBinding>() {
             ) {
                 if (direction == ItemTouchHelper.LEFT || direction == ItemTouchHelper.RIGHT) {
                     try {
-                        val position = viewHolder.adapterPosition
+                        val position = viewHolder.bindingAdapterPosition
                         FileUtils.deleteFile(mAdapter.getDataItem(position).uri)
                         mAdapter.removeDataAt(position)
                     } catch (e: Exception) {

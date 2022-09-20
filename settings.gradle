@@ -9,7 +9,6 @@
 def local_modules = [
         "DevBaseView",
         "DevOther",
-        "DevComponent/lib_utils",
 ]
 
 local_modules.forEach {
