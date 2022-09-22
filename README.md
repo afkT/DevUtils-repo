@@ -1,21 +1,38 @@
 
 <h1 align="center">DevUtils-repo</h1>
 
-<p align="center">
-<a href="https://github.com/afkT"><img alt="Profile" src="https://img.shields.io/badge/GitHub-afkT-orange.svg"/></a>
-<a href="https://github.com/afkT/DevUtils-repo/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
-<a href="https://search.maven.org/search?q=io.github.afkt"><img alt="Version" src="https://img.shields.io/badge/Maven-Dev-5776E0.svg"/></a>
-<a href="https://android-arsenal.com/api?level=14"><img alt="API" src="https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat"/></a>
-</p>
 
 <p align="center">
-🐝 该项目是针对 <a href="https://github.com/afkT/DevUtils">DevUtils</a> 第三方库封装扩展、新技术 Demo 编写、大文件资源等迁移存储仓库。
+	<a href="https://github.com/afkT">
+		<img alt="Profile" src="https://img.shields.io/badge/GitHub-afkT-orange.svg" />
+	</a>
+	<a href="https://github.com/afkT/DevUtils-repo/blob/master/LICENSE">
+		<img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" />
+	</a>
+	<a href="https://search.maven.org/search?q=io.github.afkt">
+		<img alt="Version" src="https://img.shields.io/badge/Maven-Dev-5776E0.svg" />
+	</a>
+	<a href="https://android-arsenal.com/api?level=14">
+		<img alt="API" src="https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat" />
+	</a>
 </p>
 
+
 <p align="center">
-<b><a href="https://github.com/afkT/DevUtils/blob/master/README/android_standard.md">Android 规范</a></b>、
-<b><a href="https://github.com/afkT/DevUtils/blob/master/README/java_standard.md">Java 规范</a></b>、
-<b><a href="https://github.com/afkT/DevUtils/blob/master/README/git_standard.md">Git 规范</a></b>
+	🐝 该项目是针对 <a href="https://github.com/afkT/DevUtils">DevUtils</a> 第三方库封装扩展、新技术 Demo 编写、大文件资源等迁移存储仓库。
+</p>
+
+
+<p align="center">
+	<b>
+		<a href="https://github.com/afkT/DevUtils/blob/master/README/android_standard.md">Android 规范</a>
+	</b>、
+	<b>
+		<a href="https://github.com/afkT/DevUtils/blob/master/README/java_standard.md">Java 规范</a>
+	</b>、
+	<b>
+		<a href="https://github.com/afkT/DevUtils/blob/master/README/git_standard.md">Git 规范</a>
+	</b>
 </p>
 
 
