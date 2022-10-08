@@ -199,7 +199,7 @@ object ExportUtils {
             intent.type = "*/*"
             intent.putExtra(Intent.EXTRA_STREAM, UriUtils.getUriForFile(file))
             if (AppUtils.startActivity(intent)) return
-        } catch (e: Exception) {
+        } catch (ignored: Exception) {
         }
         ToastTintUtils.error(ResourceUtils.getString(R.string.str_share_fail))
     }

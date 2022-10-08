@@ -70,7 +70,7 @@ abstract class BaseActivity<VB : ViewBinding> : DevBaseContentViewBindingActivit
     private fun innerInitialize() {
         try {
             ARouter.getInstance().inject(this)
-        } catch (e: Exception) {
+        } catch (ignored: Exception) {
         }
     }
 
