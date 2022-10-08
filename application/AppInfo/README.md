@@ -14,13 +14,13 @@ Kotlin 实现获取手机安装的应用信息（用户应用、系统应用）�
 
 
 
-[img1]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img1.png
-[img2]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img2.png
-[img3]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img3.png
-[img4]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img4.png
-[img5]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img5.png
-[img6]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img6.png
-[img7]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img7.png
-[img8]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img8.png
-[img9]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img9.png
-[img10]: https://github.com/afkT/DevUtils-repo/raw/main/art/appinfo_img10.png
+[img1]: https://github.com/afkT/Resources/raw/main/art/appinfo_img1.png
+[img2]: https://github.com/afkT/Resources/raw/main/art/appinfo_img2.png
+[img3]: https://github.com/afkT/Resources/raw/main/art/appinfo_img3.png
+[img4]: https://github.com/afkT/Resources/raw/main/art/appinfo_img4.png
+[img5]: https://github.com/afkT/Resources/raw/main/art/appinfo_img5.png
+[img6]: https://github.com/afkT/Resources/raw/main/art/appinfo_img6.png
+[img7]: https://github.com/afkT/Resources/raw/main/art/appinfo_img7.png
+[img8]: https://github.com/afkT/Resources/raw/main/art/appinfo_img8.png
+[img9]: https://github.com/afkT/Resources/raw/main/art/appinfo_img9.png
+[img10]: https://github.com/afkT/Resources/raw/main/art/appinfo_img10.png

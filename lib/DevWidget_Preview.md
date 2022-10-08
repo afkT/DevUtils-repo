@@ -312,18 +312,18 @@ flowLikeView.like();
 
 
 
-[WrapView_jpg]: https://github.com/afkT/DevUtils-repo/raw/main/art/wrap_view.jpg
-[LineTextView_jpg]: https://github.com/afkT/DevUtils-repo/raw/main/art/line_text_view.jpg
-[SignView_jpg]: https://github.com/afkT/DevUtils-repo/raw/main/art/sign_view.jpg
-[ScanShapeView_Square_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/scan_shape_view_square.gif
-[ScanShapeView_Hexagon_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/scan_shape_view_hexagon.gif
-[ScanShapeView_Annulus_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/scan_shape_view_annulus.gif
-[LoadProgressBar_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/load_progress_bar.gif
-[FlowLikeView_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/flow_like_view.gif
-[CornerLabelView_jpg]: https://github.com/afkT/DevUtils-repo/raw/main/art/corner_label_view.jpg
-[ViewAssist_jpg]: https://github.com/afkT/DevUtils-repo/raw/main/art/view_assist.jpg
-[ViewAssist_Loading_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/view_assist_loading.gif
-[ViewAssist_Loading2_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/view_assist_loading2.gif
-[ViewAssist_Error_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/view_assist_error.gif
-[ViewAssist_Empty_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/view_assist_empty.gif
-[ViewAssist_Custom_gif]: https://github.com/afkT/DevUtils-repo/raw/main/art/view_assist_custom.gif
+[WrapView_jpg]: https://github.com/afkT/Resources/raw/main/art/wrap_view.jpg
+[LineTextView_jpg]: https://github.com/afkT/Resources/raw/main/art/line_text_view.jpg
+[SignView_jpg]: https://github.com/afkT/Resources/raw/main/art/sign_view.jpg
+[ScanShapeView_Square_gif]: https://github.com/afkT/Resources/raw/main/art/scan_shape_view_square.gif
+[ScanShapeView_Hexagon_gif]: https://github.com/afkT/Resources/raw/main/art/scan_shape_view_hexagon.gif
+[ScanShapeView_Annulus_gif]: https://github.com/afkT/Resources/raw/main/art/scan_shape_view_annulus.gif
+[LoadProgressBar_gif]: https://github.com/afkT/Resources/raw/main/art/load_progress_bar.gif
+[FlowLikeView_gif]: https://github.com/afkT/Resources/raw/main/art/flow_like_view.gif
+[CornerLabelView_jpg]: https://github.com/afkT/Resources/raw/main/art/corner_label_view.jpg
+[ViewAssist_jpg]: https://github.com/afkT/Resources/raw/main/art/view_assist.jpg
+[ViewAssist_Loading_gif]: https://github.com/afkT/Resources/raw/main/art/view_assist_loading.gif
+[ViewAssist_Loading2_gif]: https://github.com/afkT/Resources/raw/main/art/view_assist_loading2.gif
+[ViewAssist_Error_gif]: https://github.com/afkT/Resources/raw/main/art/view_assist_error.gif
+[ViewAssist_Empty_gif]: https://github.com/afkT/Resources/raw/main/art/view_assist_empty.gif
+[ViewAssist_Custom_gif]: https://github.com/afkT/Resources/raw/main/art/view_assist_custom.gif

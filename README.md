@@ -131,8 +131,8 @@ git push --force
 
 
 [DevUtils]: https://github.com/afkT/DevUtils
-[repositories_before]: https://github.com/afkT/DevUtils-repo/raw/main/art/git_delete/repositories_before.png
-[repositories_after]: https://github.com/afkT/DevUtils-repo/raw/main/art/git_delete/repositories_after.png
-[deleted_files]: https://github.com/afkT/DevUtils-repo/raw/main/art/git_delete/deleted_files.png
+[repositories_before]: https://github.com/afkT/Resources/raw/main/art/git_delete/repositories_before.png
+[repositories_after]: https://github.com/afkT/Resources/raw/main/art/git_delete/repositories_after.png
+[deleted_files]: https://github.com/afkT/Resources/raw/main/art/git_delete/deleted_files.png
 [BFG Repo-Cleaner]: https://rtyley.github.io/bfg-repo-cleaner
 [Removing sensitive data from a repository]: https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
