@@ -8,7 +8,8 @@ buildscript {
     // Kotlin 版本
     ext.kotlin_version = "1.7.10"
     ext.kotlin_stdlib = "1.7.10"
-    ext.matrix_version = "2.0.8"
+    ext.dokka_plugin = "1.7.10"
+    ext.matrix_version = "2.1.0"
 
     repositories { // 该 repositories 用于 buildscript dependencies 插件、脚本依赖加载
         // AliRepo 阿里仓库服务 https://maven.aliyun.com/mvn/view
@@ -36,11 +37,13 @@ buildscript {
 
     dependencies {
         // https://mvnrepository.com/artifact/com.android.tools.build/gradle
-        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.android.tools.build:gradle:8.0.2'
         // kotlin https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // ARouter AutoRegister https://mvnrepository.com/artifact/com.alibaba/arouter-register
-        classpath "com.alibaba:arouter-register:1.0.2"
+//        // ARouter AutoRegister https://mvnrepository.com/artifact/com.alibaba/arouter-register
+//        classpath "cn.therouter:plugin:1.1.4-rc1"
+        // TheRouter AutoRegister https://mvnrepository.com/artifact/cn.therouter/plugin
+        classpath "cn.therouter:plugin:1.2.0-beta3"
         // greendao https://mvnrepository.com/artifact/org.greenrobot/greendao-gradle-plugin
         classpath "org.greenrobot:greendao-gradle-plugin:3.3.0"
         // 华为推送所需 https://mvnrepository.com/artifact/com.huawei.agconnect/agcp
