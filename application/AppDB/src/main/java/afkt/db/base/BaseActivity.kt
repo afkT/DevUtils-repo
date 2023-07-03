@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
-import com.therouter.router.Autowired
 import com.therouter.TheRouter
+import com.therouter.router.Autowired
 import dev.base.expand.content.DevBaseContentViewBindingActivity
 import dev.utils.DevFinal
 import dev.utils.app.ViewUtils
@@ -99,9 +99,9 @@ abstract class BaseActivity<VB : ViewBinding> :
     // =======
 
     /**
-     * ARouter 跳转方法
+     * Router 跳转方法
      * @param text 标题
-     * @param path ARouter Path
+     * @param path Router Path
      */
     fun routerActivity(
         text: String,

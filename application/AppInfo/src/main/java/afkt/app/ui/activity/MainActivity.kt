@@ -61,9 +61,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
                         TypeEnum.APP_USER -> {
                             viewModel.postUserApp(value)
                         }
+
                         TypeEnum.APP_SYSTEM -> {
                             viewModel.postSystemApp(value)
                         }
+
                         else -> {
 
                         }
@@ -153,6 +155,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
                 TypeEnum.APP_USER, TypeEnum.APP_SYSTEM, TypeEnum.QUERY_APK -> {
                     ViewUtils.setVisibility(true, binding.vidTopBtn)
                 }
+
                 else -> ViewUtils.setVisibility(false, binding.vidTopBtn)
             }
             // 通知系统更新菜单
@@ -227,11 +230,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
             TypeEnum.DEVICE_INFO, TypeEnum.SCREEN_INFO -> menuInflater.inflate(
                 R.menu.bar_menu_device, menu
             )
+
             TypeEnum.APP_USER, TypeEnum.APP_SYSTEM, TypeEnum.QUERY_APK -> {
                 menuInflater.inflate(R.menu.bar_menu_apps, menu)
                 // 初始化搜索操作
                 initSearchOperate(menu)
             }
+
             else -> {
             }
         }

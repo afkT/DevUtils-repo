@@ -174,8 +174,10 @@ class ScanSDCardFragment : BaseFragment<FragmentAppBinding>() {
                         }
                     }
                 }
+
                 ActionEnum.EXPAND -> { // 搜索展开
                 }
+
                 ActionEnum.CONTENT -> { // 搜索输入内容
                     if (it.type == type) {
                         dataStore.searchContent = it.content
@@ -253,7 +255,8 @@ class ScanSDCardFragment : BaseFragment<FragmentAppBinding>() {
                     notFoundList: List<String>
                 ) {
                     val builder = StringBuilder()
-                        .append("申请通过的权限").append(grantedList.toTypedArray().contentToString())
+                        .append("申请通过的权限")
+                        .append(grantedList.toTypedArray().contentToString())
                         .append(DevFinal.SYMBOL.NEW_LINE)
                         .append("拒绝的权限").append(deniedList.toString())
                         .append(DevFinal.SYMBOL.NEW_LINE)

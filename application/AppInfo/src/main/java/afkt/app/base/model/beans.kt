@@ -68,9 +68,11 @@ class AppListBean(
         AppInfoBean.AppType.USER -> {
             TypeEnum.APP_USER
         }
+
         AppInfoBean.AppType.SYSTEM -> {
             TypeEnum.APP_SYSTEM
         }
+
         AppInfoBean.AppType.ALL -> {
             TypeEnum.NONE
         }

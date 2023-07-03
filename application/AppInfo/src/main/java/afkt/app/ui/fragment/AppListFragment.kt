@@ -123,8 +123,10 @@ class AppListFragment : BaseFragment<FragmentAppBinding>() {
                         }
                     }
                 }
+
                 ActionEnum.EXPAND -> { // 搜索展开
                 }
+
                 ActionEnum.CONTENT -> { // 搜索输入内容
                     if (it.type == dataStore.typeEnum) {
                         dataStore.searchContent = it.content

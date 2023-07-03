@@ -157,9 +157,11 @@ class ApkDetailsActivity : BaseActivity<ActivityApkDetailsBinding>() {
             R.id.vid_menu_share -> {
                 ExportUtils.shareApp(apkInfoItem)
             }
+
             R.id.vid_menu_export_apk -> {
                 ExportUtils.exportApp(apkInfoItem)
             }
+
             R.id.vid_menu_export_apk_msg -> {
                 ExportUtils.exportInfo(apkInfoItem)
             }

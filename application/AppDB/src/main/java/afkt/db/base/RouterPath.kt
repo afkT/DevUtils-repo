@@ -1,7 +1,7 @@
 package afkt.db.base
 
 /**
- * detail: ARouter Path
+ * detail: Router Path
  * @author Ttt
  */
 object RouterPath {

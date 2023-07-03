@@ -79,7 +79,7 @@ abstract class BaseActivity<VB : ViewBinding> : DevBaseContentViewBindingActivit
     // =======
 
     /**
-     * ARouter 跳转方法
+     * Router 跳转方法
      * @param path 跳转路径
      */
     fun routerActivity(

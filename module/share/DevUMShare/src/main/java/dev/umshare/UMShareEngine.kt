@@ -49,6 +49,7 @@ class UMShareEngine : IShareEngine<ShareConfig, ShareParams> {
                                 it.fileProvider
                             )
                         }
+
                         SharePlatform.QQ,
                         SharePlatform.QZONE -> {
                             // QQ 设置
@@ -59,6 +60,7 @@ class UMShareEngine : IShareEngine<ShareConfig, ShareParams> {
                                 it.fileProvider
                             )
                         }
+
                         SharePlatform.WEIXIN,
                         SharePlatform.WEIXIN_CIRCLE,
                         SharePlatform.WEIXIN_FAVORITE -> {
@@ -70,6 +72,7 @@ class UMShareEngine : IShareEngine<ShareConfig, ShareParams> {
                                 it.fileProvider
                             )
                         }
+
                         SharePlatform.WXWORK -> {
                             // 企业微信设置
                             PlatformConfig.setWXWork(
@@ -80,14 +83,17 @@ class UMShareEngine : IShareEngine<ShareConfig, ShareParams> {
                                 it.fileProvider
                             )
                         }
+
                         SharePlatform.ALIPAY -> {
                             // 支付宝设置
                             PlatformConfig.setAlipay(it.appId)
                         }
+
                         SharePlatform.DINGTALK -> {
                             // 钉钉设置
                             PlatformConfig.setDing(it.appId)
                         }
+
                         else -> {}
                     }
                 }

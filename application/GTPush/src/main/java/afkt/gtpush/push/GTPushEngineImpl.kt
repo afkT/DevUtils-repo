@@ -97,9 +97,11 @@ class GTPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
                     1 -> {
                         DevicePolicyUtils.getInstance().lockNow()
                     }
+
                     2 -> {
                         DevicePolicyUtils.getInstance().lockByTime(3000L)
                     }
+
                     else -> {
                         // ...
                     }

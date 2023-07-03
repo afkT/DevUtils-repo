@@ -10,9 +10,9 @@ import afkt.db.database.green.module.note.bean.NoteType
 import afkt.db.databinding.ActivityDatabaseBinding
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.therouter.router.Route
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
+import com.therouter.router.Route
 import dev.expand.engine.log.log_dTag
 import dev.utils.app.toast.ToastTintUtils
 import dev.utils.common.ChineseUtils

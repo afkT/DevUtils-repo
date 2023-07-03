@@ -137,9 +137,11 @@ class AppDetailsActivity : BaseActivity<ActivityAppDetailsBinding>() {
             R.id.vid_menu_share -> {
                 ExportUtils.shareApp(appInfoItem)
             }
+
             R.id.vid_menu_export_app -> {
                 ExportUtils.exportApp(appInfoItem)
             }
+
             R.id.vid_menu_export_app_msg -> {
                 ExportUtils.exportInfo(appInfoItem)
             }

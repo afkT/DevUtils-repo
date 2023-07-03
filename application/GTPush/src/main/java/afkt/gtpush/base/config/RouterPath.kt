@@ -1,7 +1,7 @@
 package afkt.gtpush.base.config
 
 /**
- * detail: ARouter Path
+ * detail: Router Path
  * @author Ttt
  */
 object RouterPath {

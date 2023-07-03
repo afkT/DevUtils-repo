@@ -10,8 +10,8 @@ import afkt.gtpush.ui.activity.SplashActivity
 import android.app.Activity
 import android.text.TextUtils
 import androidx.multidex.MultiDexApplication
-import com.therouter.TheRouter
 import com.tencent.mmkv.MMKV
+import com.therouter.TheRouter
 import dev.DevUtils
 import dev.engine.DevEngine
 import dev.engine.keyvalue.DevKeyValueEngine

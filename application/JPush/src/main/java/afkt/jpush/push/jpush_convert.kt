@@ -18,15 +18,19 @@ fun convertEngineMessage(message: Any?): PushMessage? {
             is CmdMessage -> {
                 convertCmdMessage(it)
             }
+
             is NotificationMessage -> {
                 convertNotificationMessage(it)
             }
+
             is CustomMessage -> {
                 convertCustomMessage(it)
             }
+
             is JSONObject -> {
                 convertJSONObject(it)
             }
+
             else -> null
         }
     }

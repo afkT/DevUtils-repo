@@ -73,6 +73,7 @@ class BaseApplication : MultiDexApplication(),
                 when (type) {
                     ViewAssist.TYPE_ING -> {
                     }
+
                     ViewAssist.TYPE_EMPTY_DATA -> {
                     }
                 }

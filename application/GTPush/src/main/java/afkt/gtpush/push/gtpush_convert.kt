@@ -18,12 +18,15 @@ fun convertEngineMessage(message: Any?): PushMessage? {
             is GTCmdMessage -> {
                 convertGTCmdMessage(it)
             }
+
             is GTNotificationMessage -> {
                 convertGTNotificationMessage(it)
             }
+
             is GTTransmitMessage -> {
                 convertGTTransmitMessage(it)
             }
+
             else -> null
         }
     }
