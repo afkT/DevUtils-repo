@@ -45,9 +45,9 @@ buildscript {
         // TheRouter AutoRegister https://mvnrepository.com/artifact/cn.therouter/plugin
         classpath "cn.therouter:plugin:1.2.0-beta3"
         // greendao https://mvnrepository.com/artifact/org.greenrobot/greendao-gradle-plugin
-        classpath "org.greenrobot:greendao-gradle-plugin:3.3.0"
+        classpath "org.greenrobot:greendao-gradle-plugin:3.3.1"
         // 华为推送所需 https://mvnrepository.com/artifact/com.huawei.agconnect/agcp
-        classpath "com.huawei.agconnect:agcp:1.7.1.300"
+        classpath "com.huawei.agconnect:agcp:1.9.0.300"
         // https://mvnrepository.com/artifact/com.tencent.matrix/matrix-gradle-plugin
         //classpath("com.tencent.matrix:matrix-gradle-plugin:$matrix_version") { changing = true }
     }

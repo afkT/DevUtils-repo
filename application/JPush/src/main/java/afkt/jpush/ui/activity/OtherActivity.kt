@@ -4,7 +4,7 @@ import afkt.jpush.R
 import afkt.jpush.base.BaseActivity
 import afkt.jpush.base.config.RouterPath
 import androidx.viewbinding.ViewBinding
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.therouter.router.Route
 
 /**
  * detail: 其他页面 ( 二级页面 )

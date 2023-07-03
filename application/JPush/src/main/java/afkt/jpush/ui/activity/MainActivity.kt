@@ -4,7 +4,7 @@ import afkt.jpush.R
 import afkt.jpush.base.BaseActivity
 import afkt.jpush.base.config.RouterPath
 import afkt.jpush.databinding.ActivityMainBinding
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.therouter.router.Route
 
 @Route(path = RouterPath.MainActivity_PATH)
 class MainActivity : BaseActivity<ActivityMainBinding>() {

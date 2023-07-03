@@ -10,7 +10,7 @@ import afkt.jpush.ui.activity.SplashActivity
 import android.app.Activity
 import android.text.TextUtils
 import androidx.multidex.MultiDexApplication
-import com.alibaba.android.arouter.launcher.ARouter
+import com.therouter.TheRouter
 import com.tencent.mmkv.MMKV
 import dev.DevUtils
 import dev.engine.DevEngine
@@ -30,13 +30,10 @@ class BaseApplication : MultiDexApplication() {
         super.onCreate()
 
         if (BuildConfig.DEBUG) {
-            ARouter.openLog()
-            ARouter.openDebug()
-            // 打印日志的时候打印线程堆栈
-            ARouter.printStackTrace()
+            TheRouter.isDebug = true
         }
-        // 尽可能早, 推荐在 Application 中初始化
-        ARouter.init(this)
+        // 推荐在 Application 中初始化
+        TheRouter.init(this)
 
         if (BuildConfig.DEBUG) {
             // 初始化 Logger 配置
@@ -93,7 +90,7 @@ class BaseApplication : MultiDexApplication() {
             ) {
                 pushData?.let {
                     if (activity != null) {
-                        ARouter.getInstance()
+                        TheRouter
                             .build(RouterPath.MessageActivity_PATH)
                             .withString(DevFinal.STR.DATA, it)
                             .navigation(activity)

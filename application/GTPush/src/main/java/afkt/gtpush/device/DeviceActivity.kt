@@ -5,7 +5,7 @@ import afkt.gtpush.base.BaseActivity
 import afkt.gtpush.base.config.RouterPath
 import afkt.gtpush.databinding.ActivityDeviceBinding
 import android.content.DialogInterface
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.therouter.router.Route
 import dev.utils.app.DevicePolicyUtils
 import dev.utils.app.DialogUtils
 import dev.utils.app.toast.ToastTintUtils

@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-
+    namespace "dev.jpush"
     compileSdkVersion versions.compileSdkVersion
 
     defaultConfig {
@@ -100,6 +100,8 @@ dependencies {
 //def isRelease = false
 //
 //android {
+//    namespace "dev.jpush"
+//    compileSdkVersion versions.compileSdkVersion
 //    defaultConfig {
 //        manifestPlaceholders = [
 //

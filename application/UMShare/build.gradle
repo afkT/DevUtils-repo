@@ -2,6 +2,8 @@ apply from: rootProject.file(files.build_app_gradle)
 apply from: rootProject.file(files.build_router_app_gradle)
 
 android {
+    namespace "afkt.umshare"
+
     defaultConfig {
         applicationId "afkt.umshare"
 

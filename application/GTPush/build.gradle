@@ -4,6 +4,8 @@ apply from: rootProject.file(files.build_router_app_gradle)
 apply plugin: 'com.huawei.agconnect'
 
 android {
+    namespace "afkt.gtpush"
+
     defaultConfig {
         applicationId "afkt.gtpush"
 

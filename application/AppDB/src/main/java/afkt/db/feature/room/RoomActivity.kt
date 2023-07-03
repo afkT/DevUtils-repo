@@ -11,7 +11,7 @@ import afkt.db.database.room.module.note.bean.NoteType
 import afkt.db.databinding.ActivityDatabaseBinding
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.therouter.router.Route
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import dev.expand.engine.log.log_dTag

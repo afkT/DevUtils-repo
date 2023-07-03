@@ -4,7 +4,7 @@ import afkt.gtpush.R
 import afkt.gtpush.base.BaseActivity
 import afkt.gtpush.base.config.RouterPath
 import afkt.gtpush.databinding.ActivityMainBinding
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.therouter.router.Route
 
 @Route(path = RouterPath.MainActivity_PATH)
 class MainActivity : BaseActivity<ActivityMainBinding>() {

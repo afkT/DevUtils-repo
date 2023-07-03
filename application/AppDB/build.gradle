@@ -5,6 +5,8 @@ apply from: rootProject.file(files.deps_qa_lib)
 apply plugin: 'org.greenrobot.greendao'
 
 android {
+    namespace "afkt.db"
+
     defaultConfig {
         applicationId "afkt.db"
 

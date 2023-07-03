@@ -1,7 +1,7 @@
 package afkt.db.base
 
 import androidx.multidex.MultiDexApplication
-import com.alibaba.android.arouter.launcher.ARouter
+import com.therouter.TheRouter
 import dev.DevUtils
 import dev.engine.DevEngine
 import dev.utils.app.logger.DevLogger
@@ -17,12 +17,9 @@ class BaseApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        ARouter.openLog()
-        ARouter.openDebug()
-        // 打印日志的时候打印线程堆栈
-        ARouter.printStackTrace()
-        // 尽可能早, 推荐在 Application 中初始化
-        ARouter.init(this)
+        TheRouter.isDebug = true
+        // 推荐在 Application 中初始化
+        TheRouter.init(this)
 
         // ============
         // = DevUtils =

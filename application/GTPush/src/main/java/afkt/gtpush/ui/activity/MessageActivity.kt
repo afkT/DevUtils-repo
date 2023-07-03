@@ -4,8 +4,8 @@ import afkt.gtpush.R
 import afkt.gtpush.base.BaseActivity
 import afkt.gtpush.base.config.RouterPath
 import afkt.gtpush.databinding.ActivityMessageBinding
-import com.alibaba.android.arouter.facade.annotation.Autowired
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.therouter.router.Autowired
+import com.therouter.router.Route
 import dev.expand.engine.json.toJsonIndent
 import dev.utils.DevFinal
 

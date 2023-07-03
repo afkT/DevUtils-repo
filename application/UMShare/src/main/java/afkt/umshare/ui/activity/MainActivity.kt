@@ -5,7 +5,7 @@ import afkt.umshare.base.BaseActivity
 import afkt.umshare.base.config.RouterPath
 import afkt.umshare.databinding.ActivityMainBinding
 import android.content.Intent
-import com.alibaba.android.arouter.facade.annotation.Route
+import com.therouter.router.Route
 import dev.engine.DevEngine
 import dev.engine.share.listener.ShareListener
 import dev.expand.engine.log.log_dTag

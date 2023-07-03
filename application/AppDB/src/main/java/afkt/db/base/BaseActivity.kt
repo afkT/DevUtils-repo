@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
-import com.alibaba.android.arouter.facade.annotation.Autowired
-import com.alibaba.android.arouter.launcher.ARouter
+import com.therouter.router.Autowired
+import com.therouter.TheRouter
 import dev.base.expand.content.DevBaseContentViewBindingActivity
 import dev.utils.DevFinal
 import dev.utils.app.ViewUtils
@@ -89,7 +89,7 @@ abstract class BaseActivity<VB : ViewBinding> :
 
     private fun innerInitialize() {
         try {
-            ARouter.getInstance().inject(this)
+            TheRouter.inject(this)
         } catch (ignored: Exception) {
         }
     }
@@ -107,7 +107,7 @@ abstract class BaseActivity<VB : ViewBinding> :
         text: String,
         path: String
     ) {
-        ARouter.getInstance().build(path)
+        TheRouter.build(path)
             .withString(DevFinal.STR.TITLE, text)
             .navigation(this)
     }

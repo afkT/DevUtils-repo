@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
-import com.alibaba.android.arouter.launcher.ARouter
+import com.therouter.TheRouter
 import dev.base.expand.content.DevBaseContentViewBindingActivity
 import dev.utils.app.ViewUtils
 
@@ -61,7 +61,7 @@ abstract class BaseActivity<VB : ViewBinding> : DevBaseContentViewBindingActivit
 
     private fun innerInitialize() {
         try {
-            ARouter.getInstance().inject(this)
+            TheRouter.inject(this)
         } catch (ignored: Exception) {
         }
     }
@@ -77,7 +77,7 @@ abstract class BaseActivity<VB : ViewBinding> : DevBaseContentViewBindingActivit
     fun routerActivity(
         path: String
     ) {
-        ARouter.getInstance().build(path)
+        TheRouter.build(path)
             .navigation(this)
     }
 }
