@@ -17,9 +17,6 @@ android {
                 // DevUMShare share-qq 所需
                 qqappid: "100424468",
         ]
-
-        // com.umeng.umsdk:share-qq => com.tencent.tauth:qqopensdk 暂未适配 android:exported
-        targetSdkVersion 30 // 其他都已处理 Android 12 UM 暂时手动设置
     }
 }
 
