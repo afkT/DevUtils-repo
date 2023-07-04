@@ -92,8 +92,8 @@
         "retrofit_rxjava3": "com.squareup.retrofit2:adapter-rxjava3:2.9.0",
         "lottie": "com.airbnb.android:lottie:6.0.1",
         "autosize": "com.github.JessYanCoding:AndroidAutoSize:v1.2.1",
-        "arouter_api": "cn.therouter:router:1.1.4-rc1",
-        "arouter_compiler": "cn.therouter:apt:1.1.4-rc1",
+        "arouter_api": "com.alibaba:arouter-api:1.5.2",
+        "arouter_compiler": "com.alibaba:arouter-compiler:1.5.2",
         "therouter_apt": "cn.therouter:apt:1.2.0-beta3",
         "therouter_router": "cn.therouter:router:1.2.0-beta3"
     },

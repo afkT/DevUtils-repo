@@ -183,9 +183,9 @@ dependencies {
 	// autosize
 	"com.github.JessYanCoding:AndroidAutoSize:v1.2.1",
 	// arouter_api
-	"cn.therouter:router:1.1.4-rc1",
+	"com.alibaba:arouter-api:1.5.2",
 	// arouter_compiler
-	"cn.therouter:apt:1.1.4-rc1",
+	"com.alibaba:arouter-compiler:1.5.2",
 	// therouter_apt
 	"cn.therouter:apt:1.2.0-beta3",
 	// therouter_router
