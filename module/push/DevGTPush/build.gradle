@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 android {
     namespace "dev.gtpush"
     compileSdkVersion versions.compileSdkVersion
+    buildToolsVersion versions.buildToolsVersion
 
     defaultConfig {
         minSdkVersion versions.lib_minSdkVersion
@@ -95,6 +96,7 @@ dependencies {
 //android {
 //    namespace "dev.gtpush"
 //    compileSdkVersion versions.compileSdkVersion
+//    buildToolsVersion versions.buildToolsVersion
 //
 //    defaultConfig {
 //        manifestPlaceholders = [
