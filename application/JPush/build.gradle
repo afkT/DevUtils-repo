@@ -2,6 +2,8 @@ apply from: rootProject.file(files.build_app_gradle)
 apply from: rootProject.file(files.build_router_app_gradle)
 // 华为推送所需
 apply plugin: 'com.huawei.agconnect'
+// 荣耀推送所需
+apply plugin: 'com.hihonor.mcs.asplugin'
 
 android {
     namespace "afkt.jpush"
@@ -45,6 +47,9 @@ android {
                 MEIZU_APPKEY  : "MZ-魅族平台注册的APPKEY",
                 // 魅族平台注册的 APPID
                 MEIZU_APPID   : "MZ-魅族平台注册的APPID",
+
+                // 荣耀平台注册的 APPKEY
+                HONOR_APPID   : "您的应用对应的荣耀的APPID",
         ]
     }
 }

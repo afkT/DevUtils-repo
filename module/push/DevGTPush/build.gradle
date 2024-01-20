@@ -56,8 +56,8 @@ dependencies {
     // https://mvnrepository.com/artifact/com.getui/gtsdk
     // https://mvnrepository.com/artifact/com.getui/gtc
 
-    api 'com.getui:gtsdk:3.2.18.0'  // 个推 SDK
-    api 'com.getui:gtc:3.2.5.0'  // 个推核心组件
+    api 'com.getui:gtsdk:3.3.4.0'  // 个推 SDK
+    api 'com.getui:gtc:3.2.9.0'  // 个推核心组件
 
     // ============
     // = 第三方厂商 =
@@ -69,26 +69,45 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.getui.opt/hwp
     // https://mvnrepository.com/artifact/com.getui.opt/xmp
+    // https://mvnrepository.com/artifact/com.getui.opt/honor
     // https://mvnrepository.com/artifact/com.getui.opt/mzp
     // https://mvnrepository.com/artifact/com.getui.opt/ups
+    // https://mvn.getui.com/nexus/content/repositories/releases/com/assist-v3
+    // https://mvn.getui.com/nexus/content/repositories/releases/com/assist-v3/oppo
+    // https://mvn.getui.com/nexus/content/repositories/releases/com/assist-v3/vivo
 
     // 华为
-    api 'com.getui.opt:hwp:3.1.0' // 3.1.1
+    api 'com.getui.opt:hwp:3.1.2'
 
     // 小米
-    api 'com.getui.opt:xmp:3.3.1'
+    api 'com.getui.opt:xmp:3.3.2'
 
-    // OPPO
-    api 'com.assist-v3:oppo:3.3.0'
-
-    // VIVO
-    api 'com.assist-v3:vivo:3.1.1'
+    // 荣耀
+    api 'com.getui.opt:honor:3.6.0'
 
     // 魅族
-    api 'com.getui.opt:mzp:3.2.3'
+    api 'com.getui.opt:mzp:3.2.4'
+
+    // OPPO
+    api 'com.assist-v3:oppo:3.4.0'
+
+    // VIVO
+    api 'com.assist-v3:vivo:3.1.2'
 
     // UPS 目前支持坚果、索尼、海信手机
     api 'com.getui.opt:ups:3.0.3'
+
+    // ================
+    // = 第三方厂商 SDK =
+    // ================
+
+    // https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-app-version-0000001074227861
+    // 华为
+    api 'com.huawei.hms:push:6.12.0.300'
+
+    // https://developer.hihonor.com/cn/kitdoc?category=%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1&kitId=11002&navigation=guides&docId=intergrate.md&token=
+    // 荣耀
+    api 'com.hihonor.mcs:push:7.0.61.303'
 }
 
 //def isRelease = false
@@ -119,6 +138,9 @@ dependencies {
 //                // 魅族
 //                MEIZU_APP_ID   : "xxxxxxxxxxx",
 //                MEIZU_APP_KEY  : "xxxxxxxxxxx"
+//
+//                // 荣耀
+//                HONOR_APP_ID   : "xxxxxxxxxxx",
 //        ]
 //
 //        // 也可以自己控制 debug、release 使用不同 key

@@ -46,7 +46,7 @@ dependencies {
     // = Maven Central 方式自动集成 =
     // ===========================
 
-    // https://docs.jiguang.cn/jpush/client/Android/android_api
+    // https://docs.jiguang.cn/jpush/client/Android/android_guide
 
     // ==========
     // = 极光推送 =
@@ -58,12 +58,12 @@ dependencies {
     // https://mvnrepository.com/artifact/cn.jiguang.sdk/jpush-google
     // https://mvnrepository.com/artifact/cn.jiguang.sdk/jcore-google
 
-    api 'cn.jiguang.sdk:jpush:5.0.4'
-    api 'cn.jiguang.sdk:jcore:4.2.4'
+    api 'cn.jiguang.sdk:jpush:5.2.2'
+    api 'cn.jiguang.sdk:jcore:4.5.7'
 
 //    // Google Play 版本
-//    api 'cn.jiguang.sdk:jpush-google:5.0.4'
-//    api 'cn.jiguang.sdk:jcore-google:4.2.4'
+//    api 'cn.jiguang.sdk:jpush-google:5.2.2'
+//    api 'cn.jiguang.sdk:jcore-google:4.5.7'
 
     // ============
     // = 第三方厂商 =
@@ -77,25 +77,40 @@ dependencies {
     // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/oppo
     // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/vivo
     // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/meizu
+    // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/honor
 
     // 华为
-    api 'com.huawei.hms:push:6.11.0.300'
-    api 'cn.jiguang.sdk.plugin:huawei:5.0.4'
+    api 'cn.jiguang.sdk.plugin:huawei:5.2.2'
 
     // 小米
-    api 'cn.jiguang.sdk.plugin:xiaomi:5.0.4'
+    api 'cn.jiguang.sdk.plugin:xiaomi:5.2.2'
 
     // OPPO
-    api 'cn.jiguang.sdk.plugin:oppo:5.0.4'
+    api 'cn.jiguang.sdk.plugin:oppo:5.2.2'
 
     // VIVO
-    api 'cn.jiguang.sdk.plugin:vivo:5.0.4'
+    api 'cn.jiguang.sdk.plugin:vivo:5.2.2'
 
     // 魅族
-    api 'cn.jiguang.sdk.plugin:meizu:5.0.4'
+    api 'cn.jiguang.sdk.plugin:meizu:5.2.2'
+
+    // 荣耀
+    api 'cn.jiguang.sdk.plugin:honor:5.2.2'
 
     // 第三方厂商点击回调触发
     // https://go48pg.yuque.com/docs/share/f95b8034-38c7-4baa-951b-ea85948a546e?#Nz1Do
+
+    // ================
+    // = 第三方厂商 SDK =
+    // ================
+
+    // https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-app-version-0000001074227861
+    // 华为
+    api 'com.huawei.hms:push:6.12.0.300'
+
+    // https://developer.hihonor.com/cn/kitdoc?category=%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1&kitId=11002&navigation=guides&docId=intergrate.md&token=
+    // 荣耀
+    api 'com.hihonor.mcs:push:7.0.61.303'
 }
 
 //def isRelease = false
@@ -128,6 +143,9 @@ dependencies {
 //                MEIZU_APPKEY  : "MZ-魅族平台注册的APPKEY",
 //                // 魅族平台注册的 APPID
 //                MEIZU_APPID   : "MZ-魅族平台注册的APPID",
+//
+//                // 荣耀平台注册的 APPKEY
+//                HONOR_APPID   : "您的应用对应的荣耀的APPID",
 //        ]
 //
 //        // 也可以自己控制 debug、release 使用不同 key

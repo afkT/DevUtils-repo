@@ -21,10 +21,6 @@ class BaseApplication : MultiDexApplication(),
     // ViewModelStore
     private lateinit var mAppViewModelStore: ViewModelStore
 
-    override fun getViewModelStore(): ViewModelStore {
-        return mAppViewModelStore
-    }
-
     override fun onCreate() {
         super.onCreate()
 
@@ -84,4 +80,11 @@ class BaseApplication : MultiDexApplication(),
         // 设置全局配置
         StateLayout.setGlobal(global)
     }
+
+    // =======================
+    // = ViewModelStoreOwner =
+    // =======================
+
+    override val viewModelStore: ViewModelStore
+        get() = mAppViewModelStore
 }

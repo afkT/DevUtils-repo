@@ -5,7 +5,7 @@ import android.content.Intent
 import cn.jpush.android.api.CmdMessage
 import cn.jpush.android.api.CustomMessage
 import cn.jpush.android.api.NotificationMessage
-import cn.jpush.android.service.JPushMessageReceiver
+import cn.jpush.android.service.JPushMessageService
 import dev.engine.DevEngine
 
 /**
@@ -13,7 +13,7 @@ import dev.engine.DevEngine
  * @author Ttt
  * @see https://docs.jiguang.cn/jpush/client/Android/android_api/
  */
-class JPushReceiver : JPushMessageReceiver() {
+class JPushReceiver : JPushMessageService() {
 
     // 日志 TAG
     private val TAG = JPushReceiver::class.java.simpleName

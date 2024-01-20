@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.umshare">
+        package="dev.umshare">
 
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,8 +14,14 @@
 
     <queries>
         <package android:name="com.tencent.mm" />
-        <package android:name="com.qzone" />
         <package android:name="com.tencent.mobileqq" />
+        <package android:name="com.tencent.wework" />
+        <package android:name="com.qzone" />
+        <package android:name="com.sina.weibo" />
+        <package android:name="com.alibaba.android.rimet" />
+        <package android:name="com.eg.android.AlipayGphone" />
+        <package android:name="com.instagram.android" />
+        <package android:name="com.ss.android.ugc.aweme" />
     </queries>
 
     <application>
@@ -25,14 +31,14 @@
         <!-- ========== -->
 
         <provider
-            android:name=".UMFileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true"
-            android:multiprocess="true">
+                android:name=".UMFileProvider"
+                android:authorities="${applicationId}.fileprovider"
+                android:exported="false"
+                android:grantUriPermissions="true"
+                android:multiprocess="true">
             <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/um_file_paths" />
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/um_file_paths" />
         </provider>
     </application>
 </manifest>

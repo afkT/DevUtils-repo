@@ -2,6 +2,8 @@ apply from: rootProject.file(files.build_app_gradle)
 apply from: rootProject.file(files.build_router_app_gradle)
 // 华为推送所需
 apply plugin: 'com.huawei.agconnect'
+// 荣耀推送所需
+apply plugin: 'com.hihonor.mcs.asplugin'
 
 android {
     namespace "afkt.gtpush"
@@ -42,6 +44,9 @@ android {
                 // 魅族
                 MEIZU_APP_ID      : "xxxxxxxxxxx",
                 MEIZU_APP_KEY     : "xxxxxxxxxxx",
+
+                // 荣耀
+                HONOR_APP_ID      : "xxxxxxxxxxx",
         ]
     }
 }

@@ -57,6 +57,8 @@ dependencies {
     // = 友盟分享 =
     // ==========
 
+    // https://developer.umeng.com/docs/128606/detail/193879
+
     // https://mvnrepository.com/search?q=com.umeng.umsdk
     // https://mvnrepository.com/artifact/com.umeng.umsdk/common
     // https://mvnrepository.com/artifact/com.umeng.umsdk/asms
@@ -64,50 +66,71 @@ dependencies {
     // https://mvnrepository.com/artifact/com.umeng.umsdk/share-core
     // https://mvnrepository.com/artifact/com.umeng.umsdk/share-board
 
-    // https://developer.umeng.com/docs/128606/detail/193879
-    api 'com.umeng.umsdk:common:9.6.2' // 必选
-    api 'com.umeng.umsdk:asms:1.8.0' // 必选
+    api 'com.umeng.umsdk:common:9.6.7' // 必选
+    api 'com.umeng.umsdk:asms:1.8.2' // 必选
 
 //    // 集成 U-Link ( 可选 ) 如要统计分享回流次数和分享新增用户指标则必选
 //    api 'com.umeng.umsdk:link:1.2.0'
 
     // 分享核心库 ( 必选 )
-    api 'com.umeng.umsdk:share-core:7.3.2'
+    api 'com.umeng.umsdk:share-core:7.3.3'
 //    // 分享面板功能 ( 可选 )
-//    api 'com.umeng.umsdk:share-board:7.3.2'
+//    api 'com.umeng.umsdk:share-board:7.3.3'
 
     // =======
     // = SDK =
     // =======
 
+    // https://mvnrepository.com/artifact/com.umeng.umsdk
     // https://mvnrepository.com/artifact/com.umeng.umsdk/share-qq
     // https://mvnrepository.com/artifact/com.umeng.umsdk/share-wx
     // https://mvnrepository.com/artifact/com.umeng.umsdk/share-sina
     // https://mvnrepository.com/artifact/com.umeng.umsdk/share-alipay
     // https://mvnrepository.com/artifact/com.umeng.umsdk/share-dingding
 
+//    分享 SDK gradle 在线依赖目前支持 QQ、微信、新浪微博、支付宝、抖音、钉钉 ( 6 个国内主流三方分享平台 )
+//    其它平台还是需要从友盟官网下载 SDK 进行离线集成
+
+    api 'com.umeng.umsdk:share-qq:7.3.3'
+
+    api 'com.umeng.umsdk:share-wx:7.3.3'
+
+    api 'com.umeng.umsdk:share-sina:7.3.3'
+
+    api 'com.umeng.umsdk:share-alipay:7.3.3'
+
+//    api 'com.umeng.umsdk:share-honor:7.3.3'
+//
+//    api 'com.umeng.umsdk:share-bytedance:7.3.3'
+
+    api 'com.umeng.umsdk:share-dingding:7.3.3'
+
+    // ================
+    // = 第三方厂商 SDK =
+    // ================
+
     // https://mvnrepository.com/artifact/com.tencent.tauth/qqopensdk
     // https://mvnrepository.com/artifact/com.tencent.mm.opensdk/wechat-sdk-android-without-mta
     // https://mvnrepository.com/artifact/com.alibaba.android/ddsharesdk
 
-//    分享 SDK gradle 在线依赖目前支持 QQ、微信、新浪微博、支付宝、钉钉 ( 5 个国内主流三方分享平台 )
-//    其它平台还是需要从友盟官网下载 SDK 进行离线集成
-
-    api 'com.umeng.umsdk:share-qq:7.3.2'
     // QQ 官方 SDK 依赖库
     api 'com.tencent.tauth:qqopensdk:3.53.0'
 
-    api 'com.umeng.umsdk:share-wx:7.3.2'
     // 微信官方 SDK 依赖库 https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html
     api 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.24'
 
-    api 'com.umeng.umsdk:share-sina:7.3.2'
     // 新浪微博官方 SDK 依赖库 https://github.com/sinaweibosdk/weibo_android_sdk
-    api 'io.github.sinaweibosdk:core:13.6.1@aar'
-
-    api 'com.umeng.umsdk:share-alipay:7.3.2'
-    api 'com.umeng.umsdk:share-dingding:7.3.2'
+    api 'io.github.sinaweibosdk:core:13.10.1@aar'
 
     // https://developers.dingtalk.com/document/mobile-app-guide/android-sharing-sdk-access-process
     api 'com.alibaba.android:ddsharesdk:1.2.2'
+
+    // https://developer.hihonor.com/cn/kitdoc?category=%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1&kitId=11001&navigation=guides&docId=android-intergrate-sdk.md&token=
+    // 荣耀
+    api 'com.hihonor.mcs:honorid-opensdk:8.0.1.351'
+
+    // https://mvnrepository.com/search?q=com.bytedance.ies.ugc.aweme
+    // 抖音
+    implementation 'com.bytedance.ies.ugc.aweme:opensdk-china-external:0.1.9.0'
+    implementation 'com.bytedance.ies.ugc.aweme:opensdk-common:0.1.9.0'
 }

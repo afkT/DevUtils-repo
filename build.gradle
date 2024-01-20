@@ -33,6 +33,15 @@ buildscript {
 
         // 华为 maven
         maven { url "https://developer.huawei.com/repo/" }
+
+        // 荣耀 maven
+        maven { url 'https://developer.hihonor.com/repo/' }
+
+        // 微博 maven
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+
+        // 抖音 maven
+        maven { url 'https://artifact.bytedance.com/repository/AwemeOpenSDK' }
     }
 
     dependencies {
@@ -48,7 +57,9 @@ buildscript {
         // greendao https://mvnrepository.com/artifact/org.greenrobot/greendao-gradle-plugin
         classpath "org.greenrobot:greendao-gradle-plugin:3.3.1"
         // 华为推送所需 https://mvnrepository.com/artifact/com.huawei.agconnect/agcp
-        classpath "com.huawei.agconnect:agcp:1.9.0.300"
+        classpath "com.huawei.agconnect:agcp:1.9.1.303"
+        // 荣耀推送所需
+        classpath 'com.hihonor.mcs:asplugin:2.0.1.300'
         // https://mvnrepository.com/artifact/com.tencent.matrix/matrix-gradle-plugin
         //classpath("com.tencent.matrix:matrix-gradle-plugin:$matrix_version") { changing = true }
     }
@@ -72,6 +83,15 @@ allprojects {
 
         // 华为 maven
         maven { url "https://developer.huawei.com/repo/" }
+
+        // 荣耀 maven
+        maven { url 'https://developer.hihonor.com/repo/' }
+
+        // 微博 maven
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+
+        // 抖音 maven
+        maven { url 'https://artifact.bytedance.com/repository/AwemeOpenSDK' }
 
         // OPPO maven username、password 是 OPPO 官方要求配置的固定值 ( 不可修改 )
         maven {
