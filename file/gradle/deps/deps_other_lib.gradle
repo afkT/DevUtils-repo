@@ -23,7 +23,7 @@ dependencies {
     // EventBus 事件订阅分发 https://github.com/greenrobot/EventBus
     implementation deps.lib.eventbus
     // LiveEventBus 消息总线 https://github.com/JeremyLiao/LiveEventBus
-    implementation deps.lib.live_eventbus
+    implementation deps.lib.live_eventbus_fork
     // 基于 mmap 的高性能通用 key-value 组件 https://github.com/Tencent/MMKV/blob/master/README_CN.md
     implementation deps.lib.mmkv
     // 今日头条屏幕适配方案终极版 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
