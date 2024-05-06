@@ -81,6 +81,8 @@ dependencies {
     // = deps_split =
     // ==============
 
+    // XXPermissions 权限请求框架 https://github.com/getActivity/XXPermissions
+    implementation deps_split.lib.xxPermissions
     // GPU Filters https://github.com/cats-oss/android-gpuimage
     implementation deps_split.widget.gpuimage
     // 加载动画效果 https://github.com/Kyson/WhorlView
