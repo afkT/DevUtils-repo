@@ -46,71 +46,47 @@ dependencies {
     // = Maven Central 方式自动集成 =
     // ===========================
 
-    // https://docs.jiguang.cn/jpush/client/Android/android_guide
-
     // ==========
     // = 极光推送 =
     // ==========
 
-    // https://mvnrepository.com/search?q=cn.jiguang.sdk
     // https://mvnrepository.com/artifact/cn.jiguang.sdk/jpush
+    api deps_sdk.jiguang.jpush
     // https://mvnrepository.com/artifact/cn.jiguang.sdk/jcore
-    // https://mvnrepository.com/artifact/cn.jiguang.sdk/jpush-google
-    // https://mvnrepository.com/artifact/cn.jiguang.sdk/jcore-google
-
-    api 'cn.jiguang.sdk:jpush:5.2.2'
-    api 'cn.jiguang.sdk:jcore:4.5.7'
+    api deps_sdk.jiguang.jcore
 
 //    // Google Play 版本
-//    api 'cn.jiguang.sdk:jpush-google:5.2.2'
-//    api 'cn.jiguang.sdk:jcore-google:4.5.7'
+//    // https://mvnrepository.com/artifact/cn.jiguang.sdk/jpush-google
+//    api deps_sdk.jiguang.jpush_google
+//    // https://mvnrepository.com/artifact/cn.jiguang.sdk/jcore-google
+//    api deps_sdk.jiguang.jcore_google
 
     // ============
     // = 第三方厂商 =
     // ============
 
-    // https://mvnrepository.com/search?q=cn.jiguang.sdk.plugin
-    // https://developer.huawei.com/consumer/cn/doc/overview/HMS
-
-    // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/huawei
-    // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/xiaomi
-    // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/oppo
-    // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/vivo
-    // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/meizu
-    // https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/honor
-
-    // 华为
-    api 'cn.jiguang.sdk.plugin:huawei:5.2.2'
-
-    // 小米
-    api 'cn.jiguang.sdk.plugin:xiaomi:5.2.2'
-
-    // OPPO
-    api 'cn.jiguang.sdk.plugin:oppo:5.2.2'
-
-    // VIVO
-    api 'cn.jiguang.sdk.plugin:vivo:5.2.2'
-
-    // 魅族
-    api 'cn.jiguang.sdk.plugin:meizu:5.2.2'
-
-    // 荣耀
-    api 'cn.jiguang.sdk.plugin:honor:5.2.2'
-
-    // 第三方厂商点击回调触发
-    // https://go48pg.yuque.com/docs/share/f95b8034-38c7-4baa-951b-ea85948a546e?#Nz1Do
+    // 华为 https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/huawei
+    api deps_sdk.jiguang.huawei_sdk_plugin
+    // 小米 https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/xiaomi
+    api deps_sdk.jiguang.xiaomi_sdk_plugin
+    // OPPO https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/oppo
+    api deps_sdk.jiguang.oppo_sdk_plugin
+    // VIVO https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/vivo
+    api deps_sdk.jiguang.vivo_sdk_plugin
+    // 魅族 https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/meizu
+    api deps_sdk.jiguang.meizu_sdk_plugin
+    // 荣耀 https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/honor
+    api deps_sdk.jiguang.honor_sdk_plugin
 
     // ================
     // = 第三方厂商 SDK =
     // ================
 
-    // https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-app-version-0000001074227861
-    // 华为
-    api 'com.huawei.hms:push:6.12.0.300'
-
+    // 华为推送 https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-app-version-0000001074227861
+    api deps_sdk.common.huawei_push
     // https://developer.hihonor.com/cn/kitdoc?category=%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1&kitId=11002&navigation=guides&docId=intergrate.md&token=
-    // 荣耀
-    api 'com.hihonor.mcs:push:7.0.61.303'
+    // 荣耀推送 https://developer.honor.com/cn/docs/11002/guides/version-history
+    api deps_sdk.common.hihonor_push
 }
 
 //def isRelease = false

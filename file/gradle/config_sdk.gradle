@@ -47,18 +47,59 @@ ext {
                     bytedance_china_opensdk : "com.bytedance.ies.ugc.aweme:opensdk-china-external:0.1.9.9",
                     // https://mvnrepository.com/artifact/com.bytedance.ies.ugc.aweme/opensdk-common
                     bytedance_common_opensdk: "com.bytedance.ies.ugc.aweme:opensdk-common:0.1.9.9",
+
+                    // =======
+                    // = 推送 =
+                    // =======
+
+                    // 华为推送 https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-app-version-0000001074227861
+                    huawei_push             : "com.huawei.hms:push:6.12.0.300",
+                    // https://developer.hihonor.com/cn/kitdoc?category=%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1&kitId=11002&navigation=guides&docId=intergrate.md&token=
+                    // 荣耀推送 https://developer.honor.com/cn/docs/11002/guides/version-history
+                    hihonor_push            : "com.hihonor.mcs:push:7.0.61.303",
             ],
             "jiguang": [
 
-                    // =======
-                    // = 极光 =
-                    // =======
+                    // https://docs.jiguang.cn/jpush/client/Android/android_guide
 
-                    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxjava
-                    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxandroid
-                    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxkotlin
-                    // RxJava3 https://github.com/ReactiveX/RxJava/tree/3.x
-                    rxjava3: "io.reactivex.rxjava3:rxjava:3.1.8",
+                    // 第三方厂商点击回调触发
+                    // https://go48pg.yuque.com/docs/share/f95b8034-38c7-4baa-951b-ea85948a546e?#Nz1Do
+
+                    // https://mvnrepository.com/search?q=cn.jiguang.sdk
+
+                    // https://mvnrepository.com/search?q=cn.jiguang.sdk.plugin
+
+                    // ==========
+                    // = 极光推送 =
+                    // ==========
+
+                    // https://mvnrepository.com/artifact/cn.jiguang.sdk/jpush
+                    jpush            : "cn.jiguang.sdk:jpush:5.3.1",
+                    // https://mvnrepository.com/artifact/cn.jiguang.sdk/jcore
+                    jcore            : "cn.jiguang.sdk:jcore:4.6.1",
+
+                    // Google Play 版本
+                    // https://mvnrepository.com/artifact/cn.jiguang.sdk/jpush-google
+                    jpush_google     : "cn.jiguang.sdk:jpush-google:5.3.1",
+                    // https://mvnrepository.com/artifact/cn.jiguang.sdk/jcore-google
+                    jcore_google     : "cn.jiguang.sdk:jcore-google:4.6.1",
+
+                    // ============
+                    // = 第三方厂商 =
+                    // ============
+
+                    // 华为 https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/huawei
+                    huawei_sdk_plugin: "cn.jiguang.sdk.plugin:huawei:5.3.1",
+                    // 小米 https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/xiaomi
+                    xiaomi_sdk_plugin: "cn.jiguang.sdk.plugin:xiaomi:5.3.1",
+                    // OPPO https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/oppo
+                    oppo_sdk_plugin  : "cn.jiguang.sdk.plugin:oppo:5.3.1",
+                    // VIVO https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/vivo
+                    vivo_sdk_plugin  : "cn.jiguang.sdk.plugin:vivo:5.3.1",
+                    // 魅族 https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/meizu
+                    meizu_sdk_plugin : "cn.jiguang.sdk.plugin:meizu:5.3.1",
+                    // 荣耀 https://mvnrepository.com/artifact/cn.jiguang.sdk.plugin/honor
+                    honor_sdk_plugin : "cn.jiguang.sdk.plugin:honor:5.3.1",
             ],
             "getui"  : [
 
