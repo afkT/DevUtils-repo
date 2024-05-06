@@ -1,0 +1,118 @@
+apply from: rootProject.file("file/gradle/versions.gradle")
+
+// =======================
+// = 第三方功能 SDK config =
+// =======================
+
+/**
+ * 专门用于第三方功能性 SDK 依赖管理
+ * 例如极光推送、个推、友盟、诸葛等等相似 SDK 管理
+ */
+ext {
+    deps_sdk = [
+            "plugin" : [
+
+                    // ==========
+                    // = 通用插件 =
+                    // ==========
+
+                    // https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/android-integrating-sdk-0000001050040084
+                    // 华为推送所需 https://mvnrepository.com/artifact/com.huawei.agconnect/agcp
+                    huawei_agconnect_plugin: "com.huawei.agconnect:agcp:1.9.1.303",
+                    // 荣耀推送所需 https://developer.honor.com/cn/docs/11002/guides/intergrate
+                    hihonor_aps_plugin     : "com.hihonor.mcs:asplugin:2.0.1.300",
+            ],
+            "common" : [
+
+                    // ===================
+                    // = 通用第三方厂商 SDK =
+                    // ===================
+
+                    // QQ 官方 SDK 依赖库 https://mvnrepository.com/artifact/com.tencent.tauth/qqopensdk
+                    qq_opensdk              : "com.tencent.tauth:qqopensdk:3.53.0",
+                    // https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html
+                    // 微信官方 SDK 依赖库 https://mvnrepository.com/artifact/com.tencent.mm.opensdk/wechat-sdk-android-without-mta
+                    wechat_opensdk          : "com.tencent.mm.opensdk:wechat-sdk-android:6.8.24",
+                    // 新浪微博官方 SDK 依赖库 https://github.com/sinaweibosdk/weibo_android_sdk
+                    // https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/update_log.md
+                    sinaweibo_opensdk       : "io.github.sinaweibosdk:core:13.10.2@aar",
+                    // https://developers.dingtalk.com/document/mobile-app-guide/android-sharing-sdk-access-process
+                    // https://mvnrepository.com/artifact/com.alibaba.android/ddsharesdk
+                    ddshare_opensdk         : "com.alibaba.android:ddsharesdk:1.2.2",
+                    // https://developer.hihonor.com/cn/kitdoc?category=%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1&kitId=11001&navigation=guides&docId=android-intergrate-sdk.md&token=
+                    // 荣耀 https://developer.honor.com/cn/docs/11001/guides/sdk-version-history
+                    honorid_opensdk         : "com.hihonor.mcs:honorid-opensdk:8.0.1.351",
+                    // 抖音 https://mvnrepository.com/search?q=com.bytedance.ies.ugc.aweme
+                    // https://mvnrepository.com/artifact/com.bytedance.ies.ugc.aweme/opensdk-china-external
+                    bytedance_china_opensdk : "com.bytedance.ies.ugc.aweme:opensdk-china-external:0.1.9.9",
+                    // https://mvnrepository.com/artifact/com.bytedance.ies.ugc.aweme/opensdk-common
+                    bytedance_common_opensdk: "com.bytedance.ies.ugc.aweme:opensdk-common:0.1.9.9",
+            ],
+            "jiguang": [
+
+                    // =======
+                    // = 极光 =
+                    // =======
+
+                    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxjava
+                    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxandroid
+                    // https://mvnrepository.com/artifact/io.reactivex.rxjava3/rxkotlin
+                    // RxJava3 https://github.com/ReactiveX/RxJava/tree/3.x
+                    rxjava3: "io.reactivex.rxjava3:rxjava:3.1.8",
+            ],
+            "getui"  : [
+
+                    // =======
+                    // = 个推 =
+                    // =======
+
+                    // https://mvnrepository.com/artifact/com.tencent.bugly/crashreport
+                    // https://mvnrepository.com/artifact/com.tencent.bugly/nativecrashreport
+                    // Bugly https://bugly.qq.com/docs/
+                    bugly    : "com.tencent.bugly:crashreport:4.1.9.3",
+                    bugly_ndk: "com.tencent.bugly:nativecrashreport:3.9.2",
+            ],
+            "umeng"  : [
+
+                    // https://developer.umeng.com/docs/128606/detail/193879
+
+                    // https://mvnrepository.com/artifact/com.umeng.umsdk
+
+                    // =======
+                    // = 友盟 =
+                    // =======
+
+                    // 必选 https://mvnrepository.com/artifact/com.umeng.umsdk/common
+                    common        : "com.umeng.umsdk:common:9.6.8",
+                    // 必选 https://mvnrepository.com/artifact/com.umeng.umsdk/asms
+                    asms          : "com.umeng.umsdk:asms:1.8.2",
+                    // 分享核心库 ( 必选 ) https://mvnrepository.com/artifact/com.umeng.umsdk/share-core
+                    share_core    : "com.umeng.umsdk:share-core:7.3.3",
+                    // 分享面板功能 ( 可选 ) https://mvnrepository.com/artifact/com.umeng.umsdk/share-board
+                    share_board   : "com.umeng.umsdk:share-board:7.3.3",
+                    // 集成 U-Link ( 可选 ) 如要统计分享回流次数和分享新增用户指标则必选
+                    // https://mvnrepository.com/artifact/com.umeng.umsdk/link
+                    link          : "com.umeng.umsdk:link:1.2.0",
+
+                    // =======
+                    // = SDK =
+                    // =======
+
+                    /**
+                     * 分享 SDK gradle 在线依赖目前支持 QQ、微信、新浪微博、支付宝、钉钉 ( 5 个国内主流三方分享平台 )
+                     * 其它平台还是需要从友盟官网下载 SDK 进行离线集成
+                     */
+
+                    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-qq
+                    share_qq      : "com.umeng.umsdk:share-qq:7.3.3",
+                    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-wx
+                    share_wx      : "com.umeng.umsdk:share-wx:7.3.3",
+                    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-sina
+                    share_sina    : "com.umeng.umsdk:share-sina:7.3.3",
+                    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-alipay
+                    share_alipay  : "com.umeng.umsdk:share-alipay:7.3.3",
+                    // https://mvnrepository.com/artifact/com.umeng.umsdk/share-dingding
+                    share_dingding: "com.umeng.umsdk:share-dingding:7.3.3",
+            ],
+    ]
+}
