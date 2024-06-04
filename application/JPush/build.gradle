@@ -55,7 +55,9 @@ android {
 }
 
 dependencies {
+    // DevBaseMVVM - MVVM ( ViewDataBinding + ViewModel ) 基类库
     implementation deps.dev.dev_base_mvvm
+    // DevMVVM - DataBinding 工具类库
     implementation deps.dev.dev_mvvm
 
     // =========

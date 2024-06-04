@@ -14,15 +14,17 @@ dependencies {
 	// = dev =
 
 	// dev_app
-	implementation 'io.github.afkt:DevAppX:2.4.5'
+	implementation 'io.github.afkt:DevAppX:2.4.6'
 	// dev_assist
 	implementation 'io.github.afkt:DevAssist:1.4.1'
 	// dev_base
-	implementation 'io.github.afkt:DevBase:1.1.7'
+	implementation 'io.github.afkt:DevBase:1.1.8'
 	// dev_base_mvvm
-	implementation 'io.github.afkt:DevBaseMVVM:1.1.5'
+	implementation 'io.github.afkt:DevBaseMVVM:1.1.6'
 	// dev_mvvm
-	implementation 'io.github.afkt:DevMVVM:1.0.3'
+	implementation 'io.github.afkt:DevMVVM:1.0.4'
+	// dev_simple
+	implementation 'io.github.afkt:DevSimple:1.0.1'
 	// dev_engine
 	implementation 'io.github.afkt:DevEngine:1.1.3'
 	// dev_java
@@ -251,4 +253,6 @@ dependencies {
 	implementation 'io.github.scwang90:refresh-footer-ball:2.1.0'
 	// smartrefresh_footer_classics
 	implementation 'io.github.scwang90:refresh-footer-classics:2.1.0'
+	// shimmer
+	implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

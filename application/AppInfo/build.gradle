@@ -8,19 +8,12 @@ android {
     }
 }
 
+// DevUtils 项目统一依赖配置
+apply from: rootProject.file(dev_utils.deps_config)
+// DevUtils 项目其他 module 本地依赖
+apply from: rootProject.file(dev_utils.local_other)
+
 dependencies {
-    implementation deps.dev.dev_app
-    implementation deps.dev.dev_assist
-    implementation deps.dev.dev_base_mvvm
-    implementation deps.dev.dev_mvvm
-    implementation deps.dev.dev_engine
-    implementation deps.dev.dev_widget
-
-    // =========
-    // = 非 lib =
-    // =========
-
-    implementation project(':DevBaseView')
 
     // ============
     // = 快捷开发库 =

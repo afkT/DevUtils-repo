@@ -46,7 +46,7 @@ class RxJavaManager private constructor() {
      */
     fun add(
         tag: String,
-        disposable: Disposable?
+        disposable: Disposable
     ) {
         if (mManagerMap.containsKey(tag)) {
             mManagerMap[tag]?.add(disposable)
@@ -89,7 +89,7 @@ class RxJavaManager private constructor() {
      * @param <T> 泛型
      * @return [FlowableTransformer]
      */
-    fun <T> io_main(): FlowableTransformer<T, T> {
+    fun <T : Any> io_main(): FlowableTransformer<T, T> {
         return FlowableTransformer { upstream ->
             upstream
                 .subscribeOn(Schedulers.io())

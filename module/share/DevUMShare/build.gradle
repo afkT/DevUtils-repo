@@ -38,8 +38,11 @@ dependencies {
     // = 快捷开发库 =
     // ============
 
+    // DevApp - Android 工具类库
     api deps.dev.dev_app
+    // DevAssist - 封装逻辑代码, 实现多个快捷功能辅助类、以及 Engine 兼容框架等
     api deps.dev.dev_assist
+    // DevEngine - 第三方框架解耦、一键替换第三方库、同类库多 Engine 组件化混合使用
     api deps.dev.dev_engine
 
     // ==========

@@ -1,5 +1,6 @@
 package ktx.dev.assist
 
+import android.annotation.SuppressLint
 import android.graphics.Paint
 import android.os.Build
 import android.view.KeyEvent
@@ -12,7 +13,6 @@ import dev.DevUtils
 import dev.utils.DevFinal
 import dev.utils.LogPrintUtils
 import dev.utils.app.ViewUtils
-import ktx.dev.assist.WebViewAssist.Builder.OnApplyListener
 
 /**
  * detail: WebView 辅助类
@@ -393,6 +393,7 @@ class WebViewAssist @JvmOverloads constructor(listener: Boolean = true) {
      * @param interfaceName 在 JavaScript 中公开对象的名称
      * @return [WebViewAssist]
      */
+    @SuppressLint("JavascriptInterface")
     fun addJavascriptInterface(
         obj: Any,
         interfaceName: String
@@ -1143,16 +1144,20 @@ class WebViewAssist @JvmOverloads constructor(listener: Boolean = true) {
 
                     // 是否支持 DOM Storage
                     webSettings.domStorageEnabled = mDomStorageEnabled
-                    // 是否开启 Application Caches 功能
-                    webSettings.setAppCacheEnabled(mAppCacheEnabled)
-                    if (mAppCacheEnabled) {
-                        // Application Caches 地址
-                        if (mAppCachePath != null) {
-                            webSettings.setAppCachePath(mAppCachePath)
-                        }
-                        // Application Caches 大小
-                        webSettings.setAppCacheMaxSize(mAppCacheMaxSize)
-                    }
+
+//                    // 大于 13.0 该方法已移除
+//                    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
+//                        // 是否开启 Application Caches 功能
+//                        webSettings.setAppCacheEnabled(mAppCacheEnabled)
+//                        if (mAppCacheEnabled) {
+//                            // Application Caches 地址
+//                            if (mAppCachePath != null) {
+//                                webSettings.setAppCachePath(mAppCachePath)
+//                            }
+//                            // Application Caches 大小
+//                            webSettings.setAppCacheMaxSize(mAppCacheMaxSize)
+//                        }
+//                    }
 
                     // 是否支持数据库缓存
                     webSettings.databaseEnabled = mDatabaseEnabled

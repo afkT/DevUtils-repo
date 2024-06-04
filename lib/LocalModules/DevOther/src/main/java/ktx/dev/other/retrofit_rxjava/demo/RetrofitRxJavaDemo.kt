@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit
 interface APIService {
 
     @GET("/article/list/{page}/json")
-    fun getArticleList(@Path("page") page: Int): Flowable<ArticleBean?>
+    fun getArticleList(@Path("page") page: Int): Flowable<ArticleBean>
 
     // 演示 BaseBeanSubscriber、BaseResponseSubscriber 区别
     @GET("/article/list/{page}/json")

@@ -25,16 +25,5 @@ android {
     }
 }
 
-dependencies {
-
-    // ==============
-    // = Dev Module =
-    // ==============
-
-    implementation deps.dev.dev_app
-    implementation deps.dev.dev_assist
-    implementation deps.dev.dev_base_mvvm
-    implementation deps.dev.dev_engine
-    implementation deps.dev.dev_http_capture
-    implementation deps.dev.dev_widget
-}
+// DevUtils 项目统一依赖配置
+apply from: rootProject.file(dev_utils.deps_config)

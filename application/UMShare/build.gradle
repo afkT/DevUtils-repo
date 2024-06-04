@@ -21,10 +21,14 @@ android {
 }
 
 dependencies {
+    // DevBaseMVVM - MVVM ( ViewDataBinding + ViewModel ) 基类库
     implementation deps.dev.dev_base_mvvm
+    // DevMVVM - DataBinding 工具类库
     implementation deps.dev.dev_mvvm
-    implementation deps.dev.dev_engine
+    // DevWidget - 自定义 View UI 库
     implementation deps.dev.dev_widget
+    // DevEngine - 第三方框架解耦、一键替换第三方库、同类库多 Engine 组件化混合使用
+    implementation deps.dev.dev_engine
 
     // =========
     // = 非 lib =
