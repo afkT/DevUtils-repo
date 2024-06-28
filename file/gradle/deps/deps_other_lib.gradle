@@ -28,6 +28,8 @@ dependencies {
     implementation deps.lib.mmkv
     // 今日头条屏幕适配方案终极版 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     implementation deps.lib.autosize
+    // XXPermissions 权限请求框架 https://github.com/getActivity/XXPermissions
+    implementation deps.lib.xxPermissions
 
     // ==============
     // = deps_split =
@@ -81,8 +83,6 @@ dependencies {
     // = deps_split =
     // ==============
 
-    // XXPermissions 权限请求框架 https://github.com/getActivity/XXPermissions
-    implementation deps_split.lib.xxPermissions
     // GPU Filters https://github.com/cats-oss/android-gpuimage
     implementation deps_split.widget.gpuimage
     // 加载动画效果 https://github.com/Kyson/WhorlView
