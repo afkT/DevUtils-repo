@@ -1,34 +1,7 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+apply from: rootProject.file(files.lib_app_kotlin_gradle)
 
 android {
     namespace "dev.gtpush"
-    compileSdkVersion versions.compileSdkVersion
-    buildToolsVersion versions.buildToolsVersion
-
-    defaultConfig {
-        minSdkVersion versions.lib_minSdkVersion
-        // 混淆配置
-        consumerProguardFiles 'proguard-rules.pro'
-    }
-
-    lintOptions {
-        abortOnError false
-    }
-
-    compileOptions {
-        sourceCompatibility versions.javaVersion
-        targetCompatibility versions.javaVersion
-    }
-
-    kotlinOptions {
-        jvmTarget = versions.javaVersion_str
-    }
-}
-
-// 编码设置
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
 }
 
 dependencies {
@@ -92,8 +65,6 @@ dependencies {
 //
 //android {
 //    namespace "dev.gtpush"
-//    compileSdkVersion versions.compileSdkVersion
-//    buildToolsVersion versions.buildToolsVersion
 //
 //    defaultConfig {
 //        manifestPlaceholders = [
