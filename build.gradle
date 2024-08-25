@@ -3,8 +3,9 @@
 buildscript {
 
     apply from: rootProject.file("file/gradle/config.gradle")
-    apply from: rootProject.file("file/gradle/config_sdk.gradle")
     apply from: rootProject.file("file/gradle/config_split.gradle")
+    apply from: rootProject.file("file/gradle/config_files.gradle")
+    apply from: rootProject.file("file/gradle/config_sdk.gradle")
     apply from: rootProject.file(files.task_generate_deps_file_gradle)
 
     repositories { // 该 repositories 用于 buildscript dependencies 插件、脚本依赖加载
