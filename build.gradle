@@ -14,6 +14,7 @@ buildscript {
         maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
 
         google()
+        mavenCentral()
 
         // jitpack maven
         maven { url "https://jitpack.io" }
@@ -35,18 +36,18 @@ buildscript {
         maven { url "https://developer.huawei.com/repo/" }
 
         // 荣耀 maven
-        maven { url 'https://developer.hihonor.com/repo/' }
+        maven { url "https://developer.hihonor.com/repo/" }
 
         // 微博 maven
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
 
         // 抖音 maven
-        maven { url 'https://artifact.bytedance.com/repository/AwemeOpenSDK' }
+        maven { url "https://artifact.bytedance.com/repository/AwemeOpenSDK" }
     }
 
     dependencies {
         // https://mvnrepository.com/artifact/com.android.tools.build/gradle
-        classpath 'com.android.tools.build:gradle:8.5.0'
+        classpath 'com.android.tools.build:gradle:8.5.2'
         // kotlin https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
         classpath rootProject.ext.deps.build.kotlin_gradle_plugin
         // TheRouter AutoRegister https://mvnrepository.com/artifact/cn.therouter/plugin
@@ -63,6 +64,7 @@ buildscript {
 allprojects {
     repositories { // 该 repositories 用于 app、module dependencies 第三方库 implementation 等依赖加载
         google()
+        mavenCentral()
 
         // jitpack maven
         maven { url "https://jitpack.io" }
@@ -84,13 +86,13 @@ allprojects {
         maven { url "https://developer.huawei.com/repo/" }
 
         // 荣耀 maven
-        maven { url 'https://developer.hihonor.com/repo/' }
+        maven { url "https://developer.hihonor.com/repo/" }
 
         // 微博 maven
         maven { url "https://dl.bintray.com/thelasterstar/maven/" }
 
         // 抖音 maven
-        maven { url 'https://artifact.bytedance.com/repository/AwemeOpenSDK' }
+        maven { url "https://artifact.bytedance.com/repository/AwemeOpenSDK" }
 
         // OPPO maven username、password 是 OPPO 官方要求配置的固定值 ( 不可修改 )
         maven {
