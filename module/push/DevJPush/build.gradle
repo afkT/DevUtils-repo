@@ -5,7 +5,7 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 
     // ============
     // = 快捷开发库 =

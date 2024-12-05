@@ -28,6 +28,8 @@ ext {
                     // = 通用第三方厂商 SDK =
                     // ===================
 
+                    // https://wiki.connect.qq.com/sdk%e4%b8%8b%e8%bd%bd
+                    // https://wiki.connect.qq.com/android_sdk%e5%8e%86%e5%8f%b2%e5%8f%98%e6%9b%b4
                     // QQ 官方 SDK 依赖库 https://mvnrepository.com/artifact/com.tencent.tauth/qqopensdk
                     qq_opensdk              : "com.tencent.tauth:qqopensdk:3.53.0",
                     // https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html
