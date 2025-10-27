@@ -1,4 +1,4 @@
-package dev.standard.git_delete;
+package dev.git_delete;
 
 import java.io.File;
 import java.io.FileFilter;

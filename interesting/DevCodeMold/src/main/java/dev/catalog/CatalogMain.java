@@ -1,4 +1,4 @@
-package dev.standard.catalog;
+package dev.catalog;
 
 import java.util.List;
 import java.util.Map;

@@ -6,6 +6,5 @@
 
 ```
 - interesting                  | 根目录
-   - DevCodeMold            | Android 屏幕适配生成对应的尺寸文件
-   - DevStandard               | 项目规范统一检测、生成替换等
+   - DevCodeMold               | 代码生成模具【屏幕适配、IntentData 创建、dimens.xml 生成】等
 ```

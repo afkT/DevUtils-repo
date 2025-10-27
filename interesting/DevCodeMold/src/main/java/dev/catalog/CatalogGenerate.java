@@ -1,4 +1,4 @@
-package dev.standard.catalog;
+package dev.catalog;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package dev.standard.catalog;
+package dev.catalog;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -241,7 +241,6 @@ final class Config {
         // =============================
 
         sDevUtilsRepoInterestingCatalogMap.put("interesting", "根目录");
-        sDevUtilsRepoInterestingCatalogMap.put(".DevCodeMold", "Android 屏幕适配生成对应的尺寸文件");
-        sDevUtilsRepoInterestingCatalogMap.put(".DevStandard", "项目规范统一检测、生成替换等");
+        sDevUtilsRepoInterestingCatalogMap.put(".DevCodeMold", "代码生成模具【屏幕适配、IntentData 创建、dimens.xml 生成】等");
     }
 }

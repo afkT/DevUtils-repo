@@ -53,8 +53,7 @@ modules.forEach {
 // ===============
 
 def interestings = [
-        "DevCodeMold",
-        "DevStandard",
+        "DevCodeMold"
 ]
 
 interestings.forEach {

@@ -128,7 +128,7 @@ final class Utils {
     private static String getPackagePath() {
         return new File(
                 System.getProperty("user.dir"),
-                "/interesting/DevStandard/src/main/java/dev/standard/dev_final"
+                "/interesting/DevCodeMold/src/main/java/dev/code/dev_final"
         ).getAbsolutePath();
     }
 
