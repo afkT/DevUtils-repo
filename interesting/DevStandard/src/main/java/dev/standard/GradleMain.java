@@ -9,7 +9,6 @@ import java.security.NoSuchAlgorithmException;
  * @author Ttt
  * <pre>
  *     Gradle 缓存目录文件命名规则
- *     @see <a href="https://www.cnblogs.com/rainboy2010/p/7062279.html"/>
  *     @see <a href="https://services.gradle.org/distributions"/>
  *     Android Gradle 插件版本说明
  *     @see <a href="https://developer.android.com/studio/releases/gradle-plugin"/>

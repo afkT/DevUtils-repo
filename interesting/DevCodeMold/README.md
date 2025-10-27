@@ -11,14 +11,10 @@
 ### 具体参考
 
 - [Android 屏幕适配方案][Android 屏幕适配方案]
-  
-- [流行设备尺寸信息][流行设备尺寸信息]
 
 
 
 
-
-[GeneratePxValueFiles]: https://github.com/afkT/DevUtils-repo/blob/main/interesting/DevScreenMatch/src/main/java/dev/screen/px/GeneratePxValueFiles.java
-[GenerateDPValueFiles]: https://github.com/afkT/DevUtils-repo/blob/main/interesting/DevScreenMatch/src/main/java/dev/screen/dp/GenerateDPValueFiles.java
-[流行设备尺寸信息]: https://screensiz.es/droid-razr
+[GeneratePxValueFiles]: https://github.com/afkT/DevUtils-repo/blob/main/interesting/DevCodeMold/src/main/java/dev/screen/px/GeneratePxValueFiles.java
+[GenerateDPValueFiles]: https://github.com/afkT/DevUtils-repo/blob/main/interesting/DevCodeMold/src/main/java/dev/screen/dp/GenerateDPValueFiles.java
 [Android 屏幕适配方案]: https://blog.csdn.net/lmj623565791/article/details/45460089

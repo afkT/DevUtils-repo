@@ -26,7 +26,7 @@ final class GenerateDPValueFiles {
     }
 
     // 项目路径
-    private static final String PROJECT_PATH    = "/interesting/DevScreenMatch/res";
+    private static final String PROJECT_PATH    = "/interesting/DevCodeMold/res";
     // 存储地址
     private static final String DIR             = new File(System.getProperty("user.dir"), PROJECT_PATH).getAbsolutePath();
     // 适配基准文件

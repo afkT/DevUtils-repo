@@ -1,4 +1,4 @@
-package dev.standard;
+package dev.color;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

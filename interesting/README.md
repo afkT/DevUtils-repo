@@ -6,6 +6,6 @@
 
 ```
 - interesting                  | 根目录
-   - DevScreenMatch            | Android 屏幕适配生成对应的尺寸文件
+   - DevCodeMold            | Android 屏幕适配生成对应的尺寸文件
    - DevStandard               | 项目规范统一检测、生成替换等
 ```
