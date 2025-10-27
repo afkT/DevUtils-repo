@@ -1,4 +1,4 @@
-package dev.screen.dp.utils;
+package dev.android.screen.dp.utils;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;

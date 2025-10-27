@@ -1,4 +1,4 @@
-package dev.color;
+package dev.android.color;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -26,16 +26,13 @@ import dev.utils.common.StringUtils;
  */
 public class ColorSortMain {
 
-    // 项目路径
-    private static final String PROJECT_PATH = new File(System.getProperty("user.dir")).getAbsolutePath();
     // colors.xml 文件路径
-    private static final String COLORS_XML   = "/src/main/res/values/colors.xml";
+    private static final String COLORS_XML = "project/colors.xml";
 
     public static void main(String[] args)
             throws Exception {
         // colors.xml 文件地址
         String xmlPath = new File(
-                PROJECT_PATH + "/app",
                 COLORS_XML
         ).getAbsolutePath();
 

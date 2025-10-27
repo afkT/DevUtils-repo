@@ -1,4 +1,4 @@
-package dev.screen.dp;
+package dev.android.screen.dp;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-import dev.screen.dp.utils.DimenItem;
-import dev.screen.dp.utils.Tools;
-import dev.screen.dp.utils.XmlIO;
+import dev.android.screen.dp.utils.DimenItem;
+import dev.android.screen.dp.utils.Tools;
+import dev.android.screen.dp.utils.XmlIO;
 
 /**
  * detail: 生成适配 dp 值

@@ -1,4 +1,4 @@
-package dev.standard;
+package dev.code;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

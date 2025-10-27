@@ -1,4 +1,4 @@
-package dev.screen.dp.utils;
+package dev.android.screen.dp.utils;
 
 /**
  * detail: dimens 文件中的 dimen 数据项

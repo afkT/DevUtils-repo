@@ -1,4 +1,4 @@
-package dev.dimens;
+package dev.android.dimens;
 
 import java.math.BigDecimal;
 
@@ -13,13 +13,30 @@ public class DimensValueMain {
 
     public static void main(String[] args) {
         // 生成字体 sp dimen 值
-        System.out.println(generateDimen(5F, 100F, 0.5F, false, "sp"));
+        String sp = generateDimen(5F, 100F, 0.5F, false, "sp");
+        System.out.println(sp);
 
         // 生成正数 dp dimen 值
-        System.out.println(generateDimen(0F, 1920F, 0.5F, false, "dp"));
+        String dp = generateDimen(0F, 1920F, 0.5F, false, "dp");
+        System.out.println(dp);
 
         // 生成负数 dp dimen 值 => -0.5 ~ -50.0dp
-        System.out.println(generateDimen(0.5F, 50F, 0.5F, true, "dp"));
+        String dpn = generateDimen(0.5F, 50F, 0.5F, true, "dp");
+        System.out.println(dpn);
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("<!-- 通用 SP 值 -->");
+        builder.append(sp);
+        builder.append(DevFinal.SYMBOL.NEW_LINE);
+        builder.append("<!-- 通用 DP 值 -->");
+        builder.append(dp);
+        builder.append(DevFinal.SYMBOL.NEW_LINE);
+        builder.append("<!-- 通用 DP 值【负数】 -->");
+        builder.append(dpn);
+
+        String content = builder.toString();
+
+        String debug = "";
     }
 
     /**

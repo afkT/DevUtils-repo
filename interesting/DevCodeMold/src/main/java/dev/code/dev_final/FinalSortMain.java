@@ -1,4 +1,4 @@
-package dev.standard.dev_final;
+package dev.code.dev_final;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ import dev.utils.common.FileIOUtils;
  *     然后运行 main 方法后 copy result.txt 内容覆盖 DevFinal 类代码
  * </pre>
  */
-public class FinalSortMain2 {
+public class FinalSortMain {
 
     public static void main(String[] args) {
         // 标记状态
