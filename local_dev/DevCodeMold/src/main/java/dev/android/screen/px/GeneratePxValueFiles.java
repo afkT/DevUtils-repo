@@ -21,7 +21,7 @@ final class GeneratePxValueFiles {
     }
 
     // 项目路径
-    private final String PROJECT_PATH = "/interesting/DevCodeMold/res/";
+    private final String PROJECT_PATH = "/local_dev/DevCodeMold/res/";
     // 存储地址
     private final String DIR          = new File(System.getProperty("user.dir"), PROJECT_PATH).getAbsolutePath();
 

@@ -15,6 +15,6 @@
 
 
 
-[GeneratePxValueFiles]: https://github.com/afkT/DevUtils-repo/blob/main/interesting/DevCodeMold/src/main/java/dev/screen/px/GeneratePxValueFiles.java
-[GenerateDPValueFiles]: https://github.com/afkT/DevUtils-repo/blob/main/interesting/DevCodeMold/src/main/java/dev/screen/dp/GenerateDPValueFiles.java
+[GeneratePxValueFiles]: https://github.com/afkT/DevUtils-repo/blob/main/local_dev/DevCodeMold/src/main/java/dev/screen/px/GeneratePxValueFiles.java
+[GenerateDPValueFiles]: https://github.com/afkT/DevUtils-repo/blob/main/local_dev/DevCodeMold/src/main/java/dev/screen/dp/GenerateDPValueFiles.java
 [Android 屏幕适配方案]: https://blog.csdn.net/lmj623565791/article/details/45460089

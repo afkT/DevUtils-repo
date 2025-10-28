@@ -2,25 +2,19 @@
 // = Lib =
 // =======
 
-// =================
-// = Local Modules =
-// =================
+// =============
+// = Local Dev =
+// =============
 
-def local_modules = [
+def local_devs = [
+        "DevCodeMold",
         "DevOther",
 ]
 
-local_modules.forEach {
+local_devs.forEach {
     def itName = it
-
-    if (itName.indexOf("/") != -1) {
-        itName = itName.substring(
-                itName.lastIndexOf("/") + 1,
-                itName.length()
-        )
-    }
     include(":$itName")
-    project(":$itName").projectDir = new File(rootDir, "lib/$it")
+    project(":$itName").projectDir = new File(rootDir, "local_dev/$it")
 }
 
 // ==========
@@ -45,19 +39,6 @@ modules.forEach {
     }
     include(":$itName")
     project(":$itName").projectDir = new File(rootDir, "module/$it")
-}
-
-// ===============
-// = Interesting =
-// ===============
-
-def interestings = [
-        "DevCodeMold"
-]
-
-interestings.forEach {
-    include(":$it")
-    project(":$it").projectDir = new File(rootDir, "interesting/$it")
 }
 
 // ===============
