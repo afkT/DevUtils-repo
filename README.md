@@ -79,7 +79,7 @@ java -jar /Users/afkT/bfg.jar --strip-blobs-bigger-than 1M /Users/afkT/DevUtils.
 还有如删除文件夹
 
 ```gitexclude
-java -jar /Users/afkT/bfg.jar --delete-folders interesting /Users/afkT/DevUtils.git
+java -jar /Users/afkT/bfg.jar --delete-folders local_dev /Users/afkT/DevUtils.git
 ```
 
 删除文件

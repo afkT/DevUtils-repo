@@ -102,16 +102,16 @@ final class Config {
     // DevUtils-repo Module 忽略目录
     public static final List<String>        sDevUtilsRepoModuleIgnoreCatalogs = new ArrayList<>();
 
-    // =============================
-    // = DevUtils-repo Interesting =
-    // =============================
+    // ===========================
+    // = DevUtils-repo Local Dev =
+    // ===========================
 
-    // DevUtils-repo Interesting 文件名
-    public static final String              DEV_UTILS_REPO_INTERESTING_DIR_NAME   = "interesting";
-    // DevUtils-repo Interesting 项目本地路径
-    public static final String              DEV_UTILS_REPO_INTERESTING_LOCAL_PATH = USER_DIR + File.separator + DEV_UTILS_REPO_INTERESTING_DIR_NAME;
-    // DevUtils-repo Interesting 文件目录注释
-    public static final Map<String, String> sDevUtilsRepoInterestingCatalogMap    = new HashMap<>();
+    // DevUtils-repo Local Dev 文件名
+    public static final String              DEV_UTILS_REPO_LOCAL_DEV_DIR_NAME   = "local_dev";
+    // DevUtils-repo Local Dev 项目本地路径
+    public static final String              DEV_UTILS_REPO_LOCAL_DEV_LOCAL_PATH = USER_DIR + File.separator + DEV_UTILS_REPO_LOCAL_DEV_DIR_NAME;
+    // DevUtils-repo Local Dev 文件目录注释
+    public static final Map<String, String> sDevUtilsRepoLocalDevCatalogMap     = new HashMap<>();
 
     static {
 
@@ -166,9 +166,6 @@ final class Config {
         sDevUtilsCatalogMap.put(".HttpCapture.DevHttpCaptureCompiler", "Debug ( 打包 / 编译 ) 实现代码");
         sDevUtilsCatalogMap.put(".HttpCapture.DevHttpCaptureCompilerRelease", "Release ( 打包 / 编译 ) 实现代码");
 
-        // 本地 Module lib ( 非发布库 )
-        sDevUtilsCatalogMap.put(".DevOther", "功能、工具类二次封装, 直接 copy 使用【 大部分迁移至 DevUtils-repo 】");
-
         // =======================
         // = DevUtils Lib 忽略目录 =
         // =======================
@@ -190,9 +187,6 @@ final class Config {
         sDevUtilsIgnoreCatalogs.add("DevEnvironmentCompilerRelease");
         sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompiler");
         sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompilerRelease");
-        sDevUtilsIgnoreCatalogs.add("DevBaseView");
-        sDevUtilsIgnoreCatalogs.add("DevOther");
-        sDevUtilsIgnoreCatalogs.add("DevSKU");
 
         // ========================
         // = DevUtils Application =
@@ -235,11 +229,12 @@ final class Config {
 
         sDevUtilsRepoModuleIgnoreCatalogs.add("DevBaseModule");
 
-        // =============================
-        // = DevUtils-repo Interesting =
-        // =============================
+        // ===========================
+        // = DevUtils-repo Local Dev =
+        // ===========================
 
-        sDevUtilsRepoInterestingCatalogMap.put("interesting", "根目录");
-        sDevUtilsRepoInterestingCatalogMap.put(".DevCodeMold", "代码生成模具【屏幕适配、IntentData 创建、dimens.xml 生成】等");
+        sDevUtilsRepoLocalDevCatalogMap.put("local_dev", "根目录");
+        sDevUtilsRepoLocalDevCatalogMap.put(".DevCodeMold", "代码生成模具【屏幕适配、IntentData 创建、dimens.xml 生成】等");
+        sDevUtilsRepoLocalDevCatalogMap.put(".DevOther", "功能、工具类二次封装, 直接 copy 使用【 大部分迁移至 DevUtils-repo 】");
     }
 }

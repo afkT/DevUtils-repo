@@ -5,5 +5,75 @@
     "action": "",
     "description": "",
     "params": {}
+  },
+  {
+    "path": "/activity/OtherActivity",
+    "className": "afkt.jpush.ui.activity.OtherActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/MessageActivity",
+    "className": "afkt.jpush.ui.activity.MessageActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/MainActivity",
+    "className": "afkt.jpush.ui.activity.MainActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/DeviceActivity",
+    "className": "afkt.jpush.device.DeviceActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/OtherActivity",
+    "className": "afkt.gtpush.ui.activity.OtherActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/MessageActivity",
+    "className": "afkt.gtpush.ui.activity.MessageActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/MainActivity",
+    "className": "afkt.gtpush.ui.activity.MainActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/DeviceActivity",
+    "className": "afkt.gtpush.device.DeviceActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/RoomActivity",
+    "className": "afkt.db.feature.room.RoomActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/activity/GreenDaoActivity",
+    "className": "afkt.db.feature.green_dao.GreenDaoActivity",
+    "action": "",
+    "description": "",
+    "params": {}
   }
 ]

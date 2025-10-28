@@ -26,8 +26,8 @@ public class GitDeleteQuery {
     private static final String       FOLDER_APPLICATION   = "application";
     // art 文件夹
     private static final String       FOLDER_ART           = "art";
-    // interesting 文件夹
-    private static final String       FOLDER_INTERESTING   = "interesting";
+    // Local Dev 文件夹
+    private static final String       FOLDER_LOCAL_DEV     = "local_dev";
     // module 文件夹
     private static final String       FOLDER_MODULE        = "module";
     // 忽略文件夹
@@ -125,7 +125,7 @@ public class GitDeleteQuery {
     private static Map<String, String> getWaitDeletePath() {
         List<String> keys = Arrays.asList(
                 FOLDER_APPLICATION, FOLDER_ART,
-                FOLDER_INTERESTING, FOLDER_MODULE
+                FOLDER_LOCAL_DEV, FOLDER_MODULE
         );
         Map<String, String> paths = new LinkedHashMap<>();
         for (String key : keys) {
@@ -353,14 +353,14 @@ public class GitDeleteQuery {
         println("= 其他删除文件、文件夹命令 =");
         println("========================");
 
-        // 删除 interesting 文件夹
+        // 删除 Local Dev 文件夹
         println("");
-        println("=========================");
-        println("= 删除 interesting 文件夹 =");
-        println("=========================");
+        println("=======================");
+        println("= 删除 Local Dev 文件夹 =");
+        println("=======================");
         println("");
         cmd = "%s --delete-folders %s %s";
-        println(String.format(cmd, JAVA_BFG, FOLDER_INTERESTING, USER_GIT));
+        println(String.format(cmd, JAVA_BFG, FOLDER_LOCAL_DEV, USER_GIT));
 
         // 删除 module 文件夹
         println("");

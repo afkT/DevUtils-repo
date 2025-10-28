@@ -68,10 +68,10 @@ final class CatalogMain {
                 Config.sDevUtilsRepoModuleCatalogMap, Config.sDevUtilsRepoModuleIgnoreCatalogs, 1
         );
 
-        // 生成 DevUtils-repo Interesting 汇总项目目录结构 - https://github.com/afkT/DevUtils-repo/blob/main/interesting
+        // 生成 DevUtils-repo Local Dev 汇总项目目录结构 - https://github.com/afkT/DevUtils-repo/blob/main/local_dev
         print(
-                Config.DEV_UTILS_REPO_INTERESTING_LOCAL_PATH, Config.DEV_UTILS_REPO_INTERESTING_DIR_NAME,
-                Config.sDevUtilsRepoInterestingCatalogMap, null, 0
+                Config.DEV_UTILS_REPO_LOCAL_DEV_LOCAL_PATH, Config.DEV_UTILS_REPO_LOCAL_DEV_DIR_NAME,
+                Config.sDevUtilsRepoLocalDevCatalogMap, null, 0
         );
 
         // =========

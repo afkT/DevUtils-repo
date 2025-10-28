@@ -39,7 +39,7 @@ public class GitDeleteQuerySimple {
         FOLDER_LIST.add("project");
         FOLDER_LIST.add("lib");
         FOLDER_LIST.add("libs");
-        FOLDER_LIST.add("interesting");
+        FOLDER_LIST.add("local_dev");
         FOLDER_LIST.add("app");
         FOLDER_LIST.add("application");
         FOLDER_LIST.add("file");

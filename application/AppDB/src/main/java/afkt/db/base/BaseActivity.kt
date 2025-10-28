@@ -90,7 +90,7 @@ abstract class BaseActivity<VB : ViewBinding> :
     private fun innerInitialize() {
         try {
             TheRouter.inject(this)
-        } catch (ignored: Exception) {
+        } catch (_: Exception) {
         }
     }
 
