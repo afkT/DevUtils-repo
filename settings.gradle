@@ -7,7 +7,6 @@
 // =================
 
 def local_modules = [
-        "DevBaseView",
         "DevOther",
 ]
 
@@ -21,7 +20,7 @@ local_modules.forEach {
         )
     }
     include(":$itName")
-    project(":$itName").projectDir = new File(rootDir, "lib/LocalModules/$it")
+    project(":$itName").projectDir = new File(rootDir, "lib/$it")
 }
 
 // ==========

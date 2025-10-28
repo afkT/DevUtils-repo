@@ -4,6 +4,5 @@ dependencies {
     // = 本地非 lib module =
     // ====================
 
-    implementation project(':DevBaseView')
     implementation project(':DevOther')
 }

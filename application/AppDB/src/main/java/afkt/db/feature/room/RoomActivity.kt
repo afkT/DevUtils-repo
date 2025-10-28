@@ -38,7 +38,7 @@ class RoomActivity : BaseActivity<ActivityDatabaseBinding>() {
         ToastTintUtils.info("侧滑可进行删除, 长按拖动位置")
 
         // 初始化布局管理器、适配器
-        binding.vidRefresh.setAdapter(adapter)
+//        binding.vidRefresh.setAdapter(adapter)
         // 加载数据
         loadData(true)
     }
@@ -124,7 +124,7 @@ class RoomActivity : BaseActivity<ActivityDatabaseBinding>() {
                 }
             }
         })
-        itemTouchHelper.attachToRecyclerView(binding.vidRefresh.getRecyclerView())
+//        itemTouchHelper.attachToRecyclerView(binding.vidRefresh.getRecyclerView())
         binding.vidAddBtn.setOnClickListener {
             var addNumber: Int // 添加数据量
             if (adapter.isDataEmpty) { // 不存在数据
@@ -196,7 +196,7 @@ class RoomActivity : BaseActivity<ActivityDatabaseBinding>() {
         // 设置数据源
         adapter.addLists(!refresh, notes)
         // 结束刷新、加载
-        binding.vidRefresh.finishRefreshOrLoad(refresh)
+//        binding.vidRefresh.finishRefreshOrLoad(refresh)
     }
 
     /**

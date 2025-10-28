@@ -11,14 +11,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <dev.base.widget.BaseButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/vid_room"
             style="@style/AppTheme.Base_Button"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="Room" />
 
-        <dev.base.widget.BaseButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/vid_green_dao"
             style="@style/AppTheme.Base_Button"
             android:ellipsize="end"

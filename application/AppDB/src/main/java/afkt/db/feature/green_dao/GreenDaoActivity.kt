@@ -37,7 +37,7 @@ class GreenDaoActivity : BaseActivity<ActivityDatabaseBinding>() {
         ToastTintUtils.info("侧滑可进行删除, 长按拖动位置")
 
         // 初始化布局管理器、适配器
-        binding.vidRefresh.setAdapter(adapter)
+//        binding.vidRefresh.setAdapter(adapter)
         // 加载数据
         loadData(true)
     }
@@ -120,7 +120,7 @@ class GreenDaoActivity : BaseActivity<ActivityDatabaseBinding>() {
                 }
             }
         })
-        itemTouchHelper.attachToRecyclerView(binding.vidRefresh.getRecyclerView())
+//        itemTouchHelper.attachToRecyclerView(binding.vidRefresh.getRecyclerView())
         binding.vidAddBtn.setOnClickListener {
             var addNumber: Int // 添加数据量
             if (adapter.isDataEmpty) { // 不存在数据
@@ -197,8 +197,8 @@ class GreenDaoActivity : BaseActivity<ActivityDatabaseBinding>() {
         if (!refresh && notes.isEmpty()) ToastTintUtils.normal("已加载至最后一页啦")
         // 设置数据源
         adapter.addLists(!refresh, notes)
-        // 结束刷新、加载
-        binding.vidRefresh.finishRefreshOrLoad(refresh)
+//        // 结束刷新、加载
+//        binding.vidRefresh.finishRefreshOrLoad(refresh)
     }
 
     /**
