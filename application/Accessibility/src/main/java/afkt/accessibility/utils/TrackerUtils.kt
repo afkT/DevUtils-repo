@@ -1,7 +1,6 @@
 package afkt.accessibility.utils
 
 import afkt.accessibility.R
-import afkt.accessibility.base.model.ActivityChangedEvent
 import afkt.accessibility.service.AccessibilityListenerService
 import android.annotation.SuppressLint
 import android.content.Context
@@ -19,6 +18,15 @@ import dev.utils.app.logger.DevLogger
 import dev.utils.app.toast.ToastUtils
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+
+/**
+ * detail: Activity 改变通知事件
+ * @author Ttt
+ */
+class ActivityChangedEvent(
+    val packageName: String,
+    val className: String
+)
 
 /**
  * detail: Activity 跟踪工具类
@@ -87,7 +95,7 @@ class FloatingView(
     private var classNameTv: TextView? = null
 
     private fun initialize() {
-        View.inflate(context, R.layout.layout_floating, this)
+        inflate(context, R.layout.layout_floating, this)
         packageNameTv = findViewById(R.id.vid_package_tv)
         classNameTv = findViewById(R.id.vid_class_tv)
         findViewById<View>(R.id.vid_close_iv).setOnClickListener {

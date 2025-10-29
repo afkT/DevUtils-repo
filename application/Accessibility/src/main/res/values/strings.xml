@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">Accessibility</string>
-    <string name="accessibility_description">Accessibility ( DevUtils 无障碍工具 ) 演示</string>
-    <string name="str_activity_tracker">Activity 栈</string>
-    <string name="str_close_floating">关闭悬浮框</string>
-    <string name="str_open_accessibility_tips">请先开启 &quot;Accessibility&quot; 无障碍辅助功能</string>
-    <string name="str_open_floating_tips">请先开启 &quot;Accessibility&quot; 悬浮窗权限</string>
-</resources>

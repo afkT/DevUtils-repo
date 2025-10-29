@@ -25,13 +25,13 @@ public class DimensValueMain {
         System.out.println(dpn);
 
         StringBuilder builder = new StringBuilder();
-        builder.append("<!-- 通用 SP 值 -->");
+        builder.append("<!-- 通用 SP -->");
         builder.append(sp);
         builder.append(DevFinal.SYMBOL.NEW_LINE);
-        builder.append("<!-- 通用 DP 值 -->");
+        builder.append("<!-- 通用 DP -->");
         builder.append(dp);
         builder.append(DevFinal.SYMBOL.NEW_LINE);
-        builder.append("<!-- 通用 DP 值【负数】 -->");
+        builder.append("<!-- 通用 DP【负数】 -->");
         builder.append(dpn);
 
         String content = builder.toString();

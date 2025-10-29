@@ -1,9 +1,7 @@
-package afkt.accessibility.base
+package afkt.accessibility
 
-import afkt.accessibility.BuildConfig
-import afkt.accessibility.base.model.ActivityChangedEvent
 import afkt.accessibility.service.AccessibilityListenerService
-import afkt.accessibility.service.AccessibilityListenerService.Listener
+import afkt.accessibility.utils.ActivityChangedEvent
 import afkt.accessibility.utils.EventBusUtils
 import android.text.TextUtils
 import android.view.accessibility.AccessibilityEvent
@@ -16,26 +14,33 @@ import dev.utils.app.logger.LogConfig
 import dev.utils.app.logger.LogLevel
 import dev.utils.common.StringUtils
 
+/**
+ * detail: Base Application
+ * @author Ttt
+ */
 class BaseApplication : MultiDexApplication() {
 
-    private val TAG = "Accessibility_TAG"
+    // 日志 TAG
+    val TAG = "Accessibility_TAG"
 
     override fun onCreate() {
         super.onCreate()
 
-        if (BuildConfig.DEBUG) {
-            // 初始化 Logger 配置
-            DevLogger.initialize(
-                LogConfig()
-                    .logLevel(LogLevel.DEBUG)
-                    .tag(TAG)
-                    .sortLog(true)
-                    .methodCount(0)
-            )
-            // 打开 lib 内部日志 - 线上环境, 不调用方法
-            DevUtils.openLog()
-            DevUtils.openDebug()
-        }
+        // 初始化日志配置
+        DevLogger.initialize(
+            LogConfig().logLevel(LogLevel.DEBUG)
+                .tag(TAG)
+                .sortLog(true) // 美化日志, 边框包围
+                .methodCount(0)
+        )
+        // 打开 lib 内部日志 - 线上环境, 不调用方法
+        DevUtils.openLog()
+        DevUtils.openDebug()
+
+        // ============
+        // = 初始化操作 =
+        // ============
+
         // 初始化服务
         initService()
     }
@@ -44,7 +49,8 @@ class BaseApplication : MultiDexApplication() {
      * 初始化服务
      */
     private fun initService() {
-        AccessibilityListenerService.setListener(object : Listener {
+        AccessibilityListenerService.setListener(object :
+            AccessibilityListenerService.Listener {
             override fun onAccessibilityEvent(
                 event: AccessibilityEvent?,
                 service: AccessibilityListenerService?

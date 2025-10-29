@@ -44,6 +44,6 @@
         android:layout_width="@dimen/dp_20"
         android:layout_height="@dimen/dp_20"
         android:layout_marginLeft="@dimen/dp_8"
-        android:src="@drawable/icon_close"
+        android:src="@mipmap/icon_close"
         app:tint="@color/color_55" />
 </LinearLayout>

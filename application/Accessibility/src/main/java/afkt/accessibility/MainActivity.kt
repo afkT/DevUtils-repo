@@ -1,11 +1,13 @@
-package afkt.accessibility.ui.activity
+package afkt.accessibility
 
-import afkt.accessibility.R
 import afkt.accessibility.databinding.ActivityMainBinding
 import afkt.accessibility.service.AccessibilityListenerService
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import dev.utils.app.ActivityUtils
 import dev.utils.app.assist.floating.FloatingWindowManagerAssist
 import dev.utils.app.toast.ToastUtils
@@ -18,13 +20,15 @@ import dev.utils.app.toast.ToastUtils
  */
 class MainActivity : AppCompatActivity() {
 
-    private val binding: ActivityMainBinding by lazy {
+    val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        // 通用 Enable edge to edge【适配 API 35+】
+        commonEnableEdgeToEdge()
 
         checkOverlayPermission()
         // Activity 栈
@@ -60,5 +64,21 @@ class MainActivity : AppCompatActivity() {
         if (!FloatingWindowManagerAssist.checkOverlayPermission(this, true)) {
             ToastUtils.showShort(R.string.str_open_floating_tips)
         }
+    }
+}
+
+/**
+ * 通用 Enable edge to edge【适配 API 35+】
+ */
+fun MainActivity.commonEnableEdgeToEdge() {
+    enableEdgeToEdge()
+    // 给 view 设置 insets, 使得 view 不会被 system bars 遮挡
+    ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+        val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+        v.setPadding(
+            systemBars.left, systemBars.top,
+            systemBars.right, systemBars.bottom
+        )
+        insets
     }
 }
