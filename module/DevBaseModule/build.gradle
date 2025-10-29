@@ -1,6 +1,16 @@
-apply from: rootProject.file(files.build_app_kotlin_gradle)
-apply from: rootProject.file(files.deps_other_lib)
+apply from: rootProject.file(files.lib_app_gradle)
+apply plugin: 'kotlin-parcelize'
 
 android {
     namespace "dev.module"
+}
+
+dependencies {
+
+    // ================
+    // = Dev 系列开发库 =
+    // ================
+
+    // DevEngine - 第三方框架解耦、一键替换第三方库、同类库多 Engine 组件化混合使用
+    api deps.dev.dev_engine
 }

@@ -1,21 +1,22 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-
     apply from: rootProject.file("file/gradle/config.gradle")
-    apply from: rootProject.file("file/gradle/config_split.gradle")
+    apply from: rootProject.file("file/gradle/config_libs.gradle")
     apply from: rootProject.file("file/gradle/config_files.gradle")
     apply from: rootProject.file("file/gradle/config_sdk.gradle")
-    apply from: rootProject.file(files.task_generate_deps_file_gradle)
 
     repositories { // 该 repositories 用于 buildscript dependencies 插件、脚本依赖加载
-        // AliRepo 阿里仓库服务 https://maven.aliyun.com/mvn/view
-        maven { url "https://maven.aliyun.com/repository/google" }
-        maven { url "https://maven.aliyun.com/repository/public" }
-        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
-
         google()
         mavenCentral()
+
+        // AliRepo 阿里仓库服务 https://maven.aliyun.com/mvn/view
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
 
         // jitpack maven
         maven { url "https://jitpack.io" }
@@ -48,13 +49,13 @@ buildscript {
 
     dependencies {
         // https://mvnrepository.com/artifact/com.android.tools.build/gradle
-        classpath 'com.android.tools.build:gradle:8.7.3'
+        classpath 'com.android.tools.build:gradle:8.11.1'
         // kotlin https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
         classpath rootProject.ext.deps.build.kotlin_gradle_plugin
         // TheRouter AutoRegister https://mvnrepository.com/artifact/cn.therouter/plugin
-        classpath rootProject.ext.deps.lib.therouter_plugin
+        classpath rootProject.ext.deps_lib.router.therouter_plugin
         // greendao https://mvnrepository.com/artifact/org.greenrobot/greendao-gradle-plugin
-        classpath rootProject.ext.deps_split.lib.greenDAO_gradle_plugin
+        classpath rootProject.ext.deps_lib.database.greenDAO_gradle_plugin
         // 华为推送所需 https://mvnrepository.com/artifact/com.huawei.agconnect/agcp
         classpath rootProject.ext.deps_sdk.plugin.huawei_agconnect_plugin
         // 荣耀推送所需 https://developer.honor.com/cn/docs/11002/guides/intergrate
@@ -66,6 +67,14 @@ allprojects {
     repositories { // 该 repositories 用于 app、module dependencies 第三方库 implementation 等依赖加载
         google()
         mavenCentral()
+
+        // AliRepo 阿里仓库服务 https://maven.aliyun.com/mvn/view
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url "https://maven.aliyun.com/repository/apache-snapshots" }
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
 
         // jitpack maven
         maven { url "https://jitpack.io" }
@@ -104,12 +113,6 @@ allprojects {
             }
         }
     }
-
-//    gradle.projectsEvaluated {
-//        tasks.withType(JavaCompile) {
-//            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-//        }
-//    }
 }
 
 tasks.register('clean', Delete) {

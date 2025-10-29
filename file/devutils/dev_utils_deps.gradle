@@ -1,2 +1,0 @@
-// DevUtils 系列库 Maven 依赖
-apply from: rootProject.file(dev_utils.maven)

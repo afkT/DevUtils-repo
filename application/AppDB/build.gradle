@@ -1,7 +1,5 @@
 apply from: rootProject.file(files.build_app_gradle)
 apply from: rootProject.file(files.build_router_app_gradle)
-apply from: rootProject.file(files.deps_other_lib)
-apply from: rootProject.file(files.deps_qa_lib)
 apply plugin: 'org.greenrobot.greendao'
 
 android {
@@ -45,13 +43,59 @@ android {
     }
 }
 
-// DevUtils 项目统一依赖配置
-apply from: rootProject.file(dev_utils.deps_config)
-// DevUtils 项目其他 module 本地依赖
-apply from: rootProject.file(dev_utils.local_other)
+dependencies {
+
+    // ==========
+    // = kotlin =
+    // ==========
+
+    api deps.kotlin.room
+    api deps.kotlin.room_runtime
+    kapt deps.kotlin.room_compiler
+
+    // ============
+    // = androidx =
+    // ============
+
+    api deps.androidx.multidex
+
+    // ================
+    // = Dev 系列开发库 =
+    // ================
+
+    // DevBase - Base ( Activity、Fragment )、MVP、ViewBinding、ContentLayout 基类库
+    api deps.dev.dev_base
+
+    // DevBaseMVVM - MVVM ( ViewDataBinding + ViewModel ) 基类库
+    api deps.dev.dev_base_mvvm
+
+    // DevMVVM - DataBinding 工具类库
+    api deps.dev.dev_mvvm
+
+    // DevSimple - 简单敏捷开发库
+    api deps.dev.dev_simple
+
+    // DevAgile - 简单敏捷开发库 ( 常用、零散代码 )
+    api deps.dev.dev_agile
+
+    // DevEngine - 第三方框架解耦、一键替换第三方库、同类库多 Engine 组件化混合使用
+    api deps.dev.dev_engine
+
+    // ============
+    // = 快捷开发库 =
+    // ============
+
+    // GreenDAO ORM 框架 https://github.com/greenrobot/greenDAO
+    api deps_lib.database.greenDAO
+    // 下拉刷新框架 https://github.com/scwang90/SmartRefreshLayout
+    api deps_lib.common_widget.smartrefreshlayout
+    api deps_lib.common_widget.smartrefresh_header_classics
+    api deps_lib.common_widget.smartrefresh_footer_classics
+}
 
 // https://github.com/greenrobot/greenDAO/issues/1110
-tasks.configureEach { task ->
+tasks.configureEach { task
+    ->
     if (task.name.matches("\\w*compile\\w*Kotlin")) {
         task.dependsOn('greendao')
     }

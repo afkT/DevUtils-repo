@@ -1,0 +1,42 @@
+// Android lib 依赖配置
+dependencies {
+
+    // ==========
+    // = kotlin =
+    // ==========
+
+    api deps.kotlin.stdlib
+    api deps.kotlin.core
+    api deps.kotlin.coroutines
+    api deps.kotlin.lifecycle_runtime
+    api deps.kotlin.lifecycle_viewmodel
+    api deps.kotlin.lifecycle_livedata
+    api deps.kotlin.lifecycle_viewmodel_savedstate
+    api deps.kotlin.lifecycle_common_java8
+    api deps.kotlin.fragment
+    api deps.kotlin.activity
+    api deps.kotlin.navigation_fragment
+    api deps.kotlin.navigation_ui
+//    api deps.kotlin.work_runtime
+//    api deps.kotlin.palette
+//    api deps.kotlin.datastore_preferences
+
+    // ============
+    // = androidx =
+    // ============
+
+    api deps.androidx.design
+    api deps.androidx.appcompat
+    api deps.androidx.appcompat_resources
+    api deps.androidx.cardview
+    api deps.androidx.recyclerview
+    api deps.androidx.multidex
+    api deps.androidx.constraint_layout
+    api deps.androidx.viewpager2
+    api deps.androidx.work_runtime
+    api deps.androidx.fragment
+    api deps.androidx.activity
+    api deps.androidx.palette
+    api deps.androidx.flexbox
+    api deps.androidx.localbroadcastManager
+}

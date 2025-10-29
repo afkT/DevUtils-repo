@@ -5,7 +5,7 @@ dependencies {
     // ================
 
     // https://github.com/afkT/DevUtils
-    // https://github.com/afkT/DevUtils/blob/master/README_API.md
+    // https://github.com/afkT/DevUtils/blob/master/README_PROJECT.md
 
     // DevApp - Android 工具类库
     api deps.dev.dev_app
@@ -13,23 +13,14 @@ dependencies {
     // DevAssist - 封装逻辑代码, 实现多个快捷功能辅助类、以及 Engine 兼容框架等
     api deps.dev.dev_assist
 
-    // DevBase - Base ( Activity、Fragment )、MVP、ViewBinding、ContentLayout 基类库
+    // DevBase - Base ( Activity、Fragment ) MVP、MVVM 基类库
     api deps.dev.dev_base
-
-    // DevBaseMVVM - MVVM ( ViewDataBinding + ViewModel ) 基类库
-    api deps.dev.dev_base_mvvm
-
-    // DevMVVM - DataBinding 工具类库
-    api deps.dev.dev_mvvm
-
-    // DevSimple - 简单敏捷开发库
-    api deps.dev.dev_simple
-
-    // DevAgile - 简单敏捷开发库 ( 常用、零散代码 )
-    api deps.dev.dev_agile
 
     // DevEngine - 第三方框架解耦、一键替换第三方库、同类库多 Engine 组件化混合使用
     api deps.dev.dev_engine
+
+    // DevSimple - 简单敏捷开发库
+    api deps.dev.dev_simple
 
     // DevWidget - 自定义 View UI 库
     api deps.dev.dev_widget
@@ -50,4 +41,7 @@ dependencies {
     api deps.dev.dev_environment
     kaptDebug deps.dev.dev_environment_compiler // debugAnnotationProcessor
     kaptRelease deps.dev.dev_environment_compiler_release // releaseAnnotationProcessor
+
+    // DevDeprecated - Dev 系列库弃用代码统一存储库
+    api deps.dev.dev_deprecated
 }

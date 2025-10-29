@@ -42,7 +42,8 @@
             android:name="afkt.db.feature.green_dao.GreenDaoActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="Instantiatable" />
 
         <!-- Room -->
 

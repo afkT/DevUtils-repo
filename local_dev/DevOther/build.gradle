@@ -1,6 +1,47 @@
-apply from: rootProject.file(files.build_app_kotlin_gradle)
-apply from: rootProject.file(files.deps_other_lib)
+apply from: rootProject.file(files.build_app_gradle)
 
 android {
     namespace "dev.other"
+}
+
+dependencies {
+
+    // ==========
+    // = kotlin =
+    // ==========
+
+    api deps.kotlin.work_runtime
+    api deps.kotlin.datastore_preferences
+
+    // ================
+    // = Dev 系列开发库 =
+    // ================
+
+    // DevApp - Android 工具类库
+    api deps.dev.dev_app
+
+    // DevBaseMVVM - MVVM ( ViewDataBinding + ViewModel ) 基类库
+    api deps.dev.dev_base_mvvm
+
+    // DevMVVM - DataBinding 工具类库
+    api deps.dev.dev_mvvm
+
+    // DevSimple - 简单敏捷开发库
+    api deps.dev.dev_simple
+
+    // DevAgile - 简单敏捷开发库 ( 常用、零散代码 )
+    api deps.dev.dev_agile
+
+    // DevEngine - 第三方框架解耦、一键替换第三方库、同类库多 Engine 组件化混合使用
+    api deps.dev.dev_engine
+
+    // DevWidget - 自定义 View UI 库
+    api deps.dev.dev_widget
+
+    // ============
+    // = 快捷开发库 =
+    // ============
+
+    // EventBus 事件订阅分发 https://github.com/greenrobot/EventBus
+    api deps_lib.common.eventbus
 }

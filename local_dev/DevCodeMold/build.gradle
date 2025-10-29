@@ -4,8 +4,8 @@ version versions.dev_java_version
 
 dependencies {
     // DevJava - Java 工具类库 ( 不依赖 android api )
-    implementation deps.dev.dev_java
+    api deps.dev.dev_java
 
     // Gson https://github.com/google/gson
-    implementation deps.lib.gson
+    api deps_lib.common.gson
 }

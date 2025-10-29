@@ -9,13 +9,24 @@ android {
 }
 
 dependencies {
+
+    // ============
+    // = androidx =
+    // ============
+
+    api deps.androidx.multidex
+
+    // ================
+    // = Dev 系列开发库 =
+    // ================
+
     // DevApp - Android 工具类库
-    implementation deps.dev.dev_app
+    api deps.dev.dev_app
 
     // ============
     // = 快捷开发库 =
     // ============
 
     // EventBus 事件订阅分发 https://github.com/greenrobot/EventBus
-    implementation deps.lib.eventbus
+    api deps_lib.common.eventbus
 }
