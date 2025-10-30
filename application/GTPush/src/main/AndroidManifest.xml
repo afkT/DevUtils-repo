@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="afkt.gtpush">
-
-    <!-- 自动锁屏权限 ( 设备管理 ) -->
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:name="afkt.gtpush.base.BaseApplication"
@@ -46,12 +42,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity
-            android:name="afkt.gtpush.device.DeviceActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
         <!-- ============= -->
         <!-- 推送消息路由处理 -->
         <!-- ============= -->
@@ -60,25 +50,5 @@
             android:name="afkt.gtpush.router.PushRouterActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
-        <!-- ========== -->
-        <!-- 设备管理广播 -->
-        <!-- ========== -->
-
-        <receiver
-            android:name="afkt.gtpush.device.DeviceReceiver"
-            android:exported="true"
-            android:permission="android.permission.BIND_DEVICE_ADMIN">
-            <meta-data
-                android:name="android.app.device_admin"
-                android:resource="@xml/device_admin" />
-
-            <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-
-                <category android:name="android.intent.category.HOME" />
-            </intent-filter>
-        </receiver>
     </application>
 </manifest>

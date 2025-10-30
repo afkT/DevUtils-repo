@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="dev.other">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- NotificationListenerService 所需权限 监听应用程序消息 -->
     <uses-permission
