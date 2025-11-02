@@ -24,28 +24,6 @@ final class Config {
     // DevUtils 根目录
     public static final String DEV_UTILS_DIR = DIR + File.separator + "DevUtils";
 
-    // ===========
-    // = Android =
-    // ===========
-
-    // Android 文件名
-    public static final String              ANDROID_DIR_NAME   = "Android";
-    // Android 项目本地路径
-    public static final String              ANDROID_LOCAL_PATH = DIR + File.separator + ANDROID_DIR_NAME;
-    // Android 文件目录注释
-    public static final Map<String, String> sAndroidCatalogMap = new HashMap<>();
-
-    // ========
-    // = Java =
-    // ========
-
-    // Java 文件名
-    public static final String              JAVA_DIR_NAME   = "Java";
-    // Java 项目本地路径
-    public static final String              JAVA_LOCAL_PATH = DIR + File.separator + JAVA_DIR_NAME;
-    // Java 文件目录注释
-    public static final Map<String, String> sJavaCatalogMap = new HashMap<>();
-
     // ============
     // = DevUtils =
     // ============
@@ -115,28 +93,6 @@ final class Config {
 
     static {
 
-        // ===========
-        // = Android =
-        // ===========
-
-        sAndroidCatalogMap.put("Android", "根目录");
-        sAndroidCatalogMap.put(".360RePlugin", "Android 插件化开发 - 360 RePlugin 框架");
-        sAndroidCatalogMap.put(".AndroidVideoClip", "Android 视频裁剪 (含裁剪 View)");
-        sAndroidCatalogMap.put(".AutoLockScreenPro", "AutoLockScreenPro - 推送自动锁屏");
-        sAndroidCatalogMap.put(".BuglyHotfix", "Android 热修复 - Bugly");
-        sAndroidCatalogMap.put(".PlaySeekbar", "视频裁剪自定义 View");
-        sAndroidCatalogMap.put(".PushHandlerPro", "Android 点击推送逻辑处理、页面跳转判断");
-        sAndroidCatalogMap.put(".RecordVideo", "录制视频 View (拍照 + 视频)");
-        sAndroidCatalogMap.put(".RecordView", "录制进步式 View");
-        sAndroidCatalogMap.put(".SophixPro", "Android - 热修复 Sophix");
-
-        // ========
-        // = Java =
-        // ========
-
-        sJavaCatalogMap.put("Java", "根目录");
-        sJavaCatalogMap.put(".VideoClip", "Java 实现 MP4 裁剪功能");
-
         // ============
         // = DevUtils =
         // ============
@@ -148,23 +104,24 @@ final class Config {
         sDevUtilsCatalogMap.put("lib", "根目录");
         sDevUtilsCatalogMap.put(".DevApp", "Android 工具类库");
         sDevUtilsCatalogMap.put(".DevAssist", "封装逻辑代码, 实现多个快捷功能辅助类、以及 Engine 兼容框架等");
-        sDevUtilsCatalogMap.put(".DevBase", "Base ( Activity、Fragment )、MVP、ViewBinding、ContentLayout 基类库");
-        sDevUtilsCatalogMap.put(".DevBaseMVVM", "MVVM ( ViewDataBinding + ViewModel ) 基类库");
-        sDevUtilsCatalogMap.put(".DevMVVM", "DataBinding 工具类库");
+        sDevUtilsCatalogMap.put(".DevBase", "DevBase - Base ( Activity、Fragment ) MVP、MVVM 基类库");
         sDevUtilsCatalogMap.put(".DevEngine", "第三方框架解耦、一键替换第三方库、同类库多 Engine 组件化混合使用");
-        sDevUtilsCatalogMap.put(".DevHttpCapture", "OkHttp 抓包工具库");
-        sDevUtilsCatalogMap.put(".DevHttpManager", "OkHttp 管理库 ( Retrofit 多 BaseUrl 管理、Progress 监听 )");
-        sDevUtilsCatalogMap.put(".DevJava", "Java 工具类库 ( 不依赖 android api )");
-        sDevUtilsCatalogMap.put(".DevRetrofit", "Retrofit + Kotlin Coroutines 封装");
+        sDevUtilsCatalogMap.put(".DevSimple", "简单敏捷开发库");
         sDevUtilsCatalogMap.put(".DevWidget", "自定义 View UI 库");
+        sDevUtilsCatalogMap.put(".DevDeprecated", "Dev 系列库弃用代码统一存储库");
         sDevUtilsCatalogMap.put(".Environment", "Android 环境配置切换库");
         sDevUtilsCatalogMap.put(".Environment.DevEnvironment", "环境切换可视化 UI 操作");
         sDevUtilsCatalogMap.put(".Environment.DevEnvironmentBase", "注解类、实体类、监听事件等通用基础");
         sDevUtilsCatalogMap.put(".Environment.DevEnvironmentCompiler", "Debug ( 打包 / 编译 ) 生成实现代码");
         sDevUtilsCatalogMap.put(".Environment.DevEnvironmentCompilerRelease", "Release ( 打包 / 编译 ) 生成实现代码");
-        sDevUtilsCatalogMap.put(".HttpCapture", "OkHttp 抓包工具库 ( 可视化功能 )");
-        sDevUtilsCatalogMap.put(".HttpCapture.DevHttpCaptureCompiler", "Debug ( 打包 / 编译 ) 实现代码");
+        sDevUtilsCatalogMap.put(".HttpCapture", "Android 抓包库");
+        sDevUtilsCatalogMap.put(".HttpCapture.DevHttpCapture", "OkHttp 抓包工具库");
+        sDevUtilsCatalogMap.put(".HttpCapture.DevHttpCaptureCompiler", "Debug ( 打包 / 编译 ) 实现代码 ( 可视化 UI 操作 )");
         sDevUtilsCatalogMap.put(".HttpCapture.DevHttpCaptureCompilerRelease", "Release ( 打包 / 编译 ) 实现代码");
+        sDevUtilsCatalogMap.put(".HttpRequest", "Android 网络请求库");
+        sDevUtilsCatalogMap.put(".HttpRequest.DevRetrofit", "Retrofit + Kotlin Coroutines 封装");
+        sDevUtilsCatalogMap.put(".HttpRequest.DevHttpManager", "OkHttp 管理库 ( Retrofit 多 BaseUrl 管理、Progress 监听 )");
+        sDevUtilsCatalogMap.put(".DevJava", "Java 工具类库 ( 不依赖 android api )");
 
         // =======================
         // = DevUtils Lib 忽略目录 =
@@ -173,28 +130,31 @@ final class Config {
         sDevUtilsIgnoreCatalogs.add("DevApp");
         sDevUtilsIgnoreCatalogs.add("DevAssist");
         sDevUtilsIgnoreCatalogs.add("DevBase");
-        sDevUtilsIgnoreCatalogs.add("DevBaseMVVM");
-        sDevUtilsIgnoreCatalogs.add("DevMVVM");
         sDevUtilsIgnoreCatalogs.add("DevEngine");
-        sDevUtilsIgnoreCatalogs.add("DevHttpCapture");
-        sDevUtilsIgnoreCatalogs.add("DevHttpManager");
-        sDevUtilsIgnoreCatalogs.add("DevRetrofit");
-        sDevUtilsIgnoreCatalogs.add("DevJava");
+        sDevUtilsIgnoreCatalogs.add("DevSimple");
         sDevUtilsIgnoreCatalogs.add("DevWidget");
+        sDevUtilsIgnoreCatalogs.add("DevDeprecated");
         sDevUtilsIgnoreCatalogs.add("DevEnvironment");
         sDevUtilsIgnoreCatalogs.add("DevEnvironmentBase");
         sDevUtilsIgnoreCatalogs.add("DevEnvironmentCompiler");
         sDevUtilsIgnoreCatalogs.add("DevEnvironmentCompilerRelease");
+        sDevUtilsIgnoreCatalogs.add("DevHttpCapture");
         sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompiler");
         sDevUtilsIgnoreCatalogs.add("DevHttpCaptureCompilerRelease");
+        sDevUtilsIgnoreCatalogs.add("DevRetrofit");
+        sDevUtilsIgnoreCatalogs.add("DevHttpManager");
+        sDevUtilsIgnoreCatalogs.add("DevJava");
 
         // ========================
         // = DevUtils Application =
         // ========================
 
         sDevUtilsApplicationCatalogMap.put("application", "根目录");
-        sDevUtilsApplicationCatalogMap.put(".DevBaseDemo", "临时测试代码、库调用调试 Demo");
         sDevUtilsApplicationCatalogMap.put(".DevUtilsApp", "DevUtils 代码演示应用");
+        sDevUtilsApplicationCatalogMap.put(".DevEnvironmentUse", "DevEnvironment - Android 环境配置切换库【使用示例】");
+        sDevUtilsApplicationCatalogMap.put(".DevHttpCaptureUse", "DevHttpCapture - OkHttp 抓包工具库【使用示例】");
+        sDevUtilsApplicationCatalogMap.put(".DevHttpManagerUse", "DevHttpManager - OkHttp 管理库【使用示例】");
+        sDevUtilsApplicationCatalogMap.put(".DevRetrofitUse", "DevRetrofit - Retrofit + Kotlin Coroutines 封装【使用示例】");
 
         // =================
         // = DevUtils-repo =
@@ -207,8 +167,8 @@ final class Config {
         sDevUtilsRepoApplicationCatalogMap.put("application", "根目录");
         sDevUtilsRepoApplicationCatalogMap.put(".Accessibility", "Android 无障碍使用 ( Activity 栈 )");
         sDevUtilsRepoApplicationCatalogMap.put(".AppDB", "Room、GreenDAO Database 使用对比");
-        sDevUtilsRepoApplicationCatalogMap.put(".GTPush", "个推推送 ( 逻辑 ) 处理 ( 含设备管理 )");
-        sDevUtilsRepoApplicationCatalogMap.put(".JPush", "极光推送 ( 逻辑 ) 处理 ( 含设备管理 )");
+        sDevUtilsRepoApplicationCatalogMap.put(".GTPush", "个推推送 ( 逻辑 ) 处理");
+        sDevUtilsRepoApplicationCatalogMap.put(".JPush", "极光推送 ( 逻辑 ) 处理");
         sDevUtilsRepoApplicationCatalogMap.put(".UMShare", "友盟分享 ( 逻辑 ) 处理");
 
         // ========================
@@ -235,6 +195,6 @@ final class Config {
 
         sDevUtilsRepoLocalDevCatalogMap.put("local_dev", "根目录");
         sDevUtilsRepoLocalDevCatalogMap.put(".DevCodeMold", "代码生成模具【屏幕适配、IntentData 创建、dimens.xml 生成】等");
-        sDevUtilsRepoLocalDevCatalogMap.put(".DevOther", "功能、工具类二次封装, 直接 copy 使用【 大部分迁移至 DevUtils-repo 】");
+        sDevUtilsRepoLocalDevCatalogMap.put(".DevOther", "功能、工具类二次封装, 直接 copy 使用");
     }
 }

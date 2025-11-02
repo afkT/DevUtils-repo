@@ -16,26 +16,6 @@ final class CatalogMain {
 
     public static void main(String[] args) {
 
-        // ================
-        // = afkT/Android =
-        // ================
-
-        // 生成 Android 汇总项目目录结构 - https://github.com/afkT/Android
-        print(
-                Config.ANDROID_LOCAL_PATH, Config.ANDROID_DIR_NAME,
-                Config.sAndroidCatalogMap, null, 0
-        );
-
-        // =============
-        // = afkT/Java =
-        // =============
-
-        // 生成 Java 汇总项目目录结构 - https://github.com/afkT/Java
-        print(
-                Config.JAVA_LOCAL_PATH, Config.JAVA_DIR_NAME,
-                Config.sJavaCatalogMap, null, 0
-        );
-
         // =================
         // = afkT/DevUtils =
         // =================
