@@ -3,8 +3,17 @@ apply from: rootProject.file(files.lib_java_gradle)
 version versions.dev_java_version
 
 dependencies {
+
+    // ================
+    // = Dev 系列开发库 =
+    // ================
+
     // DevJava - Java 工具类库 ( 不依赖 android api )
     api deps.dev.dev_java
+
+    // ============
+    // = 快捷开发库 =
+    // ============
 
     // Gson https://github.com/google/gson
     api deps_lib.common.gson

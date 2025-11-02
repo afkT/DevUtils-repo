@@ -14,7 +14,6 @@ android {
         ndk {
             // 选择要添加的对应 cpu 类型的 .so 库
             abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
-            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
 
         manifestPlaceholders = [
@@ -65,9 +64,6 @@ dependencies {
 
     // DevSimple - 简单敏捷开发库
     api deps.dev.dev_simple
-
-    // DevWidget - 自定义 View UI 库
-    api deps.dev.dev_widget
 
     // =========
     // = 非 lib =
