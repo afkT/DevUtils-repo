@@ -1,4 +1,4 @@
-package afkt.gtpush.router
+package afkt.gtpush.push
 
 import android.app.Activity
 import android.content.ComponentName
@@ -6,17 +6,17 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import dev.engine.DevEngine
-import dev.expand.engine.json.toJson
+import dev.engine.extensions.json.toJson
 import dev.module.push.PushMessage
 import dev.utils.DevFinal
 import dev.utils.app.AppUtils
 
 /**
- * detail: 推送消息路由处理 Activity
+ * detail: 推送消息中转路由 Activity
  * @author Ttt
  * 该 Activity 属于中转处理推送消息 ( 不需要继承 BaseActivity, 不需显示页面 ), 只用于推送路由分发
  */
-class PushRouterActivity : Activity() {
+class PushTransferRouter : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +76,7 @@ class PushRouterActivity : Activity() {
             context: Context?,
             pushMessage: PushMessage,
         ): Boolean {
-            val intent = Intent(context, PushRouterActivity::class.java)
+            val intent = Intent(context, PushTransferRouter::class.java)
             intent.putExtra(DevFinal.STR.DATA, pushMessage.toJson())
             return AppUtils.startActivity(intent)
         }

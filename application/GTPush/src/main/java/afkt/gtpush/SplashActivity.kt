@@ -1,8 +1,6 @@
-package afkt.umshare.ui.activity
+package afkt.gtpush
 
-import afkt.umshare.R
-import afkt.umshare.base.BaseActivity
-import afkt.umshare.base.config.RouterPath
+import afkt.gtpush.base.BaseActivity
 import androidx.viewbinding.ViewBinding
 import dev.utils.app.HandlerUtils
 

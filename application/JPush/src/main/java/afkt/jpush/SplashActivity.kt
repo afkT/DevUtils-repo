@@ -1,8 +1,6 @@
-package afkt.gtpush.ui.activity
+package afkt.jpush
 
-import afkt.gtpush.R
-import afkt.gtpush.base.BaseActivity
-import afkt.gtpush.base.config.RouterPath
+import afkt.jpush.base.BaseActivity
 import androidx.viewbinding.ViewBinding
 import dev.utils.app.HandlerUtils
 

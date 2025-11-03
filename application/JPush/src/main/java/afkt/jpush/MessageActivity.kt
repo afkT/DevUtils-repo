@@ -1,9 +1,7 @@
-package afkt.gtpush.ui.activity
+package afkt.jpush
 
-import afkt.gtpush.R
-import afkt.gtpush.base.BaseActivity
-import afkt.gtpush.base.config.RouterPath
-import afkt.gtpush.databinding.ActivityMessageBinding
+import afkt.jpush.base.BaseActivity
+import afkt.jpush.databinding.ActivityMessageBinding
 import com.therouter.router.Autowired
 import com.therouter.router.Route
 import dev.expand.engine.json.toJsonIndent

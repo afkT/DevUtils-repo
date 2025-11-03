@@ -1,8 +1,7 @@
-package afkt.jpush.ui.activity
+package afkt.umshare
 
-import afkt.jpush.R
-import afkt.jpush.base.BaseActivity
-import afkt.jpush.base.config.RouterPath
+import afkt.umshare.base.BaseActivity
+import afkt.umshare.base.config.RouterPath
 import androidx.viewbinding.ViewBinding
 import dev.utils.app.HandlerUtils
 

@@ -7,35 +7,27 @@ import dev.DevUtils
 import dev.engine.DevEngine
 import dev.engine.share.DevShareEngine
 import dev.umshare.UMShareEngine
-import dev.utils.BuildConfig
 import dev.utils.app.logger.DevLogger
 import dev.utils.app.logger.LogConfig
-import dev.utils.app.logger.LogLevel
 
 class BaseApplication : MultiDexApplication() {
+
+    // 日志 TAG
+    val TAG = "JPush_TAG"
 
     override fun onCreate() {
         super.onCreate()
 
-        if (BuildConfig.DEBUG) {
-            TheRouter.isDebug = true
-        }
         // 推荐在 Application 中初始化
         TheRouter.init(this)
 
-        if (BuildConfig.DEBUG) {
-            // 初始化 Logger 配置
-            DevLogger.initialize(
-                LogConfig()
-                    .logLevel(LogLevel.DEBUG)
-                    .tag("UMShare_TAG")
-                    .sortLog(true)
-                    .methodCount(0)
-            )
-            // 打开 lib 内部日志 - 线上环境, 不调用方法
-            DevUtils.openLog()
-            DevUtils.openDebug()
-        }
+        // 打开 lib 内部日志 - 线上环境, 不调用方法
+        DevUtils.openLog()
+        DevUtils.openDebug()
+        // 初始化 Logger 配置
+        val logConfig = LogConfig.getSortLogConfig(TAG)
+            .displayThreadInfo(false)
+        DevLogger.initialize(logConfig)
 
         // DevEngine 完整初始化
         DevEngine.completeInitialize(this)

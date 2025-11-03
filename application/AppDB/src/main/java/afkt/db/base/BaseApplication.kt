@@ -6,7 +6,6 @@ import dev.DevUtils
 import dev.engine.DevEngine
 import dev.utils.app.logger.DevLogger
 import dev.utils.app.logger.LogConfig
-import dev.utils.app.logger.LogLevel
 
 /**
  * detail: Base Application
@@ -14,33 +13,22 @@ import dev.utils.app.logger.LogLevel
  */
 class BaseApplication : MultiDexApplication() {
 
+    // 日志 TAG
+    val TAG = "AppDB_Log"
+
     override fun onCreate() {
         super.onCreate()
 
-        TheRouter.isDebug = true
         // 推荐在 Application 中初始化
         TheRouter.init(this)
 
-        // ============
-        // = DevUtils =
-        // ============
-
-        // 初始化工具类 - 可不调用, 在 DevUtils FileProviderDevApp 中已初始化, 无需主动调用
-        DevUtils.init(this.applicationContext)
-        // 初始化日志配置
-        DevLogger.initialize(
-            LogConfig().logLevel(LogLevel.DEBUG)
-                .tag("AppDB_Log")
-                .sortLog(true) // 美化日志, 边框包围
-                .methodCount(0)
-        )
         // 打开 lib 内部日志 - 线上环境, 不调用方法
         DevUtils.openLog()
         DevUtils.openDebug()
-
-        // ============
-        // = 初始化操作 =
-        // ============
+        // 初始化 Logger 配置
+        val logConfig = LogConfig.getSortLogConfig(TAG)
+            .displayThreadInfo(false)
+        DevLogger.initialize(logConfig)
 
         // DevEngine 完整初始化
         DevEngine.completeInitialize(this)

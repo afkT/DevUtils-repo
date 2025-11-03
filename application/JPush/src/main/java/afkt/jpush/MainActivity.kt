@@ -1,9 +1,7 @@
-package afkt.gtpush.ui.activity
+package afkt.jpush
 
-import afkt.gtpush.R
-import afkt.gtpush.base.BaseActivity
-import afkt.gtpush.base.config.RouterPath
-import afkt.gtpush.databinding.ActivityMainBinding
+import afkt.jpush.base.BaseActivity
+import afkt.jpush.databinding.ActivityMainBinding
 import com.therouter.router.Route
 
 @Route(path = RouterPath.MainActivity_PATH)

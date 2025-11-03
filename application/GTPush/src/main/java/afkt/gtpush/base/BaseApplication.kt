@@ -1,12 +1,12 @@
 package afkt.gtpush.base
 
 import afkt.gtpush.BuildConfig
-import afkt.gtpush.base.config.RouterPath
+import afkt.gtpush.RouterPath
+import afkt.gtpush.SplashActivity
 import afkt.gtpush.push.GTPushEngineImpl
-import afkt.gtpush.router.IPushCallback
-import afkt.gtpush.router.PUSH_KEYVALUE_ID
-import afkt.gtpush.router.PushRouterChecker
-import afkt.gtpush.ui.activity.SplashActivity
+import afkt.gtpush.push.IPushCallback
+import afkt.gtpush.push.PUSH_KEYVALUE_ID
+import afkt.gtpush.push.PushRouterChecker
 import android.app.Activity
 import android.text.TextUtils
 import androidx.multidex.MultiDexApplication
@@ -14,40 +14,33 @@ import com.tencent.mmkv.MMKV
 import com.therouter.TheRouter
 import dev.DevUtils
 import dev.engine.DevEngine
+import dev.engine.core.keyvalue.MMKVConfig
+import dev.engine.core.keyvalue.MMKVKeyValueEngineImpl
 import dev.engine.keyvalue.DevKeyValueEngine
-import dev.engine.keyvalue.MMKVConfig
-import dev.engine.keyvalue.MMKVKeyValueEngineImpl
 import dev.engine.push.DevPushEngine
 import dev.module.push.PushConfig
 import dev.utils.DevFinal
 import dev.utils.app.logger.DevLogger
 import dev.utils.app.logger.LogConfig
-import dev.utils.app.logger.LogLevel
 
 class BaseApplication : MultiDexApplication() {
+
+    // 日志 TAG
+    val TAG = "GTPush_TAG"
 
     override fun onCreate() {
         super.onCreate()
 
-        if (BuildConfig.DEBUG) {
-            TheRouter.isDebug = true
-        }
         // 推荐在 Application 中初始化
         TheRouter.init(this)
 
-        if (BuildConfig.DEBUG) {
-            // 初始化 Logger 配置
-            DevLogger.initialize(
-                LogConfig()
-                    .logLevel(LogLevel.DEBUG)
-                    .tag("GTPush_TAG")
-                    .sortLog(true)
-                    .methodCount(0)
-            )
-            // 打开 lib 内部日志 - 线上环境, 不调用方法
-            DevUtils.openLog()
-            DevUtils.openDebug()
-        }
+        // 打开 lib 内部日志 - 线上环境, 不调用方法
+        DevUtils.openLog()
+        DevUtils.openDebug()
+        // 初始化 Logger 配置
+        val logConfig = LogConfig.getSortLogConfig(TAG)
+            .displayThreadInfo(false)
+        DevLogger.initialize(logConfig)
 
         // DevEngine 完整初始化
         DevEngine.completeInitialize(this)
@@ -56,7 +49,6 @@ class BaseApplication : MultiDexApplication() {
             PUSH_KEYVALUE_ID,
             MMKVKeyValueEngineImpl(
                 MMKVConfig(
-                    cipher = null,
                     mmkv = MMKV.mmkvWithID(PUSH_KEYVALUE_ID, MMKV.MULTI_PROCESS_MODE)
                 )
             )

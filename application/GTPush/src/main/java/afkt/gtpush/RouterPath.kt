@@ -1,4 +1,4 @@
-package afkt.gtpush.base.config
+package afkt.gtpush
 
 /**
  * detail: Router Path

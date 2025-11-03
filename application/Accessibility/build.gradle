@@ -23,6 +23,9 @@ dependencies {
     // DevApp - Android 工具类库
     api deps.dev.dev_app
 
+    // DevDeprecated - Dev 系列库弃用代码统一存储库
+    api deps.dev.dev_deprecated
+
     // ============
     // = 快捷开发库 =
     // ============

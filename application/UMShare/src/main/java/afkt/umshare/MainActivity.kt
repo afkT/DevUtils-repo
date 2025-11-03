@@ -1,6 +1,5 @@
-package afkt.umshare.ui.activity
+package afkt.umshare
 
-import afkt.umshare.R
 import afkt.umshare.base.BaseActivity
 import afkt.umshare.base.config.RouterPath
 import afkt.umshare.databinding.ActivityMainBinding

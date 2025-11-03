@@ -1,4 +1,4 @@
-package afkt.jpush.base.config
+package afkt.jpush
 
 /**
  * detail: Router Path
