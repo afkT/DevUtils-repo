@@ -17,5 +17,5 @@ class SecondaryActivity : BaseActivity<ViewBinding>() {
 
     override fun isViewBinding(): Boolean = false
 
-    override fun baseLayoutId(): Int = R.layout.activity_other
+    override fun baseLayoutId(): Int = R.layout.activity_secondary
 }

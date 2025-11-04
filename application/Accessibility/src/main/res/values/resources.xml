@@ -12,23 +12,13 @@
 
     <!-- Color -->
 
-    <color name="colorPrimary">#3f51b5</color>
-    <color name="colorPrimaryDark">#3f51b5</color>
-    <color name="colorAccent">#3f51b5</color>
     <color name="color_ddaaaaaa">#ddaaaaaa</color>
 
     <!-- Application 样式 -->
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />
 
     <!-- View 样式 -->
-
-    <style name="ViewTheme" />
 
     <!-- Button 基础样式 -->
 

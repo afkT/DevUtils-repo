@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import dev.DevUtils
-import dev.utils.app.assist.floating.DevFloatingTouchIMPL
+import dev.utils.app.assist.floating.DevFloatingTouchImpl
 import dev.utils.app.assist.floating.FloatingWindowManagerAssist
 import dev.utils.app.assist.floating.IFloatingTouch
 import dev.utils.app.helper.view.ViewHelper
@@ -46,7 +46,7 @@ class TrackerUtils private constructor() {
 
     // 悬浮窗触摸辅助类实现
     private val mTouchAssist: IFloatingTouch by lazy {
-        object : DevFloatingTouchIMPL() {
+        object : DevFloatingTouchImpl() {
             override fun updateViewLayout(
                 view: View?,
                 dx: Int,
