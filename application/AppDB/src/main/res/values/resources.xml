@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources translatable="false">
+
+    <!-- Text -->
+
+    <string name="app_name">AppDB</string>
+
+    <!-- Application 样式 -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="AppTheme.Launcher">
+        <!-- 不设置为全屏防止状态栏隐藏紧接着又显示 -->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:windowBackground">@drawable/launcher_bg</item>
+    </style>
+
+    <!-- View 样式 -->
+
+    <!-- Button 基础样式 -->
+
+    <style name="ViewTheme.Button" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">60.0dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:layout_marginBottom">10.0dp</item>
+        <item name="android:paddingTop">15.0dp</item>
+        <item name="android:paddingBottom">15.0dp</item>
+        <item name="android:paddingLeft">10.0dp</item>
+        <item name="android:paddingRight">10.0dp</item>
+    </style>
+
+    <!-- TextView 基础样式 -->
+
+    <style name="ViewTheme.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- TextView 标题样式 -->
+
+    <style name="ViewTheme.TextView.Title">
+        <item name="android:layout_marginTop">15.0dp</item>
+        <item name="android:layout_marginBottom">10.0dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- TextView 子标题样式 -->
+
+    <style name="ViewTheme.TextView.SubTitle">
+        <item name="android:layout_marginBottom">10.0dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <!-- Padding、Margin 样式 -->
+
+    <style name="ViewTheme.Padding.LR">
+        <item name="android:paddingLeft">10.0dp</item>
+        <item name="android:paddingRight">10.0dp</item>
+    </style>
+
+    <style name="ViewTheme.Margin.LR">
+        <item name="android:layout_marginLeft">10.0dp</item>
+        <item name="android:layout_marginRight">10.0dp</item>
+    </style>
+</resources>
