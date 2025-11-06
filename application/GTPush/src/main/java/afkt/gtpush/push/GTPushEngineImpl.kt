@@ -6,9 +6,6 @@ import com.igexin.sdk.PushManager
 import dev.engine.push.IPushEngine
 import dev.module.push.PushConfig
 import dev.module.push.PushMessage
-import dev.utils.DevFinal
-import dev.utils.app.DevicePolicyUtils
-import dev.utils.app.JSONObjectUtils
 
 /**
  * detail: 个推推送 Engine 实现
@@ -80,7 +77,7 @@ class GTPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
     ) {
         // 推送消息点击通知
         message?.let {
-            PushRouterActivity.start(context, it)
+            PushTransferRouter.start(context, it)
         }
     }
 
@@ -88,25 +85,7 @@ class GTPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
         context: Context?,
         message: PushMessage?
     ) {
-        // 推送数据 => {"type":1}
         // 透传消息送达通知
-        message?.run {
-            JSONObjectUtils.getJSONObject(extras)?.let {
-                when (it.optInt(DevFinal.STR.TYPE)) {
-                    1 -> {
-                        DevicePolicyUtils.getInstance().lockNow()
-                    }
-
-                    2 -> {
-                        DevicePolicyUtils.getInstance().lockByTime(3000L)
-                    }
-
-                    else -> {
-                        // ...
-                    }
-                }
-            }
-        }
     }
 
     override fun convertMessage(message: Any?): PushMessage? {

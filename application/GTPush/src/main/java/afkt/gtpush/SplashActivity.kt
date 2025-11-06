@@ -14,7 +14,7 @@ class SplashActivity : BaseActivity<ViewBinding>() {
         super.initOther()
         HandlerUtils.postRunnable({
             if (isFinishing) return@postRunnable
-            routerActivity(RouterPath.MainActivity_PATH)
+            routerActivity(AppRouter.PATH_MAIN_ACTIVITY)
             finish()
         }, 1200)
     }

@@ -1,6 +1,6 @@
 package afkt.jpush.push
 
-import afkt.jpush.router.PushRouterActivity
+import afkt.jpush.router.PushTransferRouter
 import android.app.Application
 import android.content.Context
 import cn.jpush.android.api.JPushInterface
@@ -84,7 +84,7 @@ class JPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
     ) {
         // 推送消息点击通知
         message?.let {
-            PushRouterActivity.start(context, it)
+            PushTransferRouter.start(context, it)
         }
     }
 
