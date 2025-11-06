@@ -6,10 +6,10 @@
 
     <TextView
         style="@style/AppTheme.Base_TextView"
-        android:layout_marginTop="@dimen/dp_50"
+        android:layout_marginTop="50.0dp"
         android:gravity="center"
         android:text="MainActivity"
-        android:textSize="@dimen/sp_28"
+        android:textSize="28.0sp"
         android:textStyle="bold" />
 
     <Button
@@ -18,10 +18,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dp_50"
-        android:padding="@dimen/dp_20"
+        android:layout_marginTop="50.0dp"
+        android:padding="20.0dp"
         android:text="跳转其他页面"
-        android:textSize="@dimen/sp_20" />
+        android:textSize="20.0sp" />
 
     <Button
         android:id="@+id/vid_device_btn"
@@ -29,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dp_20"
-        android:padding="@dimen/dp_20"
+        android:layout_marginTop="20.0dp"
+        android:padding="20.0dp"
         android:text="设备管理 ( 推送锁屏、解锁等 )"
-        android:textSize="@dimen/sp_20" />
+        android:textSize="20.0sp" />
 </LinearLayout>

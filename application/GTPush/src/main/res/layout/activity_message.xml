@@ -10,9 +10,9 @@
         android:id="@+id/vid_message_tv"
         style="@style/AppTheme.Base_TextView"
         android:layout_gravity="center"
-        android:padding="@dimen/dp_10"
+        android:padding="10.0dp"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_18"
+        android:textSize="18.0sp"
         android:textStyle="bold"
         tools:text="MessageActivity" />
 </FrameLayout>
