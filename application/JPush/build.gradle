@@ -68,6 +68,13 @@ dependencies {
     // DevSimple - 简单敏捷开发库
     api deps.dev.dev_simple
 
+    // ============
+    // = 快捷开发库 =
+    // ============
+
+    // 标题栏框架 https://github.com/getActivity/TitleBar
+    api deps_lib.common_widget.titleBar
+
     // =========
     // = 非 lib =
     // =========

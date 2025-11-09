@@ -9,7 +9,7 @@ import dev.base.simple.extensions.asActivity
 /**
  * detail: 推送消息 Activity
  * @author Ttt
- * 点击推送后根据, 推送消息跳转对应的路由页
+ * 点击推送后，根据推送消息跳转对应的路由页
  */
 @Route(path = AppRouter.PATH_MESSAGE_ACTIVITY)
 class MessageActivity : BaseActivity<ActivityMainBinding, MessageViewModel>(

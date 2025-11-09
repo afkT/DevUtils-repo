@@ -142,7 +142,7 @@ class ShareConfig(
     val isDebugMode: Boolean = false,
     // 分享平台 Key 信息
     val platformKey: List<SharePlatformKey>
-) : IShareEngine.EngineConfig()
+) : IShareEngine.EngineConfig
 
 /**
  * detail: 分享参数包装类
@@ -185,4 +185,4 @@ class ShareParams(
     var compressStyle: ImageCompressStyle? = null,
     // 压缩存储类型
     var compressFormat: Bitmap.CompressFormat? = null,
-) : IShareEngine.EngineItem()
+) : IShareEngine.EngineItem

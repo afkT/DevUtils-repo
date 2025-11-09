@@ -58,6 +58,8 @@ dependencies {
     // = 快捷开发库 =
     // ============
 
+    // 标题栏框架 https://github.com/getActivity/TitleBar
+    api deps_lib.common_widget.titleBar
     // GreenDAO ORM 框架 https://github.com/greenrobot/greenDAO
     api deps_lib.database.greenDAO
     // 下拉刷新框架 https://github.com/scwang90/SmartRefreshLayout

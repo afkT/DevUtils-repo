@@ -29,7 +29,7 @@ class PushMessage(
     val errorCode: String? = "",
     val msg: String? = "",
 ) : Parcelable,
-    IPushEngine.EngineItem()
+    IPushEngine.EngineItem
 
 /**
  * detail: 推送配置包装类
@@ -37,4 +37,4 @@ class PushMessage(
  */
 class PushConfig(
     val isDebugMode: Boolean = false
-) : IPushEngine.EngineConfig()
+) : IPushEngine.EngineConfig

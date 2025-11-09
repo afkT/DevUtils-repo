@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -10,8 +10,29 @@
     </data>
 
     <LinearLayout
+        style="@style/ViewTheme.Padding.LR_DP_10"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical">
+
+        <com.hjq.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftIcon="@null"
+            app:title="个推集成演示"
+            app:titleSize="18.0sp"
+            app:titleStyle="bold" />
+
+        <androidx.core.widget.NestedScrollView style="@style/ViewTheme.NestedScrollView">
+
+            <LinearLayout style="@style/ViewTheme.LinearLayout.Vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{(v)->viewModel.clickSecondary.invoke()}"
+                    android:text="跳转二级页面" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </layout>
