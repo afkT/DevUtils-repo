@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:leftIcon="@null"
-            app:title="个推集成演示"
+            app:title="推送演示"
             app:titleSize="18.0sp"
             app:titleStyle="bold" />
 

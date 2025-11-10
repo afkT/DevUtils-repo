@@ -1,8 +1,9 @@
-package afkt.gtpush.push
+package afkt.gtpush.push.extensions
 
-import afkt.gtpush.BuildConfig
 import afkt.gtpush.AppRouter
+import afkt.gtpush.BuildConfig
 import afkt.gtpush.SplashActivity
+import afkt.gtpush.push.GTPushEngineImpl
 import android.app.Activity
 import android.app.Application
 import android.text.TextUtils

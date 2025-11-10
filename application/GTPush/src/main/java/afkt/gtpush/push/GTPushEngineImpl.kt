@@ -1,5 +1,6 @@
 package afkt.gtpush.push
 
+import afkt.gtpush.push.extensions.PushTransferRouter
 import android.app.Application
 import android.content.Context
 import com.igexin.sdk.PushManager

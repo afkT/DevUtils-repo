@@ -1,6 +1,6 @@
 package afkt.gtpush.base
 
-import afkt.gtpush.push.PushHelper
+import afkt.gtpush.push.extensions.PushHelper
 import androidx.multidex.MultiDexApplication
 import com.therouter.TheRouter
 import dev.DevUtils

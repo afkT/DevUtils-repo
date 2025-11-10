@@ -2,7 +2,7 @@ package afkt.gtpush
 
 import afkt.gtpush.base.BaseActivity
 import afkt.gtpush.base.BaseViewModel
-import afkt.gtpush.databinding.ActivityMainBinding
+import afkt.gtpush.databinding.ActivitySecondaryBinding
 import com.therouter.router.Route
 import dev.base.simple.extensions.asActivity
 
@@ -13,12 +13,10 @@ import dev.base.simple.extensions.asActivity
  * 点击推送通知栏区分 APP 在后台、前台、未启动各种情况展示效果
  */
 @Route(path = AppRouter.PATH_SECONDARY_ACTIVITY)
-class SecondaryActivity : BaseActivity<ActivityMainBinding, SecondaryViewModel>(
-    R.layout.activity_main, BR.viewModel, simple_Agile = { act ->
+class SecondaryActivity : BaseActivity<ActivitySecondaryBinding, BaseViewModel>(
+    R.layout.activity_secondary, BR.viewModel, simple_Agile = { act ->
         act.asActivity<SecondaryActivity> {
+            binding.vidTitle.leftView.setOnClickListener { finish() }
         }
     }
 )
-
-class SecondaryViewModel : BaseViewModel() {
-}

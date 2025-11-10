@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/gt_push/activity/SecondaryActivity",
+    "className": "afkt.gtpush.SecondaryActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/gt_push/activity/MessageActivity",
+    "className": "afkt.gtpush.MessageActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/gt_push/activity/MainActivity",
+    "className": "afkt.gtpush.MainActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  }
+]
