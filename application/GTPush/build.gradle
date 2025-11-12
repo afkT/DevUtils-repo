@@ -17,8 +17,8 @@ android {
         }
 
         manifestPlaceholders = [
-                PUSH_APPID        : "dv4h55Dms46v0jizx59lHA",
-                GETUI_APPID       : "dv4h55Dms46v0jizx59lHA",
+                PUSH_APPID        : "YdoMLXrgdbAKBDIT71fxxA",
+                GETUI_APPID       : "YdoMLXrgdbAKBDIT71fxxA",
                 GT_INSTALL_CHANNEL: "dev-install-debug",
 
                 // ============

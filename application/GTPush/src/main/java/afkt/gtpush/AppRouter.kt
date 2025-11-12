@@ -41,11 +41,11 @@ object AppRouter {
         router(PATH_MAIN_ACTIVITY)
     }
 
-    fun routerMessageActivity() {
-        router(PATH_MESSAGE_ACTIVITY)
-    }
-
     fun routerSecondaryActivity() {
         router(PATH_SECONDARY_ACTIVITY)
+    }
+
+    fun routerMessageActivity() {
+        router(PATH_MESSAGE_ACTIVITY)
     }
 }

@@ -41,14 +41,5 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
-        <!-- ============= -->
-        <!-- 推送消息中转路由 -->
-        <!-- ============= -->
-
-        <activity
-            android:name=".push.extensions.PushTransferRouter"
-            android:exported="false"
-            android:screenOrientation="portrait" />
     </application>
 </manifest>
