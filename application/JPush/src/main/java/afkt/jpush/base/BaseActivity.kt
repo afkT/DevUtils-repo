@@ -1,91 +1,75 @@
 package afkt.jpush.base
 
-import afkt.jpush.R
-import afkt.jpush.push.PushRouterChecker
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.widget.Toolbar
-import androidx.viewbinding.ViewBinding
-import com.therouter.TheRouter
-import dev.base.expand.content.DevBaseContentViewBindingActivity
-import dev.utils.app.ViewUtils
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.databinding.ViewDataBinding
+import dev.base.core.interfaces.IDevBase
+import dev.base.simple.ActivityVMType
+import dev.base.simple.DevSimpleActivity
+import dev.base.simple.contracts.binding.BindingActivityView
 
-abstract class BaseActivity<VB : ViewBinding> : DevBaseContentViewBindingActivity<VB>() {
+/**
+ * detail: Activity MVVM 基类
+ * @author Ttt
+ */
+open class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
+    DevSimpleActivity<VDB, VM> {
 
-    override fun baseLayoutView(): View? = null
+    // ==========
+    // = 构造函数 =
+    // ==========
+
+    constructor(
+        bindLayoutId: Int,
+        bindViewModelId: Int = IDevBase.NONE,
+        vmType: ActivityVMType = ActivityVMType.ACTIVITY,
+        simple_Init: ((Any) -> Unit)? = null,
+        simple_Start: ((Any) -> Unit)? = null,
+        simple_PreLoad: ((Any) -> Unit)? = null,
+        simple_Agile: ((Any) -> Unit)? = null
+    ) : super(
+        bindLayoutId, bindViewModelId, vmType,
+        simple_Init, simple_Start, simple_PreLoad, simple_Agile
+    )
+
+    constructor(
+        bindLayoutView: BindingActivityView?,
+        bindViewModelId: Int = IDevBase.NONE,
+        vmType: ActivityVMType = ActivityVMType.ACTIVITY,
+        simple_Init: ((Any) -> Unit)? = null,
+        simple_Start: ((Any) -> Unit)? = null,
+        simple_PreLoad: ((Any) -> Unit)? = null,
+        simple_Agile: ((Any) -> Unit)? = null
+    ) : super(
+        bindLayoutView, bindViewModelId, vmType,
+        simple_Init, simple_Start, simple_PreLoad, simple_Agile
+    )
+
+    // ============
+    // = override =
+    // ============
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // 内部初始化
-        innerInitialize()
-
-        // 是否需要 ToolBar
-        if (isToolBar()) initToolBar()
-
-        initOrder()
+        // 通用 Enable edge to edge【适配 API 35+】
+        commonEnableEdgeToEdge()
     }
+}
 
-    override fun onResume() {
-        super.onResume()
-
-        // 检查推送路由
-        PushRouterChecker.checker(this, this.javaClass.simpleName)
-    }
-
-    // ===========
-    // = ToolBar =
-    // ===========
-
-    /**
-     * 是否需要 ToolBar
-     */
-    open fun isToolBar(): Boolean = false
-
-    /**
-     * 初始化 ToolBar
-     */
-    private fun initToolBar() {
-        val titleView = ViewUtils.inflate(this, R.layout.base_toolbar, null)
-        val toolbar = titleView.findViewById<Toolbar>(R.id.vid_tb)
-        contentAssist.addTitleView(titleView)
-
-        setSupportActionBar(toolbar)
-        supportActionBar?.let {
-            // 给左上角图标的左边加上一个返回的图标
-            it.setDisplayHomeAsUpEnabled(true)
-            // 对应 ActionBar.DISPLAY_SHOW_TITLE
-            it.setDisplayShowTitleEnabled(false)
-        }
-        // 设置点击事件
-        toolbar?.setNavigationOnClickListener { finish() }
-        // 设置标题
-        toolbar?.title = TAG
-    }
-
-    // ============
-    // = 内部初始化 =
-    // ============
-
-    private fun innerInitialize() {
-        try {
-            TheRouter.inject(this)
-        } catch (_: Exception) {
-        }
-    }
-
-    // =======
-    // = 通用 =
-    // =======
-
-    /**
-     * Router 跳转方法
-     * @param path 跳转路径
-     */
-    fun routerActivity(
-        path: String
-    ) {
-        TheRouter.build(path)
-            .navigation(this)
+/**
+ * 通用 Enable edge to edge【适配 API 35+】
+ */
+fun BaseActivity<*, *>.commonEnableEdgeToEdge() {
+    enableEdgeToEdge()
+    // 给 view 设置 insets, 使得 view 不会被 system bars 遮挡
+    ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+        val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+        v.setPadding(
+            systemBars.left, systemBars.top,
+            systemBars.right, systemBars.bottom
+        )
+        insets
     }
 }

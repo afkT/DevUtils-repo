@@ -14,6 +14,9 @@ dependencies {
     // DevEngine - 第三方框架解耦、一键替换第三方库、同类库多 Engine 组件化混合使用
     api deps.dev.dev_engine
 
+    // DevDeprecated - Dev 系列库弃用代码统一存储库
+    api deps.dev.dev_deprecated
+
     // ===========================
     // = Maven Central 方式自动集成 =
     // ===========================

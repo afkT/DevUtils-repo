@@ -1,15 +1,12 @@
 package afkt.jpush.push
 
-import afkt.jpush.router.PushTransferRouter
+import afkt.jpush.push.extensions.PushTransferRouter
 import android.app.Application
 import android.content.Context
 import cn.jpush.android.api.JPushInterface
 import dev.engine.push.IPushEngine
 import dev.module.push.PushConfig
 import dev.module.push.PushMessage
-import dev.utils.DevFinal
-import dev.utils.app.DevicePolicyUtils
-import dev.utils.app.JSONObjectUtils
 
 /**
  * detail: 极光推送 Engine 实现
@@ -92,25 +89,7 @@ class JPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
         context: Context?,
         message: PushMessage?
     ) {
-        // 推送数据 => {"type":1}
         // 透传消息送达通知
-        message?.run {
-            JSONObjectUtils.getJSONObject(extras)?.let {
-                when (it.optInt(DevFinal.STR.TYPE)) {
-                    1 -> {
-                        DevicePolicyUtils.getInstance().lockNow()
-                    }
-
-                    2 -> {
-                        DevicePolicyUtils.getInstance().lockByTime(3000L)
-                    }
-
-                    else -> {
-                        // ...
-                    }
-                }
-            }
-        }
     }
 
     override fun convertMessage(message: Any?): PushMessage? {

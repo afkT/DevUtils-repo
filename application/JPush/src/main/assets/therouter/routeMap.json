@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/j_push/activity/SecondaryActivity",
+    "className": "afkt.jpush.SecondaryActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/j_push/activity/MessageActivity",
+    "className": "afkt.jpush.MessageActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/j_push/activity/MainActivity",
+    "className": "afkt.jpush.MainActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  }
+]

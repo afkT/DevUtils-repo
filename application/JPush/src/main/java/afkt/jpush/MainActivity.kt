@@ -1,23 +1,18 @@
 package afkt.jpush
 
 import afkt.jpush.base.BaseActivity
+import afkt.jpush.base.BaseViewModel
 import afkt.jpush.databinding.ActivityMainBinding
 import com.therouter.router.Route
 
-@Route(path = RouterPath.MainActivity_PATH)
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+@Route(path = AppRouter.PATH_MAIN_ACTIVITY)
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
+    R.layout.activity_main, BR.viewModel
+)
 
-    override fun baseLayoutId(): Int = R.layout.activity_main
+class MainViewModel : BaseViewModel() {
 
-    override fun initListener() {
-        super.initListener()
-
-        binding.vidOtherBtn.setOnClickListener {
-            routerActivity(RouterPath.OtherActivity_PATH)
-        }
-
-        binding.vidDeviceBtn.setOnClickListener {
-            routerActivity(RouterPath.DeviceActivity_PATH)
-        }
+    val clickSecondary: () -> Unit = {
+        AppRouter.routerSecondaryActivity()
     }
 }

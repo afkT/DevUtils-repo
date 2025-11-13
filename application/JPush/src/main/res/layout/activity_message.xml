@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?colorPrimary"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/vid_message_tv"
-        style="@style/AppTheme.Base_TextView"
-        android:layout_gravity="center"
-        android:padding="10.0dp"
-        android:textColor="@color/white"
-        android:textSize="18.0sp"
-        android:textStyle="bold"
-        tools:text="MessageActivity" />
-</FrameLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="afkt.jpush.MessageViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.hjq.bar.TitleBar
+            android:id="@+id/vid_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lineVisible="false"
+            app:title="Push Message"
+            app:titleSize="18.0sp"
+            app:titleStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/ViewTheme.TextView.Title"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{viewModel.messageText}"
+            tools:text="Push Message Content" />
+    </FrameLayout>
+</layout>

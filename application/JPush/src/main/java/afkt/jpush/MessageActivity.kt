@@ -1,31 +1,45 @@
 package afkt.jpush
 
 import afkt.jpush.base.BaseActivity
+import afkt.jpush.base.BaseViewModel
 import afkt.jpush.databinding.ActivityMessageBinding
-import com.therouter.router.Autowired
+import android.content.Intent
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.therouter.router.Route
-import dev.expand.engine.json.toJsonIndent
+import dev.base.simple.extensions.asActivity
+import dev.engine.extensions.json.toJsonIndent
 import dev.utils.DevFinal
 
 /**
  * detail: 推送消息 Activity
  * @author Ttt
- * 点击推送后根据, 推送消息跳转对应的路由页
+ * 点击推送后，根据推送消息跳转对应的路由页
  */
-@Route(path = RouterPath.MessageActivity_PATH)
-class MessageActivity : BaseActivity<ActivityMessageBinding>() {
+@Route(path = AppRouter.PATH_MESSAGE_ACTIVITY)
+class MessageActivity : BaseActivity<ActivityMessageBinding, MessageViewModel>(
+    R.layout.activity_message, BR.viewModel, simple_Agile = { act ->
+        act.asActivity<MessageActivity> {
+            binding.vidTitle.leftView.setOnClickListener { finish() }
+            // 初始化数据
+            viewModel.initializeData(intent)
+        }
+    }
+)
 
-    override fun isToolBar(): Boolean = true
+class MessageViewModel : BaseViewModel() {
 
-    override fun baseLayoutId(): Int = R.layout.activity_message
+    // 消息内容
+    private val _messageText = MutableLiveData<String>()
+    val messageText: LiveData<String> get() = _messageText
 
-    @JvmField
-    @Autowired(name = DevFinal.STR.DATA)
-    var pushData: String? = null
-
-    override fun initValue() {
-        super.initValue()
-
-        binding.vidMessageTv.text = pushData?.toJsonIndent() ?: "error"
+    /**
+     * 初始化数据
+     */
+    fun initializeData(intent: Intent?) {
+        val content = intent?.getStringExtra(
+            DevFinal.STR.DATA
+        )?.toJsonIndent() ?: "error"
+        _messageText.value = content
     }
 }

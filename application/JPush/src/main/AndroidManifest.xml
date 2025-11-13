@@ -4,17 +4,18 @@
     tools:ignore="DiscouragedApi,LockedOrientationActivity">
 
     <application
-        android:name="afkt.jpush.base.BaseApplication"
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_launcher_round"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.Launcher">
 
         <activity
-            android:name="afkt.jpush.SplashActivity"
+            android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/SplashTheme">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,30 +24,22 @@
         </activity>
 
         <activity
-            android:name="afkt.jpush.MainActivity"
+            android:name=".MainActivity"
             android:exported="false"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
 
         <activity
-            android:name="afkt.jpush.MessageActivity"
+            android:name=".MessageActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
-            android:name="afkt.jpush.SecondaryActivity"
+            android:name=".SecondaryActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <!-- ============= -->
-        <!-- 推送消息中转路由 -->
-        <!-- ============= -->
-
-        <activity
-            android:name="afkt.jpush.push.PushTransferRouter"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:theme="@style/AppTheme" />
     </application>
 </manifest>

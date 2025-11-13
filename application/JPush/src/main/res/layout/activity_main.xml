@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        style="@style/AppTheme.Base_TextView"
-        android:layout_marginTop="50.0dp"
-        android:gravity="center"
-        android:text="MainActivity"
-        android:textSize="28.0sp"
-        android:textStyle="bold" />
+    <data>
 
-    <Button
-        android:id="@+id/vid_other_btn"
-        style="@style/AppTheme.Base_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50.0dp"
-        android:padding="20.0dp"
-        android:text="跳转其他页面"
-        android:textSize="20.0sp" />
+        <variable
+            name="viewModel"
+            type="afkt.jpush.MainViewModel" />
+    </data>
 
-    <Button
-        android:id="@+id/vid_device_btn"
-        style="@style/AppTheme.Base_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20.0dp"
-        android:padding="20.0dp"
-        android:text="设备管理 ( 推送锁屏、解锁等 )"
-        android:textSize="20.0sp" />
-</LinearLayout>
+    <LinearLayout
+        style="@style/ViewTheme.Padding.LR_DP_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.hjq.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftIcon="@null"
+            app:title="推送演示"
+            app:titleSize="18.0sp"
+            app:titleStyle="bold" />
+
+        <androidx.core.widget.NestedScrollView style="@style/ViewTheme.NestedScrollView">
+
+            <LinearLayout style="@style/ViewTheme.LinearLayout.Vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{(v)->viewModel.clickSecondary.invoke()}"
+                    android:text="跳转二级页面" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>
