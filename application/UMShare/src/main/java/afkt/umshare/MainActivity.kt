@@ -44,78 +44,89 @@ class MainViewModel : BaseViewModel() {
 
     val clickOpenMinapp = View.OnClickListener { view ->
         // 打开小程序
+        val params: ShareParams? = null
         AppUMShare.engine()?.openMinApp(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareMinapp = View.OnClickListener { view ->
         // 分享小程序
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareMinApp(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareUrl = View.OnClickListener { view ->
         // 分享链接
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareUrl(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareImage = View.OnClickListener { view ->
         // 分享图片
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareImage(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareImageList = View.OnClickListener { view ->
         // 分享图片
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareImageList(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareText = View.OnClickListener { view ->
         // 分享文本
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareText(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareVideo = View.OnClickListener { view ->
         // 分享视频
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareVideo(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareMusic = View.OnClickListener { view ->
         // 分享音乐
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareMusic(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareEmoji = View.OnClickListener { view ->
         // 分享表情
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareEmoji(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShareFile = View.OnClickListener { view ->
         // 分享文件
+        val params: ShareParams? = null
         AppUMShare.engine()?.shareFile(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 
     val clickShare = View.OnClickListener { view ->
         // 分享操作
+        val params: ShareParams? = null
         AppUMShare.engine()?.share(
-            _activity(view), null, shareListener
+            _activity(view), params, shareListener
         )
     }
 

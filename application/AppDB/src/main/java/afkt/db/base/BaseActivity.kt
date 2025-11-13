@@ -1,114 +1,75 @@
 package afkt.db.base
 
-import afkt.db.R
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.widget.Toolbar
-import androidx.viewbinding.ViewBinding
-import com.therouter.TheRouter
-import com.therouter.router.Autowired
-import dev.base.expand.content.DevBaseContentViewBindingActivity
-import dev.utils.DevFinal
-import dev.utils.app.ViewUtils
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.databinding.ViewDataBinding
+import dev.base.core.interfaces.IDevBase
+import dev.base.simple.ActivityVMType
+import dev.base.simple.DevSimpleActivity
+import dev.base.simple.contracts.binding.BindingActivityView
 
 /**
- * detail: Base ViewBinding 基类
+ * detail: Activity MVVM 基类
  * @author Ttt
  */
-abstract class BaseActivity<VB : ViewBinding> :
-    DevBaseContentViewBindingActivity<VB>() {
+open class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel> :
+    DevSimpleActivity<VDB, VM> {
 
-    @JvmField // Context
-    protected var mContext: Context? = null
+    // ==========
+    // = 构造函数 =
+    // ==========
 
-    @JvmField // Activity
-    protected var mActivity: Activity? = null
+    constructor(
+        bindLayoutId: Int,
+        bindViewModelId: Int = IDevBase.NONE,
+        vmType: ActivityVMType = ActivityVMType.ACTIVITY,
+        simple_Init: ((Any) -> Unit)? = null,
+        simple_Start: ((Any) -> Unit)? = null,
+        simple_PreLoad: ((Any) -> Unit)? = null,
+        simple_Agile: ((Any) -> Unit)? = null
+    ) : super(
+        bindLayoutId, bindViewModelId, vmType,
+        simple_Init, simple_Start, simple_PreLoad, simple_Agile
+    )
 
-    // ToolBar
-    var toolbar: Toolbar? = null
+    constructor(
+        bindLayoutView: BindingActivityView?,
+        bindViewModelId: Int = IDevBase.NONE,
+        vmType: ActivityVMType = ActivityVMType.ACTIVITY,
+        simple_Init: ((Any) -> Unit)? = null,
+        simple_Start: ((Any) -> Unit)? = null,
+        simple_PreLoad: ((Any) -> Unit)? = null,
+        simple_Agile: ((Any) -> Unit)? = null
+    ) : super(
+        bindLayoutView, bindViewModelId, vmType,
+        simple_Init, simple_Start, simple_PreLoad, simple_Agile
+    )
 
-    @JvmField
-    @Autowired(name = DevFinal.STR.TITLE)
-    var moduleTitle: String? = null
-
-    override fun baseLayoutView(): View? = null
+    // ============
+    // = override =
+    // ============
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 获取 Context、Activity
-        mContext = this
-        mActivity = this
-        // 内部初始化
-        innerInitialize()
-        // 是否需要 ToolBar
-        if (isToolBar()) {
-            // 初始化 ToolBar
-            initToolBar()
-            // 设置 ToolBar 标题
-            toolbar?.title = moduleTitle
-        }
-        // 初始化顺序 ( 按顺序调用方法 )
-        initOrder()
+        // 通用 Enable edge to edge【适配 API 35+】
+        commonEnableEdgeToEdge()
     }
+}
 
-    // ===========
-    // = ToolBar =
-    // ===========
-
-    /**
-     * 是否需要 ToolBar
-     */
-    open fun isToolBar(): Boolean {
-        return true
-    }
-
-    /**
-     * 初始化 ToolBar
-     */
-    private fun initToolBar() {
-        val titleView = ViewUtils.inflate(this, R.layout.base_toolbar, null)
-        toolbar = titleView.findViewById(R.id.vid_tb)
-        contentAssist.addTitleView(titleView)
-
-        setSupportActionBar(toolbar)
-        supportActionBar?.let {
-            // 给左上角图标的左边加上一个返回的图标
-            it.setDisplayHomeAsUpEnabled(true)
-            // 对应 ActionBar.DISPLAY_SHOW_TITLE
-            it.setDisplayShowTitleEnabled(false)
-        }
-        // 设置点击事件
-        toolbar?.setNavigationOnClickListener { finish() }
-    }
-
-    // ============
-    // = 内部初始化 =
-    // ============
-
-    private fun innerInitialize() {
-        try {
-            TheRouter.inject(this)
-        } catch (_: Exception) {
-        }
-    }
-
-    // =======
-    // = 通用 =
-    // =======
-
-    /**
-     * Router 跳转方法
-     * @param text 标题
-     * @param path Router Path
-     */
-    fun routerActivity(
-        text: String,
-        path: String
-    ) {
-        TheRouter.build(path)
-            .withString(DevFinal.STR.TITLE, text)
-            .navigation(this)
+/**
+ * 通用 Enable edge to edge【适配 API 35+】
+ */
+fun BaseActivity<*, *>.commonEnableEdgeToEdge() {
+    enableEdgeToEdge()
+    // 给 view 设置 insets, 使得 view 不会被 system bars 遮挡
+    ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+        val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+        v.setPadding(
+            systemBars.left, systemBars.top,
+            systemBars.right, systemBars.bottom
+        )
+        insets
     }
 }

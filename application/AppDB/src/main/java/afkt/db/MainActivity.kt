@@ -1,24 +1,23 @@
 package afkt.db
 
 import afkt.db.base.BaseActivity
-import afkt.db.base.RouterPath
+import afkt.db.base.BaseViewModel
 import afkt.db.databinding.ActivityMainBinding
+import android.view.View
+import com.therouter.router.Route
 
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+@Route(path = AppRouter.PATH_MAIN_ACTIVITY)
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
+    R.layout.activity_main, BR.viewModel
+)
 
-    override fun isToolBar(): Boolean = false
+class MainViewModel : BaseViewModel() {
 
-    override fun baseLayoutId(): Int = R.layout.activity_main
+    val clickRoom = View.OnClickListener { view ->
+        AppRouter.routerRoomActivity()
+    }
 
-    override fun initListener() {
-        super.initListener()
-
-        binding.vidRoom.setOnClickListener {
-            routerActivity("Room", RouterPath.RoomActivity_PATH)
-        }
-
-        binding.vidGreenDao.setOnClickListener {
-            routerActivity("GreenDAO", RouterPath.GreenDaoActivity_PATH)
-        }
+    val clickGreenDao = View.OnClickListener { view ->
+        AppRouter.routerGreenDaoActivity()
     }
 }

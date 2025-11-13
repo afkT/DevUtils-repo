@@ -1,8 +1,8 @@
 package afkt.db.feature.room
 
+import afkt.db.AppRouter
 import afkt.db.R
 import afkt.db.base.BaseActivity
-import afkt.db.base.RouterPath
 import afkt.db.database.room.RoomManager
 import afkt.db.database.room.module.note.bean.Note
 import afkt.db.database.room.module.note.bean.NoteAndPicture
@@ -26,7 +26,7 @@ import kotlin.math.abs
  * detail: Room 使用
  * @author Ttt
  */
-@Route(path = RouterPath.RoomActivity_PATH)
+@Route(path = AppRouter.PATH_ROOM_ACTIVITY)
 class RoomActivity : BaseActivity<ActivityDatabaseBinding>() {
 
     val adapter = RoomAdapter()

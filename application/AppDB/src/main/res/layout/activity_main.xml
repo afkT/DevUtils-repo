@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/color_f5">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="afkt.db.MainViewModel" />
+    </data>
 
     <LinearLayout
-        style="@style/AppTheme.padding_lr"
+        style="@style/ViewTheme.Padding.LR_DP_10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/vid_room"
-            style="@style/AppTheme.Base_Button"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="Room" />
+        <com.hjq.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftIcon="@null"
+            app:title="数据库演示"
+            app:titleSize="18.0sp"
+            app:titleStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/vid_green_dao"
-            style="@style/AppTheme.Base_Button"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="GreenDAO" />
+        <androidx.core.widget.NestedScrollView style="@style/ViewTheme.NestedScrollView">
+
+            <LinearLayout style="@style/ViewTheme.LinearLayout.Vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickRoom}"
+                    android:text="Room" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickGreenDao}"
+                    android:text="GreenDAO" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-</LinearLayout>
+</layout>

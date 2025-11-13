@@ -14,12 +14,12 @@ import dev.utils.app.logger.LogConfig
 class BaseApplication : MultiDexApplication() {
 
     // 日志 TAG
-    val TAG = "AppDB_Log"
+    val TAG = "AppDB_TAG"
 
     override fun onCreate() {
         super.onCreate()
 
-        // 推荐在 Application 中初始化
+        // Router 初始化
         TheRouter.init(this)
 
         // 打开 lib 内部日志 - 线上环境, 不调用方法

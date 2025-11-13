@@ -1,8 +1,8 @@
 package afkt.db.feature.green_dao
 
+import afkt.db.AppRouter
 import afkt.db.R
 import afkt.db.base.BaseActivity
-import afkt.db.base.RouterPath
 import afkt.db.database.green.GreenManager
 import afkt.db.database.green.module.note.bean.Note
 import afkt.db.database.green.module.note.bean.NotePicture
@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import com.therouter.router.Route
-import dev.expand.engine.log.log_dTag
-import dev.utils.app.toast.ToastTintUtils
 import dev.utils.common.ChineseUtils
 import dev.utils.common.RandomUtils
 import gen.greendao.NotePictureDao
@@ -25,7 +23,7 @@ import kotlin.math.abs
  * detail: GreenDao 使用
  * @author Ttt
  */
-@Route(path = RouterPath.GreenDaoActivity_PATH)
+@Route(path = AppRouter.PATH_GREEN_DAO_ACTIVITY)
 class GreenDaoActivity : BaseActivity<ActivityDatabaseBinding>() {
 
     val adapter = GreenDaoAdapter()
