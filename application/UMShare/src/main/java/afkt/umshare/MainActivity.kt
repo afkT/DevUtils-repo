@@ -44,77 +44,77 @@ class MainViewModel : BaseViewModel() {
 
     val clickOpenMinapp = View.OnClickListener { view ->
         // 打开小程序
-        DevEngine.getShare()?.openMinApp(
+        AppUMShare.engine()?.openMinApp(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareMinapp = View.OnClickListener { view ->
         // 分享小程序
-        DevEngine.getShare()?.shareMinApp(
+        AppUMShare.engine()?.shareMinApp(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareUrl = View.OnClickListener { view ->
         // 分享链接
-        DevEngine.getShare()?.shareUrl(
+        AppUMShare.engine()?.shareUrl(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareImage = View.OnClickListener { view ->
         // 分享图片
-        DevEngine.getShare()?.shareImage(
+        AppUMShare.engine()?.shareImage(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareImageList = View.OnClickListener { view ->
         // 分享图片
-        DevEngine.getShare()?.shareImageList(
+        AppUMShare.engine()?.shareImageList(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareText = View.OnClickListener { view ->
         // 分享文本
-        DevEngine.getShare()?.shareText(
+        AppUMShare.engine()?.shareText(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareVideo = View.OnClickListener { view ->
         // 分享视频
-        DevEngine.getShare()?.shareVideo(
+        AppUMShare.engine()?.shareVideo(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareMusic = View.OnClickListener { view ->
         // 分享音乐
-        DevEngine.getShare()?.shareMusic(
+        AppUMShare.engine()?.shareMusic(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareEmoji = View.OnClickListener { view ->
         // 分享表情
-        DevEngine.getShare()?.shareEmoji(
+        AppUMShare.engine()?.shareEmoji(
             _activity(view), null, shareListener
         )
     }
 
     val clickShareFile = View.OnClickListener { view ->
         // 分享文件
-        DevEngine.getShare()?.shareFile(
+        AppUMShare.engine()?.shareFile(
             _activity(view), null, shareListener
         )
     }
 
     val clickShare = View.OnClickListener { view ->
         // 分享操作
-        DevEngine.getShare()?.share(
+        AppUMShare.engine()?.share(
             _activity(view), null, shareListener
         )
     }
