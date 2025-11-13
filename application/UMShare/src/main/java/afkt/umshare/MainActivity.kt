@@ -1,101 +1,23 @@
 package afkt.umshare
 
 import afkt.umshare.base.BaseActivity
-import afkt.umshare.base.config.RouterPath
+import afkt.umshare.base.BaseViewModel
 import afkt.umshare.databinding.ActivityMainBinding
+import android.app.Activity
 import android.content.Intent
+import android.view.View
 import com.therouter.router.Route
 import dev.engine.DevEngine
+import dev.engine.extensions.log.log_dTag
 import dev.engine.share.listener.ShareListener
-import dev.expand.engine.log.log_dTag
 import dev.module.share.ShareParams
+import dev.utils.app.ActivityUtils
 import dev.utils.common.ThrowableUtils
 
-@Route(path = RouterPath.MainActivity_PATH)
-class MainActivity : BaseActivity<ActivityMainBinding>() {
-
-    override fun baseLayoutId(): Int = R.layout.activity_main
-
-    override fun initListener() {
-        super.initListener()
-
-        binding.vidOpenMinappBtn.setOnClickListener {
-            // 打开小程序
-            DevEngine.getShare()?.openMinApp(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareMinappBtn.setOnClickListener {
-            // 分享小程序
-            DevEngine.getShare()?.shareMinApp(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareUrlBtn.setOnClickListener {
-            // 分享链接
-            DevEngine.getShare()?.shareUrl(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareImageBtn.setOnClickListener {
-            // 分享图片
-            DevEngine.getShare()?.shareImage(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareImageListBtn.setOnClickListener {
-            // 分享图片
-            DevEngine.getShare()?.shareImageList(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareTextBtn.setOnClickListener {
-            // 分享文本
-            DevEngine.getShare()?.shareText(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareVideoBtn.setOnClickListener {
-            // 分享视频
-            DevEngine.getShare()?.shareVideo(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareMusicBtn.setOnClickListener {
-            // 分享音乐
-            DevEngine.getShare()?.shareMusic(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareEmojiBtn.setOnClickListener {
-            // 分享表情
-            DevEngine.getShare()?.shareEmoji(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareFileBtn.setOnClickListener {
-            // 分享文件
-            DevEngine.getShare()?.shareFile(
-                this, null, shareListener
-            )
-        }
-
-        binding.vidShareBtn.setOnClickListener {
-            // 分享操作
-            DevEngine.getShare()?.share(
-                this, null, shareListener
-            )
-        }
-    }
+@Route(path = AppRouter.PATH_MAIN_ACTIVITY)
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
+    R.layout.activity_main, BR.viewModel
+) {
 
     override fun onActivityResult(
         requestCode: Int,
@@ -108,40 +30,126 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             this, requestCode, resultCode, intent
         )
     }
+}
+
+class MainViewModel : BaseViewModel() {
+
+    private fun _activity(view: View): Activity? {
+        return ActivityUtils.getActivity(view)
+    }
+
+    // ==========
+    // = 点击事件 =
+    // ==========
+
+    val clickOpenMinapp = View.OnClickListener { view ->
+        // 打开小程序
+        DevEngine.getShare()?.openMinApp(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareMinapp = View.OnClickListener { view ->
+        // 分享小程序
+        DevEngine.getShare()?.shareMinApp(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareUrl = View.OnClickListener { view ->
+        // 分享链接
+        DevEngine.getShare()?.shareUrl(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareImage = View.OnClickListener { view ->
+        // 分享图片
+        DevEngine.getShare()?.shareImage(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareImageList = View.OnClickListener { view ->
+        // 分享图片
+        DevEngine.getShare()?.shareImageList(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareText = View.OnClickListener { view ->
+        // 分享文本
+        DevEngine.getShare()?.shareText(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareVideo = View.OnClickListener { view ->
+        // 分享视频
+        DevEngine.getShare()?.shareVideo(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareMusic = View.OnClickListener { view ->
+        // 分享音乐
+        DevEngine.getShare()?.shareMusic(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareEmoji = View.OnClickListener { view ->
+        // 分享表情
+        DevEngine.getShare()?.shareEmoji(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShareFile = View.OnClickListener { view ->
+        // 分享文件
+        DevEngine.getShare()?.shareFile(
+            _activity(view), null, shareListener
+        )
+    }
+
+    val clickShare = View.OnClickListener { view ->
+        // 分享操作
+        DevEngine.getShare()?.share(
+            _activity(view), null, shareListener
+        )
+    }
 
     // ==========
     // = 分享事件 =
     // ==========
 
     // 分享回调事件
-    private val shareListener: ShareListener<ShareParams> by lazy {
-        object : ShareListener<ShareParams> {
-            override fun onStart(params: ShareParams?) {
-                TAG.log_dTag(
-                    message = "开始分享"
-                )
-            }
+    private val shareListener = object : ShareListener<ShareParams> {
+        override fun onStart(params: ShareParams?) {
+            TAG.log_dTag(
+                message = "开始分享"
+            )
+        }
 
-            override fun onResult(params: ShareParams?) {
-                TAG.log_dTag(
-                    message = "分享成功"
-                )
-            }
+        override fun onResult(params: ShareParams?) {
+            TAG.log_dTag(
+                message = "分享成功"
+            )
+        }
 
-            override fun onError(
-                params: ShareParams?,
-                throwable: Throwable?
-            ) {
-                TAG.log_dTag(
-                    message = "分享失败\n${ThrowableUtils.getThrowable(throwable)}"
-                )
-            }
+        override fun onError(
+            params: ShareParams?,
+            throwable: Throwable?
+        ) {
+            TAG.log_dTag(
+                message = "分享失败\n${ThrowableUtils.getThrowable(throwable)}"
+            )
+        }
 
-            override fun onCancel(params: ShareParams?) {
-                TAG.log_dTag(
-                    message = "取消分享"
-                )
-            }
+        override fun onCancel(params: ShareParams?) {
+            TAG.log_dTag(
+                message = "取消分享"
+            )
         }
     }
 }

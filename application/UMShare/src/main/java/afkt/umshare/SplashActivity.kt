@@ -1,22 +1,20 @@
 package afkt.umshare
 
 import afkt.umshare.base.BaseActivity
-import afkt.umshare.base.config.RouterPath
-import androidx.viewbinding.ViewBinding
-import dev.utils.app.HandlerUtils
+import afkt.umshare.base.BaseViewModel
+import afkt.umshare.databinding.ActivitySplashBinding
+import dev.base.simple.extensions.asActivity
+import dev.utils.app.assist.DelayAssist
 
-class SplashActivity : BaseActivity<ViewBinding>() {
-
-    override fun isViewBinding(): Boolean = false
-
-    override fun baseLayoutId(): Int = R.layout.activity_splash
-
-    override fun initOther() {
-        super.initOther()
-        HandlerUtils.postRunnable({
-            if (isFinishing) return@postRunnable
-            routerActivity(RouterPath.MainActivity_PATH)
-            finish()
-        }, 1200)
+class SplashActivity : BaseActivity<ActivitySplashBinding, BaseViewModel>(
+    R.layout.activity_splash, BR.viewModel, simple_Agile = { act ->
+        act.asActivity<SplashActivity> {
+            delayRouter.post()
+        }
+    }
+) {
+    val delayRouter = DelayAssist(1200L) {
+        AppRouter.routerMainActivity()
+        finish()
     }
 }

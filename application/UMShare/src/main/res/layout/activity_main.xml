@@ -1,123 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="none">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="afkt.umshare.MainViewModel" />
+    </data>
 
     <LinearLayout
+        style="@style/ViewTheme.Padding.LR_DP_10"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="20.0dp">
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/vid_open_minapp_btn"
-            android:layout_width="wrap_content"
+        <com.hjq.bar.TitleBar
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="打开小程序"
-            android:textSize="15.0sp" />
+            app:leftIcon="@null"
+            app:title="分享演示"
+            app:titleSize="18.0sp"
+            app:titleStyle="bold" />
 
-        <Button
-            android:id="@+id/vid_share_minapp_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享小程序"
-            android:textSize="15.0sp" />
+        <androidx.core.widget.NestedScrollView style="@style/ViewTheme.NestedScrollView">
 
-        <Button
-            android:id="@+id/vid_share_url_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享链接"
-            android:textSize="15.0sp" />
+            <LinearLayout style="@style/ViewTheme.LinearLayout.Vertical">
 
-        <Button
-            android:id="@+id/vid_share_image_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享图片"
-            android:textSize="15.0sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickOpenMinapp}"
+                    android:text="打开小程序" />
 
-        <Button
-            android:id="@+id/vid_share_image_list_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享多张图片"
-            android:textSize="15.0sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareMinapp}"
+                    android:text="分享小程序" />
 
-        <Button
-            android:id="@+id/vid_share_text_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享文本"
-            android:textSize="15.0sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareUrl}"
+                    android:text="分享链接" />
 
-        <Button
-            android:id="@+id/vid_share_video_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享视频"
-            android:textSize="15.0sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareImage}"
+                    android:text="分享图片" />
 
-        <Button
-            android:id="@+id/vid_share_music_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享音乐"
-            android:textSize="15.0sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareImageList}"
+                    android:text="分享多张图片" />
 
-        <Button
-            android:id="@+id/vid_share_emoji_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享表情"
-            android:textSize="15.0sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareText}"
+                    android:text="分享文本" />
 
-        <Button
-            android:id="@+id/vid_share_file_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享文件"
-            android:textSize="15.0sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareVideo}"
+                    android:text="分享视频" />
 
-        <Button
-            android:id="@+id/vid_share_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10.0dp"
-            android:padding="20.0dp"
-            android:text="分享操作"
-            android:textSize="15.0sp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareMusic}"
+                    android:text="分享音乐" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareEmoji}"
+                    android:text="分享表情" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShareFile}"
+                    android:text="分享文件" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@style/ViewTheme.Button"
+                    android:onClick="@{viewModel.clickShare}"
+                    android:text="分享操作" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</layout>
