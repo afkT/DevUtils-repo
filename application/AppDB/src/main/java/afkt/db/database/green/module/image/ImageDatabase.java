@@ -2,7 +2,7 @@ package afkt.db.database.green.module.image;
 
 import org.greenrobot.greendao.database.Database;
 
-import afkt.db.database.green.able.AbsGreenDatabase;
+import afkt.db.database.green.AbstractGreenDatabase;
 import afkt.db.database.green.module.note.NoteDatabase;
 import gen.greendao.DaoMaster;
 import gen.greendao.DaoSession;
@@ -16,7 +16,7 @@ import gen.greendao.DaoSession;
  * </pre>
  */
 public class ImageDatabase
-        extends AbsGreenDatabase {
+        extends AbstractGreenDatabase {
 
     /**
      * 创建数据库
@@ -40,9 +40,9 @@ public class ImageDatabase
         return null;
     }
 
-    // ====================
-    // = AbsGreenDatabase =
-    // ====================
+    // =========================
+    // = AbstractGreenDatabase =
+    // =========================
 
     @Override
     public DaoMaster.OpenHelper getHelper() {

@@ -10,7 +10,7 @@ import afkt.db.database.room.module.note.NoteDatabase;
  *     参考 {@link NoteDatabase}
  * </pre>
  */
-public abstract class ImageDatabase { // extends AbsRoomDatabase
+public abstract class ImageDatabase { // extends AbstractRoomDatabase
 
 //    // ============
 //    // = database =

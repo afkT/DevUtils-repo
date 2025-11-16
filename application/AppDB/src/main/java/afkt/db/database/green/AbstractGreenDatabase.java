@@ -1,19 +1,21 @@
-package afkt.db.database.room.able;
+package afkt.db.database.green;
 
-import androidx.room.RoomDatabase;
+import org.greenrobot.greendao.database.Database;
+
+import gen.greendao.DaoMaster;
+import gen.greendao.DaoSession;
 
 /**
- * detail: Room Database 抽象类
+ * detail: Green Database 抽象类
  * @author Ttt
  * <pre>
  *     dbName 最好为 功能模块名, 如果涉及需要区分用户则为 功能模块名 + 用户 id
  * </pre>
  */
-public abstract class AbsRoomDatabase
-        extends RoomDatabase {
+public abstract class AbstractGreenDatabase {
 
     // 数据库名
-    private static final String DATABASE_NAME = "room-db";
+    private static final String DATABASE_NAME = "green-db";
 
     /**
      * 拼接数据库名
@@ -29,6 +31,32 @@ public abstract class AbsRoomDatabase
         return dbName + "-" + DATABASE_NAME;
     }
 
+    // =
+
+    /**
+     * 获取 DaoMaster.OpenHelper
+     * @return {@link DaoMaster.OpenHelper}
+     */
+    public abstract DaoMaster.OpenHelper getHelper();
+
+    /**
+     * 获取 Database
+     * @return {@link Database}
+     */
+    public abstract Database getDatabase();
+
+    /**
+     * 获取 DaoMaster
+     * @return {@link DaoMaster}
+     */
+    public abstract DaoMaster getDaoMaster();
+
+    /**
+     * 获取 DaoSession
+     * @return {@link DaoSession}
+     */
+    public abstract DaoSession getDaoSession();
+
     // ============
     // = 创建数据库 =
     // ============
@@ -43,7 +71,7 @@ public abstract class AbsRoomDatabase
          * 获取数据库名
          * @param dbName   数据库名
          * @param password 数据库解密密码
-         * @param clazz    {@link AbsRoomDatabase} 实现类
+         * @param clazz    {@link AbstractGreenDatabase} 实现类
          * @return 数据库名
          */
         String getDatabaseName(
@@ -56,10 +84,10 @@ public abstract class AbsRoomDatabase
          * 创建数据库方法
          * @param dbName   数据库名
          * @param password 数据库解密密码
-         * @param clazz    {@link AbsRoomDatabase} 实现类
-         * @return {@link AbsRoomDatabase}
+         * @param clazz    {@link AbstractGreenDatabase} 实现类
+         * @return {@link AbstractGreenDatabase}
          */
-        AbsRoomDatabase create(
+        AbstractGreenDatabase create(
                 String dbName,
                 String password,
                 Class<?> clazz

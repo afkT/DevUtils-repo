@@ -1,16 +1,15 @@
 package afkt.db.database.green;
 
+import static dev.engine.extensions.log.LogKt.log_eTag;
+
 import android.text.TextUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import afkt.db.database.green.able.AbsGreenDatabase;
 import afkt.db.database.green.module.image.ImageDatabase;
 import afkt.db.database.green.module.note.NoteDatabase;
 import dev.utils.common.StringUtils;
-
-import static dev.expand.engine.log.LogKt.log_eTag;
 
 /**
  * detail: GreenDao 管理类
@@ -35,7 +34,7 @@ public final class GreenManager {
     private static final String TAG = GreenManager.class.getSimpleName();
 
     // Database 对象缓存
-    private static final Map<String, AbsGreenDatabase> sDatabaseMaps = new HashMap<>();
+    private static final Map<String, AbstractGreenDatabase> sDatabaseMaps = new HashMap<>();
 
     // ============
     // = database =
@@ -44,10 +43,10 @@ public final class GreenManager {
     /**
      * 获取 GreenDatabase 对象
      * @param dbName 数据库名
-     * @param clazz  {@link AbsGreenDatabase} 实现类
-     * @return {@link AbsGreenDatabase}
+     * @param clazz  {@link AbstractGreenDatabase} 实现类
+     * @return {@link AbstractGreenDatabase}
      */
-    public static <T extends AbsGreenDatabase> T database(
+    public static <T extends AbstractGreenDatabase> T database(
             final String dbName,
             final Class<?> clazz
     ) {
@@ -58,10 +57,10 @@ public final class GreenManager {
      * 获取 GreenDatabase 对象
      * @param dbName   数据库名
      * @param password 数据库解密密码
-     * @param clazz    {@link AbsGreenDatabase} 实现类
-     * @return {@link AbsGreenDatabase}
+     * @param clazz    {@link AbstractGreenDatabase} 实现类
+     * @return {@link AbstractGreenDatabase}
      */
-    public static <T extends AbsGreenDatabase> T database(
+    public static <T extends AbstractGreenDatabase> T database(
             final String dbName,
             final String password,
             final Class<?> clazz
@@ -78,7 +77,7 @@ public final class GreenManager {
                 log_eTag(TAG, null, e, "database");
             }
         }
-        AbsGreenDatabase greenDatabase = sDatabaseMaps.get(databaseName);
+        AbstractGreenDatabase greenDatabase = sDatabaseMaps.get(databaseName);
         if (greenDatabase != null) {
             T db = null;
             try {
@@ -96,7 +95,7 @@ public final class GreenManager {
     // =======
 
     // 数据库创建接口
-    private static final AbsGreenDatabase.Create CREATE = new AbsGreenDatabase.Create() {
+    private static final AbstractGreenDatabase.Create CREATE = new AbstractGreenDatabase.Create() {
 
         @Override
         public String getDatabaseName(
@@ -104,11 +103,11 @@ public final class GreenManager {
                 String password,
                 Class<?> clazz
         ) {
-            return AbsGreenDatabase.createDatabaseName(dbName, StringUtils.isNotEmpty(password));
+            return AbstractGreenDatabase.createDatabaseName(dbName, StringUtils.isNotEmpty(password));
         }
 
         @Override
-        public AbsGreenDatabase create(
+        public AbstractGreenDatabase create(
                 String dbName,
                 String password,
                 Class<?> clazz

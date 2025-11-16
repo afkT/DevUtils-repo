@@ -1,15 +1,14 @@
 package afkt.db.database.room;
 
+import static dev.engine.extensions.log.LogKt.log_eTag;
+
 import android.text.TextUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import afkt.db.database.room.able.AbsRoomDatabase;
 import afkt.db.database.room.module.note.NoteDatabase;
 import dev.utils.common.StringUtils;
-
-import static dev.expand.engine.log.LogKt.log_eTag;
 
 /**
  * detail: Room 数据库管理类
@@ -34,7 +33,7 @@ public final class RoomManager {
     public static final String TAG = RoomManager.class.getSimpleName();
 
     // Database 对象缓存
-    private static final Map<String, AbsRoomDatabase> sDatabaseMaps = new HashMap<>();
+    private static final Map<String, AbstractRoomDatabase> sDatabaseMaps = new HashMap<>();
 
     // ============
     // = database =
@@ -43,10 +42,10 @@ public final class RoomManager {
     /**
      * 获取 RoomDatabase 对象
      * @param dbName 数据库名
-     * @param clazz  {@link AbsRoomDatabase} 实现类
-     * @return {@link AbsRoomDatabase}
+     * @param clazz  {@link AbstractRoomDatabase} 实现类
+     * @return {@link AbstractRoomDatabase}
      */
-    public static <T extends AbsRoomDatabase> T database(
+    public static <T extends AbstractRoomDatabase> T database(
             final String dbName,
             final Class<?> clazz
     ) {
@@ -57,10 +56,10 @@ public final class RoomManager {
      * 获取 RoomDatabase 对象
      * @param dbName   数据库名
      * @param password 数据库解密密码
-     * @param clazz    {@link AbsRoomDatabase} 实现类
-     * @return {@link AbsRoomDatabase}
+     * @param clazz    {@link AbstractRoomDatabase} 实现类
+     * @return {@link AbstractRoomDatabase}
      */
-    public static <T extends AbsRoomDatabase> T database(
+    public static <T extends AbstractRoomDatabase> T database(
             final String dbName,
             final String password,
             final Class<?> clazz
@@ -77,7 +76,7 @@ public final class RoomManager {
                 log_eTag(TAG, null, e, "database");
             }
         }
-        AbsRoomDatabase roomDatabase = sDatabaseMaps.get(databaseName);
+        AbstractRoomDatabase roomDatabase = sDatabaseMaps.get(databaseName);
         if (roomDatabase != null) {
             T db = null;
             try {
@@ -95,7 +94,7 @@ public final class RoomManager {
     // =======
 
     // 数据库创建接口
-    private static final AbsRoomDatabase.Create CREATE = new AbsRoomDatabase.Create() {
+    private static final AbstractRoomDatabase.Create CREATE = new AbstractRoomDatabase.Create() {
 
         @Override
         public String getDatabaseName(
@@ -103,11 +102,11 @@ public final class RoomManager {
                 String password,
                 Class<?> clazz
         ) {
-            return AbsRoomDatabase.createDatabaseName(dbName, StringUtils.isNotEmpty(password));
+            return AbstractRoomDatabase.createDatabaseName(dbName, StringUtils.isNotEmpty(password));
         }
 
         @Override
-        public AbsRoomDatabase create(
+        public AbstractRoomDatabase create(
                 String dbName,
                 String password,
                 Class<?> clazz

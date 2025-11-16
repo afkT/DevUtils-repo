@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import afkt.db.database.room.able.AbsRoomDatabase;
+import afkt.db.database.room.AbstractRoomDatabase;
 import afkt.db.database.room.module.note.bean.Note;
 import afkt.db.database.room.module.note.bean.NoteConverter;
 import afkt.db.database.room.module.note.bean.NotePicture;
@@ -27,7 +27,7 @@ import dev.DevUtils;
 // , exportSchema = false
 @TypeConverters({NoteConverter.class})
 public abstract class NoteDatabase
-        extends AbsRoomDatabase {
+        extends AbstractRoomDatabase {
 
     /**
      * 获取 {@link Note} Dao
