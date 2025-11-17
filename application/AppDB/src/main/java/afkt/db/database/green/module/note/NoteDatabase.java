@@ -1,5 +1,7 @@
 package afkt.db.database.green.module.note;
 
+import static dev.engine.extensions.log.LogKt.log_dTag;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
@@ -14,8 +16,6 @@ import gen.greendao.DaoMaster;
 import gen.greendao.DaoSession;
 import gen.greendao.NoteDao;
 import gen.greendao.NotePictureDao;
-
-import static dev.expand.engine.log.LogKt.log_dTag;
 
 /*
  * detail: Note 数据库

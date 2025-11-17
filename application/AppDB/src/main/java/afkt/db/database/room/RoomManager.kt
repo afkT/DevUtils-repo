@@ -1,39 +1,22 @@
-package afkt.db.database.room;
+package afkt.db.database.room
 
-import static dev.engine.extensions.log.LogKt.log_eTag;
-
-import android.text.TextUtils;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import afkt.db.database.room.module.note.NoteDatabase;
-import dev.utils.common.StringUtils;
+import afkt.db.database.room.module.image.ImageDatabase
+import afkt.db.database.room.module.note.NoteDatabase
+import dev.engine.extensions.log.log_eTag
+import dev.engine.extensions.log.log_isPrintLog
+import dev.utils.common.StringUtils
 
 /**
  * detail: Room 数据库管理类
  * @author Ttt
- * <pre>
- *     Room VS GreenDao
- *     @see <a href="https://www.jianshu.com/p/5eab05820e9f"/>
- *     Room 持久性库
- *     @see <a href="https://developer.android.com/training/data-storage/room"/>
- *     Room 的使用以及数据库的升级
- *     @see <a href="https://www.jianshu.com/p/9333d607fb91"/>
- *     Room 踩坑: 理解 Room 的正确升库
- *     @see <a href="https://blog.csdn.net/wjzj000/article/details/95863976"/>
- * </pre>
  */
-public final class RoomManager {
-
-    private RoomManager() {
-    }
+object RoomManager {
 
     // 日志 TAG
-    public static final String TAG = RoomManager.class.getSimpleName();
+    val TAG: String = RoomManager::class.java.getSimpleName()
 
     // Database 对象缓存
-    private static final Map<String, AbstractRoomDatabase> sDatabaseMaps = new HashMap<>();
+    private val sDatabaseMaps = mutableMapOf<String, AbstractRoomDatabase?>()
 
     // ============
     // = database =
@@ -42,51 +25,55 @@ public final class RoomManager {
     /**
      * 获取 RoomDatabase 对象
      * @param dbName 数据库名
-     * @param clazz  {@link AbstractRoomDatabase} 实现类
-     * @return {@link AbstractRoomDatabase}
+     * @param clazz  [AbstractRoomDatabase] 实现类
+     * @return [AbstractRoomDatabase]
      */
-    public static <T extends AbstractRoomDatabase> T database(
-            final String dbName,
-            final Class<?> clazz
-    ) {
-        return database(dbName, null, clazz);
+    fun <T : AbstractRoomDatabase> database(
+        dbName: String,
+        clazz: Class<*>
+    ): T? {
+        return database(dbName, null, clazz)
     }
 
     /**
      * 获取 RoomDatabase 对象
      * @param dbName   数据库名
      * @param password 数据库解密密码
-     * @param clazz    {@link AbstractRoomDatabase} 实现类
-     * @return {@link AbstractRoomDatabase}
+     * @param clazz    [AbstractRoomDatabase] 实现类
+     * @return [AbstractRoomDatabase]
      */
-    public static <T extends AbstractRoomDatabase> T database(
-            final String dbName,
-            final String password,
-            final Class<?> clazz
-    ) {
-        if (TextUtils.isEmpty(dbName)) return null;
+    fun <T : AbstractRoomDatabase> database(
+        dbName: String,
+        password: String?,
+        clazz: Class<*>
+    ): T? {
+        if (StringUtils.isEmpty(dbName)) return null
 
         // 获取数据库名
-        String databaseName = CREATE.getDatabaseName(dbName, password, clazz);
-
-        if (sDatabaseMaps.get(databaseName) == null) {
+        val databaseName = CREATE.getDatabaseName(dbName, password, clazz)
+        // 获取数据库
+        var database = sDatabaseMaps[databaseName]
+        if (database == null) {
             try {
-                sDatabaseMaps.put(databaseName, CREATE.create(dbName, password, clazz));
-            } catch (Exception e) {
-                log_eTag(TAG, null, e, "database");
+                database = CREATE.create(dbName, password, clazz)
+                sDatabaseMaps[databaseName] = database
+            } catch (e: Exception) {
+                if (log_isPrintLog()) {
+                    TAG.log_eTag(message = "database", throwable = e)
+                }
             }
         }
-        AbstractRoomDatabase roomDatabase = sDatabaseMaps.get(databaseName);
-        if (roomDatabase != null) {
-            T db = null;
+        if (database != null) {
             try {
-                db = (T) roomDatabase;
-            } catch (Exception e) {
-                log_eTag(TAG, null, e, "database convert T");
+                return database as T
+            } catch (e: Exception) {
+                if (log_isPrintLog()) {
+                    TAG.log_eTag(message = "database convert T", throwable = e)
+                }
             }
-            return db;
+            return null
         }
-        return null;
+        return null
     }
 
     // =======
@@ -94,39 +81,27 @@ public final class RoomManager {
     // =======
 
     // 数据库创建接口
-    private static final AbstractRoomDatabase.Create CREATE = new AbstractRoomDatabase.Create() {
-
-        @Override
-        public String getDatabaseName(
-                String dbName,
-                String password,
-                Class<?> clazz
-        ) {
-            return AbstractRoomDatabase.createDatabaseName(dbName, StringUtils.isNotEmpty(password));
+    private val CREATE = object : AbstractRoomDatabase.Creator {
+        override fun getDatabaseName(
+            dbName: String,
+            password: String?,
+            clazz: Class<*>
+        ): String {
+            return AbstractRoomDatabase.createDatabaseName(dbName, StringUtils.isNotEmpty(password))
         }
 
-        @Override
-        public AbstractRoomDatabase create(
-                String dbName,
-                String password,
-                Class<?> clazz
-        ) {
-            if (clazz == NoteDatabase.class) {
-                return NoteDatabase.database(dbName, password);
+        override fun create(
+            dbName: String,
+            password: String?,
+            clazz: Class<*>
+        ): AbstractRoomDatabase? {
+            if (clazz == NoteDatabase::class.java) {
+                return NoteDatabase.createDatabase(dbName, password)
+            } else if (clazz == ImageDatabase::class.java) {
+                // 不同模块数据库实现【演示类】
+                return ImageDatabase.createDatabase(dbName, password)
             }
-            return null;
+            return null
         }
-    };
-
-    // ==========
-    // = 快捷方法 =
-    // ==========
-
-    /**
-     * 获取 Note Database
-     * @return {@link NoteDatabase}
-     */
-    public static NoteDatabase getNoteDatabase() {
-        return database(NoteDatabase.TAG, NoteDatabase.class);
     }
 }
