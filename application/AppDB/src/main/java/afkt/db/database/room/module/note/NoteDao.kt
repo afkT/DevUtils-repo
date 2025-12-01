@@ -15,13 +15,13 @@ interface NoteDao {
     // ===============
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNote(note: Note): Long
+    fun insertNote(note: Note): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNotes(vararg notes: Note): LongArray
+    fun insertNotes(vararg notes: Note): LongArray
 
     @Delete
-    suspend fun deleteNote(note: Note): Int
+    fun deleteNote(note: Note): Int
 
     // ============================
     // = Note 与 NotePicture 一对多 =
@@ -51,16 +51,16 @@ interface NoteDao {
     // ===================
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNotePictures(pictures: List<NotePicture>): List<Long>
+    fun insertNotePictures(pictures: List<NotePicture>): List<Long>
 
     @Delete
-    suspend fun deleteNotePictures(vararg notePictures: NotePicture): Int
+    fun deleteNotePictures(vararg notePictures: NotePicture): Int
 
     /**
      * 根据 noteId 删除该笔记下的所有图片（级联删除由数据库外键已保证，这里提供便捷方法）
      */
     @Query("DELETE FROM NotePictureTable WHERE noteId = :noteId")
-    suspend fun deleteNotePicturesByNoteId(noteId: Long): Int
+    fun deleteNotePicturesByNoteId(noteId: Long): Int
 
     /**
      * 根据 noteId 查询该笔记下的所有图片
@@ -68,39 +68,3 @@ interface NoteDao {
     @Query("SELECT * FROM NotePictureTable WHERE noteId = :noteId")
     fun getPicturesByNoteId(noteId: Long): LiveData<List<NotePicture>>
 }
-
-///**
-// * detail: Room DAO 访问数据库方法
-// * @author Ttt
-// */
-//@Dao
-//public interface NoteDao {
-//
-//    @Insert
-//    long[] insertNotes(Note... notes);
-//
-//    @Insert
-//    long insertNote(Note note);
-//
-//    @Delete
-//    void deleteNote(Note note);
-//
-//    @Transaction
-//    @Query("SELECT * FROM NoteTable")
-//    List<NoteAndPicture> getNoteAndPictureLists();
-//
-//    @Transaction
-//    @Query("SELECT * FROM NoteTable LIMIT :limit OFFSET :offset")
-//    List<NoteAndPicture> getNoteAndPictureLists(
-//            int limit,
-//            int offset
-//    );
-//
-//    // =
-//
-//    @Insert
-//    long[] insertNotePictures(List<NotePicture> lists);
-//
-//    @Delete
-//    int deleteNotePictures(NotePicture... notePictures);
-//}

@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/app_db/activity/RoomActivity",
+    "className": "afkt.db.feature.room.RoomActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/app_db/activity/GreenDaoActivity",
+    "className": "afkt.db.feature.green_dao.GreenDaoActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "/app_db/activity/MainActivity",
+    "className": "afkt.db.MainActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  }
+]

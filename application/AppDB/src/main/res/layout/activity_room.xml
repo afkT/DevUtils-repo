@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="afkt.db.feature.room.RoomViewModel" />
+    </data>
+
+    <LinearLayout
+        style="@style/ViewTheme.Padding.LR_DP_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.hjq.bar.TitleBar
+            android:id="@+id/vid_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:lineVisible="false"
+            app:title="Room"
+            app:titleSize="18.0sp"
+            app:titleStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/ViewTheme.Button"
+            android:onClick="@{viewModel.clickAdd}"
+            android:text="添加数据" />
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/vid_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                style="@style/ViewTheme.RecyclerView"
+                app:binding_item_touch_helper="@{true}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</layout>
