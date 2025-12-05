@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="afkt.db.feature.room.RoomViewModel" />
+            type="afkt.db.feature.green_dao.GreenDaoViewModel" />
     </data>
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:lineVisible="false"
-            app:title="Room"
+            app:title="GreenDao"
             app:titleSize="18.0sp"
             app:titleStyle="bold" />
 

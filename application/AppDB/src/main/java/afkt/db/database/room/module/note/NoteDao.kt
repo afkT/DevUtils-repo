@@ -57,7 +57,7 @@ interface NoteDao {
     @Transaction
     @Query("SELECT * FROM NoteTable WHERE id > :lastId ORDER BY id ASC LIMIT :pageSize")
     fun getNoteAndPictureListsAfterId(
-        lastId: Int,
+        lastId: Long,
         pageSize: Int
     ): LiveData<List<NoteAndPicture>>
 

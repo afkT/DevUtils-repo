@@ -4,6 +4,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemAnimator
 import dev.simple.extensions.size.AppSize
 import dev.utils.app.RecyclerViewUtils
 import dev.widget.decoration.linear.LinearColorItemDecoration
@@ -98,7 +99,7 @@ fun RecyclerView.bindingItemTouchHelper(
 fun RecyclerView.bindingItemDecoration_5dp(
     addItemDecoration: Boolean
 ) {
-    bindingItemDecorationDP(7.5F, addItemDecoration)
+    bindingItemDecorationDP(5F, addItemDecoration)
 }
 
 // ==========
@@ -126,4 +127,11 @@ private fun RecyclerView.bindingItemDecorationDP(
     } else {
         RecyclerViewUtils.removeAllItemDecoration(this)
     }
+}
+
+@BindingAdapter("binding_item_animator")
+fun RecyclerView.bindingItemAnimator(
+    animator: ItemAnimator? = null
+) {
+    itemAnimator = animator
 }

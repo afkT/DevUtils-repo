@@ -36,8 +36,13 @@ class RoomActivity : BaseActivity<ActivityRoomBinding, RoomViewModel>(
 
 class RoomViewModel : BaseViewModel() {
 
+    // 最后一条数据 ID
+    var lastId = 0L
+
+    // Note Adapter 模型
     val adapter = NoteAdapterModel()
 
+    // 点击添加数据事件
     val clickInsert = View.OnClickListener {
         RoomMockData.insertNodes()
     }
@@ -49,7 +54,7 @@ class RoomViewModel : BaseViewModel() {
     fun initialize(activity: AppCompatActivity) {
         NoteDatabase.database()?.noteDao.hiIfNotNull { dao ->
             dao.getNoteAndPictureListsAfterId(
-                0, 12
+                lastId, 50
             ).observe(activity) {
                 adapter.convertItems(it)
             }
