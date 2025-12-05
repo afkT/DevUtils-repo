@@ -25,6 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
             android:padding="15.0dp">
 
@@ -44,6 +45,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 style="@style/ViewTheme.RecyclerView"
+                android:layout_width="wrap_content"
                 android:layout_marginTop="5.0dp"
                 android:orientation="horizontal"
                 app:binding_item_decoration_5dp="@{true}"

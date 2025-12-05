@@ -6,6 +6,7 @@ import afkt.db.R
 import afkt.db.base.BaseActivity
 import afkt.db.base.BaseViewModel
 import afkt.db.database.room.module.note.NoteAndPicture
+import afkt.db.database.room.module.note.NoteDatabase
 import afkt.db.databinding.ActivityRoomBinding
 import afkt.db.feature.NoteAdapterModel
 import afkt.db.feature.NoteItem
@@ -13,6 +14,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.therouter.router.Route
 import dev.base.simple.extensions.asActivity
+import dev.simple.extensions.hi.hiif.hiIfNotNull
 import dev.utils.common.CollectionUtils
 import dev.utils.common.DateUtils
 import dev.utils.common.StringUtils
@@ -45,6 +47,13 @@ class RoomViewModel : BaseViewModel() {
     // ============
 
     fun initialize(activity: AppCompatActivity) {
+        NoteDatabase.database()?.noteDao.hiIfNotNull { dao ->
+            dao.getNoteAndPictureListsAfterId(
+                0, 12
+            ).observe(activity) {
+                adapter.convertItems(it)
+            }
+        }
     }
 }
 

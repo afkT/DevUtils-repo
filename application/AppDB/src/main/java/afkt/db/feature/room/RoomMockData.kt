@@ -39,7 +39,7 @@ object RoomMockData {
                     // 保存新的 ID
                     this.id = noteId
                     // 随机插入图片
-                    val list = List(Random.nextInt(1, 6)) {
+                    val list = List(Random.nextInt(1, 4)) {
                         createNotePicture(noteId)
                     }
                     dao.insertNotePictures(list)
