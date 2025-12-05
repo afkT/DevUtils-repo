@@ -192,22 +192,18 @@ class RoomViewModel : BaseViewModel() {
     // 是否开启 item 长按拖拽功能
     val touchMoveBlock: (
         recyclerView: RecyclerView,
-        viewHolder: RecyclerView.ViewHolder,
-        target: RecyclerView.ViewHolder
-    ) -> Boolean = { recyclerView, viewHolder, target ->
-        val fromPosition = viewHolder.bindingAdapterPosition
-        val toPosition = target.bindingAdapterPosition
-//        Collections.swap(adapterModel.items, fromPosition, toPosition)
-        recyclerView.adapter?.notifyItemMoved(fromPosition, toPosition)
-        true
+        fromPosition: Int,
+        toPosition: Int
+    ) -> Unit = { _, fromPosition, toPosition ->
+        Collections.swap(adapterModel.items, fromPosition, toPosition)
     }
 
     val touchSwipedBlock: (
         viewHolder: RecyclerView.ViewHolder,
         direction: Int
     ) -> Unit = { viewHolder, direction ->
-        val position = viewHolder.bindingAdapterPosition
         if (direction == ItemTouchHelper.LEFT || direction == ItemTouchHelper.RIGHT) {
+            val position = viewHolder.bindingAdapterPosition
             adapterModel.items.removeAt(position).hiIfNotNull { node ->
                 // 删除数据库数据
                 NoteDatabase.database()?.noteDao.hiIfNotNull { dao ->
@@ -230,7 +226,7 @@ private fun NoteAndPicture.toNoteItem(): NoteItem {
     val pictureList = pictures.map { it.picture }
     return NoteItem(
         id = note.id,
-        title = note.title,
+        title = "${note.id}. ${note.title}",
         content = note.content,
         createdAt = StringUtils.checkValue(
             DateUtils.formatDate(note.createdAt)

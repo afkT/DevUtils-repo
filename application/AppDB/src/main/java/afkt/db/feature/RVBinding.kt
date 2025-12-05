@@ -23,15 +23,19 @@ import dev.widget.decoration.linear.LinearColorItemDecoration
 fun RecyclerView.bindingItemTouchHelper(
     moveBlock: ((
         recyclerView: RecyclerView,
-        viewHolder: RecyclerView.ViewHolder,
-        target: RecyclerView.ViewHolder
-    ) -> Boolean)?,
+        fromPosition: Int,
+        toPosition: Int
+    ) -> Unit)?,
     swipedBlock: ((
         viewHolder: RecyclerView.ViewHolder,
         direction: Int
     ) -> Unit)?,
 ) {
     val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
+
+        private var _fromPosition = -1
+        private var _toPosition = -1
+
         /**
          * 获取动作标识
          * 动作标识分 : dragFlags 和 swipeFlags
@@ -71,9 +75,14 @@ fun RecyclerView.bindingItemTouchHelper(
 //            Collections.swap(adapter.dataList, fromPosition, toPosition)
 //            adapter?.notifyItemMoved(fromPosition, toPosition)
 //            return true
-            return moveBlock?.invoke(
-                recyclerView, viewHolder, target
-            ) ?: false
+
+            val fromPosition = viewHolder.bindingAdapterPosition
+            val toPosition = target.bindingAdapterPosition
+            _toPosition = target.bindingAdapterPosition
+            if (moveBlock != null) {
+                adapter?.notifyItemMoved(fromPosition, toPosition)
+            }
+            return moveBlock != null
         }
 
         /**
@@ -85,12 +94,36 @@ fun RecyclerView.bindingItemTouchHelper(
             viewHolder: RecyclerView.ViewHolder,
             direction: Int
         ) {
-//            val position = viewHolder.bindingAdapterPosition
 //            if (direction == ItemTouchHelper.LEFT || direction == ItemTouchHelper.RIGHT) {
+//                val position = viewHolder.bindingAdapterPosition
 //                val nap = adapter.dataList.removeAt(position)
 //                adapter?.notifyItemRemoved(position)
 //            }
             swipedBlock?.invoke(viewHolder, direction)
+        }
+
+        override fun onSelectedChanged(
+            viewHolder: RecyclerView.ViewHolder?,
+            actionState: Int
+        ) {
+            if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
+                _fromPosition = viewHolder?.bindingAdapterPosition ?: -1
+            }
+            super.onSelectedChanged(viewHolder, actionState)
+        }
+
+        override fun clearView(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder
+        ) {
+            if (_fromPosition != -1 && _toPosition != -1 && _fromPosition != _toPosition) {
+                moveBlock?.invoke(
+                    recyclerView, _fromPosition, _toPosition
+                )
+            }
+            _fromPosition = -1
+            _toPosition = -1
+            super.clearView(recyclerView, viewHolder)
         }
     })
     itemTouchHelper.attachToRecyclerView(this)
