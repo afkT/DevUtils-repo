@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:background="@color/color_f5">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="afkt.db.feature.NoteItem" />
+
+        <variable
+            name="itemValue"
+            type="NoteItem" />
+    </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_margin="12.0dp"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
@@ -25,45 +29,39 @@
             android:padding="15.0dp">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/vid_title_tv"
-                style="@style/ViewTheme.TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textSize="25.0sp"
+                style="@style/ViewTheme.TextView.Single"
+                android:text="@{itemValue.title}"
+                android:textSize="20.0sp"
                 tools:text="这是标题" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/vid_content_tv"
                 style="@style/ViewTheme.TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dp"
+                android:text="@{itemValue.content}"
                 android:textColor="@color/color_55"
-                android:textSize="16.0sp"
+                android:textSize="15.0sp"
                 tools:text="这是内容" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/vid_rv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ViewTheme.RecyclerView"
                 android:layout_marginTop="5.0dp"
                 android:orientation="horizontal"
-                android:overScrollMode="never"
-                android:scrollbars="none"
+                app:binding_item_decoration_5dp="@{true}"
+                app:binding_visibleOrGone="@{itemValue.pictureType}"
+                app:itemBinding="@{itemValue.pictureAdapter.itemBinding}"
+                app:items="@{itemValue.pictureAdapter.items}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:spanCount="4" />
+                app:spanCount="4"
+                tools:itemCount="3"
+                tools:listitem="@layout/adapter_item_note_picture" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/vid_time_tv"
                 style="@style/ViewTheme.TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="5.0dp"
+                android:text="@{itemValue.createdAt}"
                 android:textColor="@color/color_99"
                 android:textSize="13.0sp"
                 tools:text="2020.06.17" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-</LinearLayout>
+</layout>

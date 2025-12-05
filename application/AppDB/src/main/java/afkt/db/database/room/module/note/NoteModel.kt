@@ -44,8 +44,8 @@ data class Note(
  */
 @Entity(
     tableName = "NotePictureTable",
-    // 复合主键：同一笔记下可有多张图片，但每张图片的 (id, noteId) 唯一
-    primaryKeys = ["id", "noteId"],
+//    // 复合主键：同一笔记下可有多张图片，但每张图片的 (id, noteId) 唯一
+//    primaryKeys = ["id", "noteId"],
     // 外键：引用 Note.id；删除笔记时级联删除其图片
     foreignKeys = [ForeignKey(
         entity = Note::class,
@@ -60,6 +60,7 @@ data class Note(
     indices = [Index(value = ["noteId"])]
 )
 data class NotePicture(
+    @PrimaryKey(autoGenerate = true)
     var id: Long = 0,
     // 对应的 note id ( 外键 )
     var noteId: Long,

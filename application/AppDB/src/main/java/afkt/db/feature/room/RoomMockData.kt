@@ -13,12 +13,12 @@ import kotlin.random.Random
  */
 object RoomMockData {
 
-    fun insertNodes(number: Int = 13) {
+    fun insertNodes(number: Int = RandomUtils.getRandom(1, 10)) {
         val noteDao = NoteDatabase.database()?.noteDao
         repeat(number) { insertNode(noteDao) }
     }
 
-    fun insertNode(
+    private fun insertNode(
         noteDao: NoteDao? = NoteDatabase.database()?.noteDao
     ) {
         noteDao.hiIfNotNull { dao ->
@@ -36,6 +36,9 @@ object RoomMockData {
             ).apply {
                 val noteId = dao.insertNote(this)
                 if (noteId != 0L && type != NoteType.TEXT) {
+                    // 保存新的 ID
+                    this.id = noteId
+                    // 随机插入图片
                     val list = List(Random.nextInt(1, 6)) {
                         createNotePicture(noteId)
                     }

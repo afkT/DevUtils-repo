@@ -2,17 +2,27 @@ package afkt.db.feature
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.utils.common.CollectionUtils
-import java.util.*
+import dev.simple.extensions.size.AppSize
+import dev.utils.app.RecyclerViewUtils
+import dev.widget.decoration.linear.LinearColorItemDecoration
 
 // ===============================
 // = RecyclerView BindingAdapter =
 // ===============================
 
-@BindingAdapter("binding_item_touch_helper")
+@BindingAdapter(
+    value = [
+        "binding_item_touch_helper",
+//        "binding_item_touch_move",
+//        "binding_item_touch_swiped"
+    ]
+)
 fun RecyclerView.bindingItemTouchHelper(
-    init: Boolean
+    init: Boolean,
+//    moveBlock: () -> Unit,
+//    swipedBlock: () -> Unit,
 ) {
     val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
         /**
@@ -79,4 +89,41 @@ fun RecyclerView.bindingItemTouchHelper(
         }
     })
     itemTouchHelper.attachToRecyclerView(this)
+}
+
+/**
+ * 设置 RecyclerView 边距 5dp
+ */
+@BindingAdapter("binding_item_decoration_5dp")
+fun RecyclerView.bindingItemDecoration_5dp(
+    addItemDecoration: Boolean
+) {
+    bindingItemDecorationDP(7.5F, addItemDecoration)
+}
+
+// ==========
+// = 内部方法 =
+// ==========
+
+/**
+ * 设置 RecyclerView 边距 DP
+ */
+private fun RecyclerView.bindingItemDecorationDP(
+    dpValue: Float,
+    addItemDecoration: Boolean
+) {
+    if (addItemDecoration) {
+        if (RecyclerViewUtils.getItemDecorationCount(this) == 0) {
+            val manager = layoutManager
+            if (manager is LinearLayoutManager) {
+                val item = LinearColorItemDecoration(
+                    manager.canScrollVertically(),
+                    AppSize.dp2pxf(context, dpValue)
+                )
+                addItemDecoration(item)
+            }
+        }
+    } else {
+        RecyclerViewUtils.removeAllItemDecoration(this)
+    }
 }
