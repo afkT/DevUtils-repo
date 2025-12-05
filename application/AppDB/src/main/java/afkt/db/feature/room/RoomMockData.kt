@@ -51,7 +51,7 @@ object RoomMockData {
     private fun createNotePicture(noteId: Long): NotePicture {
         val pictureUrl = String.format(
             "https://picsum.photos/id/%s/300",
-            RandomUtils.getRandom(1, 10)
+            RandomUtils.getRandom(1, 101)
         )
         return NotePicture(noteId = noteId, picture = pictureUrl)
     }

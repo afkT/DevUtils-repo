@@ -15,15 +15,21 @@ import dev.widget.decoration.linear.LinearColorItemDecoration
 
 @BindingAdapter(
     value = [
-        "binding_item_touch_helper",
-//        "binding_item_touch_move",
-//        "binding_item_touch_swiped"
-    ]
+        "binding_item_touch_move",
+        "binding_item_touch_swiped"
+    ],
+    requireAll = false
 )
 fun RecyclerView.bindingItemTouchHelper(
-    init: Boolean,
-//    moveBlock: () -> Unit,
-//    swipedBlock: () -> Unit,
+    moveBlock: ((
+        recyclerView: RecyclerView,
+        viewHolder: RecyclerView.ViewHolder,
+        target: RecyclerView.ViewHolder
+    ) -> Boolean)?,
+    swipedBlock: ((
+        viewHolder: RecyclerView.ViewHolder,
+        direction: Int
+    ) -> Unit)?,
 ) {
     val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
         /**
@@ -37,10 +43,16 @@ fun RecyclerView.bindingItemTouchHelper(
             viewHolder: RecyclerView.ViewHolder
         ): Int {
             // 如果你不想上下拖动, 可以将 dragFlags = 0
-            val dragFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN
+            var dragFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN
+            if (moveBlock == null) {
+                dragFlags = 0
+            }
 
             // 如果你不想左右滑动, 可以将 swipeFlags = 0
-            val swipeFlags = ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+            var swipeFlags = ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+            if (swipedBlock == null) {
+                swipeFlags = 0
+            }
 
             // 最终的动作标识 ( flags ) 必须要用 makeMovementFlags() 方法生成
             return makeMovementFlags(dragFlags, swipeFlags)
@@ -54,11 +66,14 @@ fun RecyclerView.bindingItemTouchHelper(
             viewHolder: RecyclerView.ViewHolder,
             target: RecyclerView.ViewHolder
         ): Boolean {
-            val fromPosition = viewHolder.bindingAdapterPosition
-            val toPosition = target.bindingAdapterPosition
+//            val fromPosition = viewHolder.bindingAdapterPosition
+//            val toPosition = target.bindingAdapterPosition
 //            Collections.swap(adapter.dataList, fromPosition, toPosition)
-            adapter?.notifyItemMoved(fromPosition, toPosition)
-            return true
+//            adapter?.notifyItemMoved(fromPosition, toPosition)
+//            return true
+            return moveBlock?.invoke(
+                recyclerView, viewHolder, target
+            ) ?: false
         }
 
         /**
@@ -70,23 +85,12 @@ fun RecyclerView.bindingItemTouchHelper(
             viewHolder: RecyclerView.ViewHolder,
             direction: Int
         ) {
-            val position = viewHolder.bindingAdapterPosition
-            if (direction == ItemTouchHelper.LEFT || direction == ItemTouchHelper.RIGHT) {
+//            val position = viewHolder.bindingAdapterPosition
+//            if (direction == ItemTouchHelper.LEFT || direction == ItemTouchHelper.RIGHT) {
 //                val nap = adapter.dataList.removeAt(position)
 //                adapter?.notifyItemRemoved(position)
-//                // 删除文章
-//                RoomManager.getNoteDatabase().noteDao.deleteNote(nap.note)
-//                // 删除图片
-//                if (CollectionUtils.isNotEmpty(nap.pictures)) {
-//                    val deleteCount = RoomManager.getNoteDatabase().noteDao
-//                        .deleteNotePictures(
-//                            *CollectionUtils.toArrayT(nap.pictures)
-//                        )
-//                    TAG.log_dTag(
-//                        message = "删除图片数量: $deleteCount"
-//                    )
-//                }
-            }
+//            }
+            swipedBlock?.invoke(viewHolder, direction)
         }
     })
     itemTouchHelper.attachToRecyclerView(this)

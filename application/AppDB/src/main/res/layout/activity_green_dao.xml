@@ -38,7 +38,6 @@
             <androidx.recyclerview.widget.RecyclerView
                 style="@style/ViewTheme.RecyclerView"
                 app:binding_item_animator="@{null}"
-                app:binding_item_touch_helper="@{true}"
                 app:itemBinding="@{viewModel.adapter.itemBinding}"
                 app:items="@{viewModel.adapter.items}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />

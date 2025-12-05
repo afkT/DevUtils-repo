@@ -1,6 +1,9 @@
 package afkt.db.base
 
 import androidx.multidex.MultiDexApplication
+import com.scwang.smart.refresh.footer.ClassicsFooter
+import com.scwang.smart.refresh.header.ClassicsHeader
+import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.therouter.TheRouter
 import dev.DevUtils
 import dev.engine.DevEngine
@@ -32,5 +35,26 @@ class BaseApplication : MultiDexApplication() {
 
         // DevEngine 完整初始化
         DevEngine.completeInitialize(this)
+
+        // 初始化下拉刷新框架
+        initializeSmartRefreshLayout()
+    }
+
+    // ==========
+    // = 内部方法 =
+    // ==========
+
+    /**
+     * 初始化下拉刷新框架
+     */
+    private fun initializeSmartRefreshLayout() {
+        // 设置全局的 Header 构建器
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
+            return@setDefaultRefreshHeaderCreator ClassicsHeader(context)
+        }
+        // 设置全局的 Footer 构建器
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout ->
+            return@setDefaultRefreshFooterCreator ClassicsFooter(context)
+        }
     }
 }
