@@ -38,8 +38,10 @@
             <androidx.recyclerview.widget.RecyclerView
                 style="@style/ViewTheme.RecyclerView"
                 app:binding_item_animator="@{null}"
-                app:itemBinding="@{viewModel.adapter.itemBinding}"
-                app:items="@{viewModel.adapter.items}"
+                app:binding_item_touch_move="@{viewModel.touchMoveBlock}"
+                app:binding_item_touch_swiped="@{viewModel.touchSwipedBlock}"
+                app:itemBinding="@{viewModel.adapterModel.itemBinding}"
+                app:items="@{viewModel.adapterModel.items}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </com.scwang.smart.refresh.layout.SmartRefreshLayout>
     </LinearLayout>
