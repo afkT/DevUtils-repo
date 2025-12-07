@@ -1,7 +1,7 @@
 package afkt.db.database.room.module.note
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 /**
  * detail: Room DAO 访问数据库方法
@@ -35,7 +35,7 @@ interface NoteDao {
      */
     @Transaction
     @Query("SELECT * FROM NoteTable")
-    fun getNoteAndPictureLists(): LiveData<List<NoteAndPicture>>
+    fun getNoteAndPictureLists(): Flow<List<NoteAndPicture>>
 
     /**
      * 分页获取笔记及其图片列表 ( 一对多 )
@@ -47,7 +47,7 @@ interface NoteDao {
     fun getNoteAndPictureLists(
         limit: Int,
         offset: Int
-    ): LiveData<List<NoteAndPicture>>
+    ): Flow<List<NoteAndPicture>>
 
     /**
      * 分页获取笔记及其图片列表 ( 一对多 )
@@ -59,7 +59,7 @@ interface NoteDao {
     fun getNoteAndPictureListsAfterId(
         lastId: Long,
         pageSize: Int
-    ): LiveData<List<NoteAndPicture>>
+    ): Flow<List<NoteAndPicture>>
 
     // ===================
     // = NotePicture 操作 =
@@ -81,5 +81,5 @@ interface NoteDao {
      * 根据 noteId 查询该笔记下的所有图片
      */
     @Query("SELECT * FROM NotePictureTable WHERE noteId = :noteId")
-    fun getPicturesByNoteId(noteId: Long): LiveData<List<NotePicture>>
+    fun getPicturesByNoteId(noteId: Long): Flow<List<NotePicture>>
 }

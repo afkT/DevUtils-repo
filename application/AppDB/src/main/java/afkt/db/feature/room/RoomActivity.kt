@@ -12,7 +12,7 @@ import afkt.db.feature.NoteAdapterModel
 import afkt.db.feature.NoteItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -24,6 +24,8 @@ import dev.simple.extensions.hi.hiif.hiIfNotNull
 import dev.utils.common.CollectionUtils
 import dev.utils.common.DateUtils
 import dev.utils.common.StringUtils
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
 import java.lang.ref.WeakReference
 import java.util.*
 
@@ -43,8 +45,6 @@ class RoomActivity : BaseActivity<ActivityRoomBinding, RoomViewModel>(
 )
 
 class RoomViewModel : BaseViewModel() {
-
-    private var lifecycleOwner = WeakReference<LifecycleOwner>(null)
 
     private var refreshLayout = WeakReference<SmartRefreshLayout>(null)
 
@@ -78,7 +78,6 @@ class RoomViewModel : BaseViewModel() {
         activity: AppCompatActivity,
         layout: SmartRefreshLayout
     ) {
-        lifecycleOwner = WeakReference(activity)
         // 初始化刷新 View
         initializeRefreshView(layout)
     }
@@ -158,12 +157,11 @@ class RoomViewModel : BaseViewModel() {
         uuid: UUID,
         lastId: Long
     ) {
-        val owner = lifecycleOwner.get()
-        if (owner != null) {
-            NoteDatabase.database()?.noteDao.hiIfNotNull { dao ->
+        NoteDatabase.database()?.noteDao.hiIfNotNull { dao ->
+            viewModelScope.launch {
                 dao.getNoteAndPictureListsAfterId(
                     lastId, PAGE_SIZE
-                ).observe(owner) {
+                ).distinctUntilChanged().collect {
                     if (uuid == opUUID) {
                         val size = adapterModel.convertItems(lastId, it)
                         // 更新最后一条数据 ID
@@ -176,12 +174,13 @@ class RoomViewModel : BaseViewModel() {
                             val noMoreData = size != PAGE_SIZE
                             layout.setNoMoreData(noMoreData)
                         }
+                        if (adapterModel.isNotEmpty()) {
+                            // 更新请求 UUID
+                            updateUUID()
+                        }
                     }
                 }
             }
-        } else {
-            // 完成刷新 or 加载
-            finishRefreshAndLoad()
         }
     }
 
