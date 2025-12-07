@@ -1,93 +1,80 @@
-package afkt.db.database.green;
+package afkt.db.database.green
 
-import static dev.engine.extensions.log.LogKt.log_eTag;
-
-import android.text.TextUtils;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import afkt.db.database.green.module.image.ImageDatabase;
-import afkt.db.database.green.module.note.NoteDatabase;
-import dev.utils.common.StringUtils;
+import afkt.db.database.green.module.image.ImageDatabase
+import afkt.db.database.green.module.note.NoteDatabase
+import dev.engine.extensions.log.log_eTag
+import dev.engine.extensions.log.log_isPrintLog
+import dev.utils.common.StringUtils
 
 /**
- * detail: GreenDao 管理类
+ * detail: GreenDao 数据库管理类
  * @author Ttt
- * <pre>
- *     官方文档
- *     @see <a href="https://greenrobot.org/greendao/documentation/modelling-entities"/>
- *     SQL 语句写到累了? 试试 GreenDAO
- *     @see <a href="https://www.jianshu.com/p/11bdd9d761e6"/>
- *     Android GreenDao 数据库
- *     @see <a href="https://www.jianshu.com/p/26c60d59e76d"/>
- *     Android ORM 框架 : GreenDao 使用详解 ( 进阶篇 )
- *     @see <a href="https://blog.csdn.net/speedystone/article/details/74193053"/>
- * </pre>
  */
-public final class GreenManager {
-
-    private GreenManager() {
-    }
+object GreenManager {
 
     // 日志 TAG
-    private static final String TAG = GreenManager.class.getSimpleName();
+    val TAG: String = GreenManager::class.java.getSimpleName()
 
     // Database 对象缓存
-    private static final Map<String, AbstractGreenDatabase> sDatabaseMaps = new HashMap<>();
+    private val sDatabaseMaps = mutableMapOf<String, AbstractGreenDaoDatabase?>()
 
     // ============
     // = database =
     // ============
 
     /**
-     * 获取 GreenDatabase 对象
+     * 获取 GreenDao Database 对象
      * @param dbName 数据库名
-     * @param clazz  {@link AbstractGreenDatabase} 实现类
-     * @return {@link AbstractGreenDatabase}
+     * @param clazz  [AbstractGreenDaoDatabase] 实现类
+     * @return [AbstractGreenDaoDatabase]
      */
-    public static <T extends AbstractGreenDatabase> T database(
-            final String dbName,
-            final Class<?> clazz
-    ) {
-        return database(dbName, null, clazz);
+    fun <T : AbstractGreenDaoDatabase> database(
+        dbName: String,
+        clazz: Class<*>
+    ): T? {
+        return database(dbName, null, clazz)
     }
 
+
     /**
-     * 获取 GreenDatabase 对象
+     * 获取 GreenDao Database 对象
      * @param dbName   数据库名
      * @param password 数据库解密密码
-     * @param clazz    {@link AbstractGreenDatabase} 实现类
-     * @return {@link AbstractGreenDatabase}
+     * @param clazz    [AbstractGreenDaoDatabase] 实现类
+     * @return [AbstractGreenDaoDatabase]
      */
-    public static <T extends AbstractGreenDatabase> T database(
-            final String dbName,
-            final String password,
-            final Class<?> clazz
-    ) {
-        if (TextUtils.isEmpty(dbName)) return null;
+    fun <T : AbstractGreenDaoDatabase> database(
+        dbName: String,
+        password: String?,
+        clazz: Class<*>
+    ): T? {
+        if (StringUtils.isEmpty(dbName)) return null
 
         // 获取数据库名
-        String databaseName = CREATE.getDatabaseName(dbName, password, clazz);
-
-        if (sDatabaseMaps.get(databaseName) == null) {
+        val databaseName = CREATE.getDatabaseName(dbName, password, clazz)
+        // 获取数据库
+        var database = sDatabaseMaps[databaseName]
+        if (database == null) {
             try {
-                sDatabaseMaps.put(databaseName, CREATE.create(dbName, password, clazz));
-            } catch (Exception e) {
-                log_eTag(TAG, null, e, "database");
+                database = CREATE.create(dbName, password, clazz)
+                sDatabaseMaps[databaseName] = database
+            } catch (e: Exception) {
+                if (log_isPrintLog()) {
+                    TAG.log_eTag(message = "database", throwable = e)
+                }
             }
         }
-        AbstractGreenDatabase greenDatabase = sDatabaseMaps.get(databaseName);
-        if (greenDatabase != null) {
-            T db = null;
+        if (database != null) {
             try {
-                db = (T) greenDatabase;
-            } catch (Exception e) {
-                log_eTag(TAG, null, e, "database convert T");
+                return database as T
+            } catch (e: Exception) {
+                if (log_isPrintLog()) {
+                    TAG.log_eTag(message = "database convert T", throwable = e)
+                }
             }
-            return db;
+            return null
         }
-        return null;
+        return null
     }
 
     // =======
@@ -95,41 +82,30 @@ public final class GreenManager {
     // =======
 
     // 数据库创建接口
-    private static final AbstractGreenDatabase.Create CREATE = new AbstractGreenDatabase.Create() {
-
-        @Override
-        public String getDatabaseName(
-                String dbName,
-                String password,
-                Class<?> clazz
-        ) {
-            return AbstractGreenDatabase.createDatabaseName(dbName, StringUtils.isNotEmpty(password));
+    private val CREATE = object : AbstractGreenDaoDatabase.Creator {
+        override fun getDatabaseName(
+            dbName: String,
+            password: String?,
+            clazz: Class<*>
+        ): String {
+            return AbstractGreenDaoDatabase.createDatabaseName(
+                dbName,
+                StringUtils.isNotEmpty(password)
+            )
         }
 
-        @Override
-        public AbstractGreenDatabase create(
-                String dbName,
-                String password,
-                Class<?> clazz
-        ) {
-            if (clazz == NoteDatabase.class) {
-                return NoteDatabase.database(dbName, password);
-            } else if (clazz == ImageDatabase.class) {
-                return ImageDatabase.database(dbName, password);
+        override fun create(
+            dbName: String,
+            password: String?,
+            clazz: Class<*>
+        ): AbstractGreenDaoDatabase? {
+            if (clazz == NoteDatabase::class.java) {
+                return NoteDatabase.createDatabase(dbName, password)
+            } else if (clazz == ImageDatabase::class.java) {
+                // 不同模块数据库实现【演示类】
+                return ImageDatabase.createDatabase(dbName, password)
             }
-            return null;
+            return null
         }
-    };
-
-    // ==========
-    // = 快捷方法 =
-    // ==========
-
-    /**
-     * 获取 Note Database
-     * @return {@link NoteDatabase}
-     */
-    public static NoteDatabase getNoteDatabase() {
-        return database(NoteDatabase.TAG, NoteDatabase.class);
     }
 }

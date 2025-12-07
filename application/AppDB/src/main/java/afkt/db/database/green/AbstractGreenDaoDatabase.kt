@@ -1,61 +1,34 @@
-package afkt.db.database.green;
+package afkt.db.database.green
 
-import org.greenrobot.greendao.database.Database;
-
-import gen.greendao.DaoMaster;
-import gen.greendao.DaoSession;
+import gen.greendao.DaoMaster
+import gen.greendao.DaoSession
+import org.greenrobot.greendao.database.Database
 
 /**
- * detail: Green Database 抽象类
+ * detail: GreenDao Database 抽象类
  * @author Ttt
- * <pre>
- *     dbName 最好为 功能模块名, 如果涉及需要区分用户则为 功能模块名 + 用户 id
- * </pre>
  */
-public abstract class AbstractGreenDatabase {
+abstract class AbstractGreenDaoDatabase {
 
-    // 数据库名
-    private static final String DATABASE_NAME = "green-db";
+    companion object {
 
-    /**
-     * 拼接数据库名
-     * @param dbName    数据库名
-     * @param encrypted 数据库是否加密
-     * @return 数据库名
-     */
-    public static String createDatabaseName(
-            final String dbName,
-            final boolean encrypted
-    ) {
-        if (encrypted) return dbName + "-" + DATABASE_NAME + "-encrypted";
-        return dbName + "-" + DATABASE_NAME;
+        // 数据库名
+        private const val DATABASE_NAME = "greendao-db"
+
+        /**
+         * 拼接数据库名
+         * @param dbName    数据库名
+         * @param encrypted 数据库是否加密
+         * @return 数据库名
+         */
+        fun createDatabaseName(
+            dbName: String,
+            encrypted: Boolean
+        ): String {
+            if (encrypted) return "$dbName-$DATABASE_NAME-encrypted"
+            return "$dbName-$DATABASE_NAME"
+        }
     }
-
-    // =
-
-    /**
-     * 获取 DaoMaster.OpenHelper
-     * @return {@link DaoMaster.OpenHelper}
-     */
-    public abstract DaoMaster.OpenHelper getHelper();
-
-    /**
-     * 获取 Database
-     * @return {@link Database}
-     */
-    public abstract Database getDatabase();
-
-    /**
-     * 获取 DaoMaster
-     * @return {@link DaoMaster}
-     */
-    public abstract DaoMaster getDaoMaster();
-
-    /**
-     * 获取 DaoSession
-     * @return {@link DaoSession}
-     */
-    public abstract DaoSession getDaoSession();
 
     // ============
     // = 创建数据库 =
@@ -65,32 +38,61 @@ public abstract class AbstractGreenDatabase {
      * detail: 数据库创建接口
      * @author Ttt
      */
-    public interface Create {
+    interface Creator {
 
         /**
          * 获取数据库名
          * @param dbName   数据库名
          * @param password 数据库解密密码
-         * @param clazz    {@link AbstractGreenDatabase} 实现类
+         * @param clazz    [AbstractGreenDaoDatabase] 实现类
          * @return 数据库名
          */
-        String getDatabaseName(
-                String dbName,
-                String password,
-                Class<?> clazz
-        );
+        fun getDatabaseName(
+            dbName: String,
+            password: String?,
+            clazz: Class<*>
+        ): String
 
         /**
          * 创建数据库方法
          * @param dbName   数据库名
          * @param password 数据库解密密码
-         * @param clazz    {@link AbstractGreenDatabase} 实现类
-         * @return {@link AbstractGreenDatabase}
+         * @param clazz    [AbstractGreenDaoDatabase] 实现类
+         * @return [AbstractGreenDaoDatabase]
          */
-        AbstractGreenDatabase create(
-                String dbName,
-                String password,
-                Class<?> clazz
-        );
+        fun create(
+            dbName: String,
+            password: String?,
+            clazz: Class<*>
+        ): AbstractGreenDaoDatabase?
     }
+
+    // ============
+    // = abstract =
+    // ============
+
+    // =
+    /**
+     * 获取 DaoMaster.OpenHelper
+     * @return [DaoMaster.OpenHelper]
+     */
+    abstract fun getHelper(): DaoMaster.OpenHelper?
+
+    /**
+     * 获取 Database
+     * @return [Database]
+     */
+    abstract fun getDatabase(): Database?
+
+    /**
+     * 获取 DaoMaster
+     * @return [DaoMaster]
+     */
+    abstract fun getDaoMaster(): DaoMaster?
+
+    /**
+     * 获取 DaoSession
+     * @return [DaoSession]
+     */
+    abstract fun getDaoSession(): DaoSession?
 }

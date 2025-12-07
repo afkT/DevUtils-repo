@@ -1,117 +1,117 @@
-package afkt.db.database.green.module.note;
+package afkt.db.database.green.module.note
 
-import static dev.engine.extensions.log.LogKt.log_dTag;
+import afkt.db.database.green.AbstractGreenDaoDatabase
+import afkt.db.database.green.GreenManager
+import afkt.db.database.green.MigrationHelper
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteDatabase.CursorFactory
+import android.text.TextUtils
+import dev.DevUtils
+import dev.engine.extensions.log.log_dTag
+import dev.utils.common.StringUtils
+import gen.greendao.DaoMaster
+import gen.greendao.DaoSession
+import gen.greendao.NoteDao
+import gen.greendao.NotePictureDao
+import org.greenrobot.greendao.database.Database
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-
-import org.greenrobot.greendao.database.Database;
-
-import afkt.db.database.green.MigrationHelper;
-import afkt.db.database.green.AbstractGreenDatabase;
-import dev.DevUtils;
-import dev.utils.common.StringUtils;
-import gen.greendao.DaoMaster;
-import gen.greendao.DaoSession;
-import gen.greendao.NoteDao;
-import gen.greendao.NotePictureDao;
-
-/*
+/**
  * detail: Note 数据库
  * @author Ttt
  */
-public final class NoteDatabase
-        extends AbstractGreenDatabase {
+class NoteDatabase(
+    // DaoMaster.OpenHelper
+    private val mHelper: DaoMaster.OpenHelper,
+    // Database
+    private val mDatabase: Database,
+    // DaoMaster
+    private val mDaoMaster: DaoMaster,
+    // DaoSession
+    private val mDaoSession: DaoSession
+) : AbstractGreenDaoDatabase() {
 
-    public NoteDatabase(
-            UpgradeHelper helper,
-            Database database,
-            DaoMaster daoMaster,
-            DaoSession daoSession
-    ) {
-        this.mHelper     = helper;
-        this.mDatabase   = database;
-        this.mDaoMaster  = daoMaster;
-        this.mDaoSession = daoSession;
+    // =======
+    // = Dao =
+    // =======
+
+    fun noteDao(): NoteDao {
+        return mDaoSession.noteDao
     }
 
-    // 日志 TAG
-    public static final String TAG = NoteDatabase.class.getSimpleName();
-
-    // DBHelper
-    private final UpgradeHelper mHelper;
-    // NoteDatabase
-    private final Database      mDatabase;
-    private final DaoMaster     mDaoMaster;
-    private final DaoSession    mDaoSession;
-
-    // ============
-    // = database =
-    // ============
-
-    /**
-     * 创建数据库
-     * @param dbName 数据库名
-     * @return {@link NoteDatabase}
-     */
-    public static NoteDatabase database(final String dbName) {
-        return database(dbName, null);
-    }
-
-    /**
-     * 创建数据库
-     * @param dbName   数据库名
-     * @param password 数据库解密密码
-     * @return {@link NoteDatabase}
-     */
-    public static NoteDatabase database(
-            final String dbName,
-            final String password
-    ) {
-        if (TextUtils.isEmpty(dbName)) return null;
-
-        // Database
-        Database database;
-        // DBHelper
-        UpgradeHelper helper = new UpgradeHelper(
-                DevUtils.getContext(),
-                AbstractGreenDatabase.createDatabaseName(dbName, StringUtils.isNotEmpty(password))
-        );
-        if (TextUtils.isEmpty(password)) {
-            // regular SQLite database
-            database = helper.getWritableDb();
-        } else {
-            // encrypted SQLCipher database
-            database = helper.getEncryptedWritableDb(password);
-        }
-        DaoMaster  daoMaster  = new DaoMaster(database);
-        DaoSession daoSession = daoMaster.newSession();
-        return new NoteDatabase(helper, database, daoMaster, daoSession);
+    fun notePictureDao(): NotePictureDao {
+        return mDaoSession.notePictureDao
     }
 
     // =========================
     // = AbstractGreenDatabase =
     // =========================
 
-    @Override
-    public DaoMaster.OpenHelper getHelper() {
-        return mHelper;
+    override fun getHelper(): DaoMaster.OpenHelper {
+        return mHelper
     }
 
-    @Override
-    public Database getDatabase() {
-        return mDatabase;
+    override fun getDatabase(): Database {
+        return mDatabase
     }
 
-    @Override
-    public DaoMaster getDaoMaster() {
-        return mDaoMaster;
+    override fun getDaoMaster(): DaoMaster {
+        return mDaoMaster
     }
 
-    @Override
-    public DaoSession getDaoSession() {
-        return mDaoSession;
+    override fun getDaoSession(): DaoSession {
+        return mDaoSession
+    }
+
+    companion object {
+
+        // 日志 TAG
+        val TAG: String = NoteDatabase::class.java.getSimpleName()
+
+        /**
+         * 创建数据库
+         * @param dbName 数据库名
+         * @param password 数据库解密密码
+         * @return [NoteDatabase]
+         */
+        fun createDatabase(
+            dbName: String,
+            password: String? = null
+        ): NoteDatabase? {
+            if (TextUtils.isEmpty(dbName)) return null
+
+            // DBHelper
+            val helper = UpgradeHelper(
+                DevUtils.getContext(), createDatabaseName(
+                    dbName, StringUtils.isNotEmpty(password)
+                )
+            )
+            val database = if (TextUtils.isEmpty(password)) {
+                // regular SQLite database
+                helper.writableDb
+            } else {
+                // encrypted SQLCipher database
+                helper.getEncryptedWritableDb(password)
+            }
+            val daoMaster = DaoMaster(database)
+            val daoSession = daoMaster.newSession()
+            return NoteDatabase(
+                helper, database,
+                daoMaster, daoSession
+            )
+        }
+
+        // ======================
+        // = 获取数据库【自动缓存】 =
+        // ======================
+
+        /**
+         * 获取数据库【自动缓存】
+         * @return [NoteDatabase]
+         */
+        fun database(dbName: String = TAG): NoteDatabase? {
+            return GreenManager.database(dbName, NoteDatabase::class.java)
+        }
     }
 
     // ============
@@ -120,53 +120,35 @@ public final class NoteDatabase
 
     /**
      * detail: DB 升级 Helper
-     * <pre>
-     *     注意:
-     *     默认的 DaoMaster.DevOpenHelper 会在数据库升级时, 删除所有的表, 意味着这将导致数据的丢失
-     *     所以, 在正式的项目中, 你还应该做一层封装, 来实现数据库的安全升级
-     * </pre>
+     * 默认的 DaoMaster.DevOpenHelper 会在数据库升级时, 删除所有的表, 意味着这将导致数据的丢失
+     * 所以, 在正式的项目中, 你还应该做一层封装, 来实现数据库的安全升级
      */
-    private static class UpgradeHelper
-            extends DaoMaster.OpenHelper {
+    private class UpgradeHelper : DaoMaster.OpenHelper {
 
-        public UpgradeHelper(
-                Context context,
-                String name
+        constructor(
+            context: Context?,
+            name: String?
+        ) : super(context, name)
+
+        constructor(
+            context: Context?,
+            name: String?,
+            factory: CursorFactory?
+        ) : super(context, name, factory)
+
+        override fun onUpgrade(
+            db: SQLiteDatabase?,
+            oldVersion: Int,
+            newVersion: Int
         ) {
-            super(context, name);
+            TAG.log_dTag(
+                null, "oldVersion: %s, newVersion: %s",
+                oldVersion, newVersion
+            )
+            MigrationHelper.migrate(
+                db, NoteDao::class.java,
+                NotePictureDao::class.java
+            )
         }
-
-        public UpgradeHelper(
-                Context context,
-                String name,
-                SQLiteDatabase.CursorFactory factory
-        ) {
-            super(context, name, factory);
-        }
-
-        @Override
-        public void onUpgrade(
-                SQLiteDatabase db,
-                int oldVersion,
-                int newVersion
-        ) {
-            log_dTag(
-                    TAG, null,
-                    "oldVersion: %s, newVersion: %s", oldVersion, newVersion
-            );
-            MigrationHelper.migrate(db, NoteDao.class, NotePictureDao.class);
-        }
-    }
-
-    // =============
-    // = 对外公开方法 =
-    // =============
-
-    public NoteDao getNoteDao() {
-        return mDaoSession.getNoteDao();
-    }
-
-    public NotePictureDao getNotePictureDao() {
-        return mDaoSession.getNotePictureDao();
     }
 }
