@@ -14,12 +14,12 @@ import kotlin.random.Random
  */
 object RoomMockData {
 
-    fun insertNodes(number: Int = RandomUtils.getRandom(1, 10)) {
+    fun insertNotes(number: Int = RandomUtils.getRandom(1, 10)) {
         val noteDao = NoteDatabase.database()?.noteDao
-        repeat(number) { insertNode(noteDao) }
+        repeat(number) { insertNote(noteDao) }
     }
 
-    private fun insertNode(
+    private fun insertNote(
         noteDao: NoteDao? = NoteDatabase.database()?.noteDao
     ) {
         val index = Random.nextInt(MockData.titles.size)

@@ -5,8 +5,8 @@ import afkt.db.BR
 import afkt.db.R
 import afkt.db.base.BaseActivity
 import afkt.db.base.BaseViewModel
-import afkt.db.database.room.module.note.NoteAndPicture
-import afkt.db.database.room.module.note.NoteDatabase
+import afkt.db.database.green.module.note.NoteDatabase
+import afkt.db.database.green.module.note.bean.Note
 import afkt.db.databinding.ActivityGreenDaoBinding
 import afkt.db.feature.NoteAdapterModel
 import afkt.db.feature.NoteItem
@@ -24,8 +24,11 @@ import dev.simple.extensions.hi.hiif.hiIfNotNull
 import dev.utils.common.CollectionUtils
 import dev.utils.common.DateUtils
 import dev.utils.common.StringUtils
-import kotlinx.coroutines.flow.distinctUntilChanged
+import gen.greendao.NoteDao
+import gen.greendao.NotePictureDao
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.lang.ref.WeakReference
 import java.util.*
 
@@ -62,7 +65,7 @@ class GreenDaoViewModel : BaseViewModel() {
 
     // 点击添加数据事件
     val clickInsert = View.OnClickListener {
-        GreenDaoMockData.insertNodes()
+        GreenDaoMockData.insertNotes()
         // 添加新的数据则更新加载更多状态
         refreshLayout.get().hiIfNotNull { layout ->
             // 是否有更多数据 `true` 无数据, `false` 还有数据
@@ -157,27 +160,35 @@ class GreenDaoViewModel : BaseViewModel() {
         uuid: UUID,
         lastId: Long
     ) {
-        NoteDatabase.database()?.noteDao.hiIfNotNull { dao ->
+        NoteDatabase.database()?.noteDao().hiIfNotNull { dao ->
             viewModelScope.launch {
-                dao.getNoteAndPictureListsAfterId(
-                    lastId, PAGE_SIZE
-                ).distinctUntilChanged().collect {
-                    if (uuid == opUUID) {
-                        val size = adapterModel.convertItems(lastId, it)
-                        // 更新最后一条数据 ID
-                        _lastId = adapterModel.last()?.id ?: lastId
-                        // 完成刷新 or 加载
-                        finishRefreshAndLoad()
-                        // 判断是否存在数据
-                        refreshLayout.get().hiIfNotNull { layout ->
-                            // 是否有更多数据 `true` 无数据, `false` 还有数据
-                            val noMoreData = size != PAGE_SIZE
-                            layout.setNoMoreData(noMoreData)
-                        }
-                        if (adapterModel.isNotEmpty()) {
-                            // 更新请求 UUID
-                            updateUUID()
-                        }
+                val result = withContext(Dispatchers.IO) {
+                    // 构建查询条件
+                    dao.queryBuilder()
+                        // id > lastId
+                        .where(NoteDao.Properties.Id.gt(lastId))
+                        // 按 id 升序排序
+                        .orderAsc(NoteDao.Properties.Id)
+                        // 每页数量
+                        .limit(PAGE_SIZE)
+                        // 获取数据
+                        .list()
+                }
+                if (uuid == opUUID) {
+                    val size = adapterModel.convertItems(lastId, result)
+                    // 更新最后一条数据 ID
+                    _lastId = adapterModel.last()?.id ?: lastId
+                    // 完成刷新 or 加载
+                    finishRefreshAndLoad()
+                    // 判断是否存在数据
+                    refreshLayout.get().hiIfNotNull { layout ->
+                        // 是否有更多数据 `true` 无数据, `false` 还有数据
+                        val noMoreData = size != PAGE_SIZE
+                        layout.setNoMoreData(noMoreData)
+                    }
+                    if (adapterModel.isNotEmpty()) {
+                        // 更新请求 UUID
+                        updateUUID()
                     }
                 }
             }
@@ -203,10 +214,20 @@ class GreenDaoViewModel : BaseViewModel() {
     ) -> Unit = { viewHolder, direction ->
         if (direction == ItemTouchHelper.LEFT || direction == ItemTouchHelper.RIGHT) {
             val position = viewHolder.bindingAdapterPosition
-            adapterModel.items.removeAt(position).hiIfNotNull { node ->
+            adapterModel.items.removeAt(position).hiIfNotNull { note ->
                 // 删除数据库数据
-                NoteDatabase.database()?.noteDao.hiIfNotNull { dao ->
-                    dao.deleteNoteByNoteId(node.id)
+                NoteDatabase.database().hiIfNotNull { database ->
+                    database.noteDao().hiIfNotNull { dao ->
+                        // 删除 Note
+                        dao.deleteByKey(note.id)
+                    }
+                    database.notePictureDao().hiIfNotNull { dao ->
+                        // 删除 NotePicture
+                        val deleteQuery = dao.queryBuilder()
+                            .where(NotePictureDao.Properties.NoteId.eq(note.id))
+                            .buildDelete()
+                        deleteQuery.executeDeleteWithoutDetachingEntities()
+                    }
                 }
             }
         }
@@ -221,14 +242,14 @@ class GreenDaoViewModel : BaseViewModel() {
 // = GreenDao Database =
 // =====================
 
-private fun NoteAndPicture.toNoteItem(): NoteItem {
+private fun Note.toNoteItem(): NoteItem {
     val pictureList = pictures.map { it.picture }
     return NoteItem(
-        id = note.id,
-        title = "${note.id}. ${note.title}",
-        content = note.content,
+        id = id,
+        title = "${id}. ${title}",
+        content = content,
         createdAt = StringUtils.checkValue(
-            DateUtils.formatDate(note.createdAt)
+            DateUtils.formatDate(createdAt)
         ),
         isPictureType = CollectionUtils.isNotEmpty(
             pictureList
@@ -246,7 +267,7 @@ private fun NoteAndPicture.toNoteItem(): NoteItem {
  */
 fun NoteAdapterModel.convertItems(
     lastId: Long,
-    source: List<NoteAndPicture>
+    source: List<Note>
 ): Int {
     val result = source.map { it.toNoteItem() }
     if (lastId == 0L) {

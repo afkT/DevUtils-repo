@@ -62,7 +62,7 @@ class RoomViewModel : BaseViewModel() {
 
     // 点击添加数据事件
     val clickInsert = View.OnClickListener {
-        RoomMockData.insertNodes()
+        RoomMockData.insertNotes()
         // 添加新的数据则更新加载更多状态
         refreshLayout.get().hiIfNotNull { layout ->
             // 是否有更多数据 `true` 无数据, `false` 还有数据
@@ -203,10 +203,10 @@ class RoomViewModel : BaseViewModel() {
     ) -> Unit = { viewHolder, direction ->
         if (direction == ItemTouchHelper.LEFT || direction == ItemTouchHelper.RIGHT) {
             val position = viewHolder.bindingAdapterPosition
-            adapterModel.items.removeAt(position).hiIfNotNull { node ->
+            adapterModel.items.removeAt(position).hiIfNotNull { note ->
                 // 删除数据库数据
                 NoteDatabase.database()?.noteDao.hiIfNotNull { dao ->
-                    dao.deleteNoteByNoteId(node.id)
+                    dao.deleteNoteByNoteId(note.id)
                 }
             }
         }

@@ -19,13 +19,13 @@ import kotlin.random.Random
  */
 object GreenDaoMockData {
 
-    fun insertNodes(number: Int = RandomUtils.getRandom(1, 10)) {
+    fun insertNotes(number: Int = RandomUtils.getRandom(1, 10)) {
         val noteDao = NoteDatabase.database()?.noteDao()
         val notePictureDao = NoteDatabase.database()?.notePictureDao()
-        repeat(number) { insertNode(noteDao, notePictureDao) }
+        repeat(number) { insertNote(noteDao, notePictureDao) }
     }
 
-    private fun insertNode(
+    private fun insertNote(
         noteDao: NoteDao? = NoteDatabase.database()?.noteDao(),
         notePictureDao: NotePictureDao? = NoteDatabase.database()?.notePictureDao(),
     ) {
