@@ -12,12 +12,16 @@ import org.greenrobot.greendao.annotation.NotNull;
 @Entity
 public class NotePicture {
 
-    @Id
+    @Id(autoincrement = true)
     private Long   id;
     @NotNull
     private String picture;
     // 对应的 note id ( 外键 )
     private Long   noteId;
+
+    // =================
+    // = Auto Generate =
+    // =================
 
     @Generated(hash = 1669203543)
     public NotePicture(

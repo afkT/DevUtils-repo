@@ -1,10 +1,15 @@
 package afkt.db.feature.green_dao
 
-import afkt.db.database.room.module.note.*
+import afkt.db.database.green.module.note.NoteDatabase
+import afkt.db.database.green.module.note.NoteType
+import afkt.db.database.green.module.note.bean.Note
+import afkt.db.database.green.module.note.bean.NotePicture
 import afkt.db.feature.MockData
 import dev.simple.extensions.hi.hiif.hiIfNotNull
 import dev.utils.DevFinal
 import dev.utils.common.RandomUtils
+import gen.greendao.NoteDao
+import gen.greendao.NotePictureDao
 import java.util.*
 import kotlin.random.Random
 
@@ -15,28 +20,28 @@ import kotlin.random.Random
 object GreenDaoMockData {
 
     fun insertNodes(number: Int = RandomUtils.getRandom(1, 10)) {
-        val noteDao = NoteDatabase.database()?.noteDao
-        repeat(number) { insertNode(noteDao) }
+        val noteDao = NoteDatabase.database()?.noteDao()
+        val notePictureDao = NoteDatabase.database()?.notePictureDao()
+        repeat(number) { insertNode(noteDao, notePictureDao) }
     }
 
     private fun insertNode(
-        noteDao: NoteDao? = NoteDatabase.database()?.noteDao
+        noteDao: NoteDao? = NoteDatabase.database()?.noteDao(),
+        notePictureDao: NotePictureDao? = NoteDatabase.database()?.notePictureDao(),
     ) {
         val index = Random.nextInt(MockData.titles.size)
         noteDao.hiIfNotNull { dao ->
-            Note(
-                id = 0,
-                title = MockData.titles[index],
-                content = MockData.contents[index],
-                type = NoteType.entries.toTypedArray().random(),
+            Note().apply {
+                title = MockData.titles[index]
+                content = MockData.contents[index]
+                type = NoteType.entries.toTypedArray().random()
                 createdAt = Date(
                     System.currentTimeMillis() - RandomUtils.nextLongRange(
                         DevFinal.TIME.MONTH_MS,
                         DevFinal.TIME.YEAR_MS
                     )
                 )
-            ).apply {
-                val noteId = dao.insertNote(this)
+                val noteId = dao.insert(this)
                 if (noteId != 0L && type != NoteType.TEXT) {
                     // 保存新的 ID
                     this.id = noteId
@@ -44,17 +49,20 @@ object GreenDaoMockData {
                     val list = List(Random.nextInt(1, 4)) {
                         createNotePicture(noteId)
                     }
-                    dao.insertNotePictures(list)
+                    notePictureDao?.insertInTx(list)
                 }
             }
         }
     }
 
-    private fun createNotePicture(noteId: Long): NotePicture {
+    private fun createNotePicture(id: Long): NotePicture {
         val pictureUrl = String.format(
             "https://picsum.photos/id/%s/300",
             RandomUtils.getRandom(1, 101)
         )
-        return NotePicture(noteId = noteId, picture = pictureUrl)
+        return NotePicture().apply {
+            picture = pictureUrl
+            noteId = id
+        }
     }
 }

@@ -8,12 +8,16 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.OrderBy;
+import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.ToMany;
 import org.greenrobot.greendao.annotation.Transient;
 
 import java.util.Date;
 import java.util.List;
 
+import afkt.db.database.green.module.note.DateConverter;
+import afkt.db.database.green.module.note.NoteType;
+import afkt.db.database.green.module.note.NoteTypeConverter;
 import gen.greendao.DaoSession;
 import gen.greendao.NoteDao;
 import gen.greendao.NotePictureDao;
@@ -21,71 +25,64 @@ import gen.greendao.NotePictureDao;
 /**
  * detail: Note 实体类
  * @author Ttt
- * <pre>
- *     默认表名为实体类名, 可以自定义表名 nameInDb
- *     @see <a href="https://greenrobot.org/greendao/documentation/modelling-entities"/>
- * </pre>
  */
 @Entity(
         nameInDb = "NoteTable",
-        indexes = {
-                @Index(value = "text, date DESC", unique = true)
-//                // Upgrade
-//                @Index(value = "title DESC", unique = true)
-        }
+        indexes = {@Index(value = "id, createdAt DESC", unique = true)}
 )
 public class Note {
 
-    // ===========
-    // = Upgrade =
-    // ===========
+    @Id(autoincrement = true)
+    private Long id;
 
-//    // 给 date 字段增加 Transient 注解
-//    // 修改 text 字段名为 title
-//    @NotNull
-//    @Property(nameInDb = "TEXT")
-//    private String title;
-
-    @Id
-    private Long   id;
     @NotNull
-    private String text;
-    private String comment;
-    private Date   date;
+    @Property(nameInDb = "title123456")
+    private String title;
+
+    private String content;
+
+    @Convert(converter = DateConverter.class, columnType = Long.class)
+    private Date createdAt;
 
     @Convert(converter = NoteTypeConverter.class, columnType = String.class)
-    private NoteType          type;
+    private NoteType type;
+
     @ToMany(referencedJoinProperty = "noteId")
     @OrderBy("id ASC")
     private List<NotePicture> pictures;
 
     @Transient // 数据库不创建该字段
-    private String tempStr;
+    private String temp;
+
+    // =================
+    // = Auto Generate =
+    // =================
 
     /**
      * Used to resolve relations
      */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
+
     /**
      * Used for active entity operations.
      */
     @Generated(hash = 363862535)
-    private transient NoteDao    myDao;
+    private transient NoteDao myDao;
 
-    @Generated(hash = 59778150)
+    @Generated(hash = 1887906035)
     public Note(
             Long id,
-            @NotNull String text,
-            String comment,
-            Date date,
+            @NotNull String title,
+            String content,
+            Date createdAt,
             NoteType type
     ) {
-        this.id      = id;
-        this.text    = text;
-        this.comment = comment;
-        this.date    = date;
-        this.type    = type;
+        this.id        = id;
+        this.title     = title;
+        this.content   = content;
+        this.createdAt = createdAt;
+        this.type      = type;
     }
 
     @Generated(hash = 1272611929)
@@ -100,28 +97,28 @@ public class Note {
         this.id = id;
     }
 
-    public String getText() {
-        return this.text;
+    public String getTitle() {
+        return this.title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getComment() {
-        return this.comment;
+    public String getContent() {
+        return this.content;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Date getDate() {
-        return this.date;
+    public Date getCreatedAt() {
+        return this.createdAt;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public NoteType getType() {
