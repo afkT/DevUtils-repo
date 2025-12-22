@@ -1,6 +1,7 @@
 package afkt.jpush
 
 import com.therouter.TheRouter
+import dev.utils.DevFinal
 
 /**
  * detail: App Router Path
@@ -45,7 +46,10 @@ object AppRouter {
         router(PATH_SECONDARY_ACTIVITY)
     }
 
-    fun routerMessageActivity() {
-        router(PATH_MESSAGE_ACTIVITY)
+    fun routerMessageActivity(data: String) {
+        TheRouter
+            .build(PATH_MESSAGE_ACTIVITY)
+            .withString(DevFinal.STR.DATA, data)
+            .navigation()
     }
 }

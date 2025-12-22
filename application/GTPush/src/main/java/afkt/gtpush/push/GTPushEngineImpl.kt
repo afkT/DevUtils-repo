@@ -1,6 +1,6 @@
 package afkt.gtpush.push
 
-import afkt.gtpush.push.extensions.PushTransferRouter
+import afkt.gtpush.push.extensions.PushHelper
 import android.app.Application
 import android.content.Context
 import com.igexin.sdk.PushManager
@@ -76,9 +76,11 @@ class GTPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
         context: Context?,
         message: PushMessage?
     ) {
-        // 推送消息点击通知
-        message?.let {
-            PushTransferRouter.start(context, it)
+        if (context != null && message != null) {
+            // 推送消息点击通知
+            PushHelper.handlePushClick(
+                context, message
+            )
         }
     }
 
@@ -86,7 +88,12 @@ class GTPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
         context: Context?,
         message: PushMessage?
     ) {
-        // 透传消息送达通知
+        if (context != null && message != null) {
+            // 透传消息送达通知
+            PushHelper.handlePushMessage(
+                context, message
+            )
+        }
     }
 
     override fun convertMessage(message: Any?): PushMessage? {

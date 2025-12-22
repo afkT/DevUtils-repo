@@ -1,6 +1,6 @@
 package afkt.jpush.push
 
-import afkt.jpush.push.extensions.PushTransferRouter
+import afkt.jpush.push.extensions.PushHelper
 import android.app.Application
 import android.content.Context
 import cn.jpush.android.api.JPushInterface
@@ -79,9 +79,11 @@ class JPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
         context: Context?,
         message: PushMessage?
     ) {
-        // 推送消息点击通知
-        message?.let {
-            PushTransferRouter.start(context, it)
+        if (context != null && message != null) {
+            // 推送消息点击通知
+            PushHelper.handlePushClick(
+                context, message
+            )
         }
     }
 
@@ -89,7 +91,12 @@ class JPushEngineImpl : IPushEngine<PushConfig, PushMessage> {
         context: Context?,
         message: PushMessage?
     ) {
-        // 透传消息送达通知
+        if (context != null && message != null) {
+            // 透传消息送达通知
+            PushHelper.handlePushMessage(
+                context, message
+            )
+        }
     }
 
     override fun convertMessage(message: Any?): PushMessage? {
