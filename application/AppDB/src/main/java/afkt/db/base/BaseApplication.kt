@@ -7,8 +7,6 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.therouter.TheRouter
 import dev.DevUtils
 import dev.engine.DevEngine
-import dev.utils.app.logger.DevLogger
-import dev.utils.app.logger.LogConfig
 
 /**
  * detail: Base Application
@@ -25,13 +23,8 @@ class BaseApplication : MultiDexApplication() {
         // Router 初始化
         TheRouter.init(this)
 
-        // 打开 lib 内部日志 - 线上环境, 不调用方法
-        DevUtils.openLog()
-        DevUtils.openDebug()
-        // 初始化 Logger 配置
-        val logConfig = LogConfig.getSortLogConfig(TAG)
-            .displayThreadInfo(false)
-        DevLogger.initialize(logConfig)
+        // DevUtils Debug 开发配置
+        DevUtils.debugDevelop(TAG)
 
         // DevEngine 完整初始化
         DevEngine.completeInitialize(this)
