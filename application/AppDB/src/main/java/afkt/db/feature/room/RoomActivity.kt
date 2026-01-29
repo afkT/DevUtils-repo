@@ -165,7 +165,7 @@ class RoomViewModel : BaseViewModel() {
                     if (uuid == opUUID) {
                         val size = adapterModel.convertItems(lastId, it)
                         // 更新最后一条数据 ID
-                        _lastId = adapterModel.last()?.id ?: lastId
+                        _lastId = adapterModel.lastOrNull()?.id ?: lastId
                         // 完成刷新 or 加载
                         finishRefreshAndLoad()
                         // 判断是否存在数据
