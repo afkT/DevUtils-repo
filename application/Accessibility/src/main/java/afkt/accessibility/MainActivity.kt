@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         // 通用 Enable edge to edge【适配 API 35+】
-        commonEnableEdgeToEdge()
+        actCommonEnableEdgeToEdge()
 
         checkOverlayPermission()
         // Activity 栈
@@ -70,12 +70,12 @@ class MainActivity : AppCompatActivity() {
 /**
  * 通用 Enable edge to edge【适配 API 35+】
  */
-fun MainActivity.commonEnableEdgeToEdge() {
+fun MainActivity.actCommonEnableEdgeToEdge() {
     enableEdgeToEdge()
     // 给 view 设置 insets, 使得 view 不会被 system bars 遮挡
-    ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+    ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
         val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-        v.setPadding(
+        view.setPadding(
             systemBars.left, systemBars.top,
             systemBars.right, systemBars.bottom
         )
