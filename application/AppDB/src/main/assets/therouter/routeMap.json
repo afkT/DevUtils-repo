@@ -7,13 +7,6 @@
     "params": {}
   },
   {
-    "path": "/app_db/activity/GreenDaoActivity",
-    "className": "afkt.db.feature.green_dao.GreenDaoActivity",
-    "action": "",
-    "description": "",
-    "params": {}
-  },
-  {
     "path": "/app_db/activity/MainActivity",
     "className": "afkt.db.MainActivity",
     "action": "",

@@ -16,8 +16,6 @@ object AppRouter {
 
     const val PATH_MAIN_ACTIVITY = "/${GROUP}/activity/MainActivity"
 
-    const val PATH_GREEN_DAO_ACTIVITY = "/${GROUP}/activity/GreenDaoActivity"
-
     const val PATH_ROOM_ACTIVITY = "/${GROUP}/activity/RoomActivity"
 
     // =======
@@ -39,10 +37,6 @@ object AppRouter {
 
     fun routerMainActivity() {
         router(PATH_MAIN_ACTIVITY)
-    }
-
-    fun routerGreenDaoActivity() {
-        router(PATH_GREEN_DAO_ACTIVITY)
     }
 
     fun routerRoomActivity() {

@@ -16,8 +16,4 @@ class MainViewModel : BaseViewModel() {
     val clickRoom = View.OnClickListener { view ->
         AppRouter.routerRoomActivity()
     }
-
-    val clickGreenDao = View.OnClickListener { view ->
-        AppRouter.routerGreenDaoActivity()
-    }
 }

@@ -32,11 +32,6 @@
                     style="@style/ViewTheme.Button"
                     android:onClick="@{viewModel.clickRoom}"
                     android:text="Room" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    style="@style/ViewTheme.Button"
-                    android:onClick="@{viewModel.clickGreenDao}"
-                    android:text="GreenDAO" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
