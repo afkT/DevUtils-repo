@@ -26,6 +26,7 @@ dependencies {
     api deps.kotlin.room
     api deps.kotlin.room_runtime
     kapt deps.kotlin.room_compiler
+    kapt deps.kotlin.metadata
 
     // ============
     // = androidx =

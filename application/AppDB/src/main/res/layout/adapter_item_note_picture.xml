@@ -13,6 +13,6 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="70.0dp"
         android:layout_height="70.0dp"
-        app:binding_url="@{itemValue}"
+        app:binding_image_url="@{itemValue}"
         tools:src="@mipmap/icon_launcher" />
 </layout>
